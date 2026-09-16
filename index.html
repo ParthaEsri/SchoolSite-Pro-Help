@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SchoolSite Pro — Planning Documentation</title>
+<link rel="icon" href="assets/favicon.ico">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <button class="brand" onclick="route('home')"><img src="assets/favicon.ico"><span>SchoolSite Pro</span><small>build 1.9.6</small></button>
+    <nav id="desktopNav">
+      <button data-route="home" onclick="route('home')">Overview</button>
+      <button data-route="docs" onclick="route('docs')">Documentation</button>
+      <button data-route="toolkit" onclick="route('toolkit')">Toolkit</button>
+      <button data-route="download" onclick="route('download')">Download</button>
+    </nav>
+    <div class="top-actions">
+      <button class="search-btn" onclick="focusSearch()" aria-label="Search documentation">
+  <span class="search-icon" aria-hidden="true">⌕</span>
+  <!-- <span class="search-label">Search</span> -->
+  <!-- <kbd>Ctrl K</kbd> -->
+</button>
+      <!-- <button class="search-btn" onclick="focusSearch()">⌕ <span>Search</span><kbd>Ctrl K</kbd></button> -->
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+  <div id="mobileNav" class="mobile-nav">
+    <button onclick="route('home');toggleMenu()">Overview</button>
+    <button onclick="route('docs');toggleMenu()">Documentation</button>
+    <button onclick="route('toolkit');toggleMenu()">Toolkit</button>
+    <button onclick="route('download');toggleMenu()">Download</button>
+  </div>
+</header>
+
+<div class="app">
+<aside id="sidebar"></aside>
+<main id="appMain"></main>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div><strong>SchoolSite Pro</strong><p>Independent documentation experience for ArcGIS Pro school planning, redistricting and forecasting.</p></div>
+    <div class="footer-links"><button onclick="route('home')">Overview</button><button onclick="route('docs')">Docs</button><button onclick="route('toolkit')">Toolkit</button><button onclick="route('download')">Download</button></div>
+  </div>
+  <div class="footer-bottom">Build 1.9.6 · September 2026 · This site contains local documentation content and does not depend on the previous help site at runtime.</div>
+</footer>
+
+<div id="searchOverlay" class="overlay" onclick="if(event.target===this)closeSearch()">
+  <div class="search-dialog">
+    <div class="search-head"><input id="globalSearch" placeholder="Search documentation and tools…" oninput="renderSearch(this.value)"><button onclick="closeSearch()">Esc</button></div>
+    <div id="searchResults"></div>
+  </div>
+</div>
+
+<script src="js/data.js"></script>
+<script>
+const docs = window.SCHOOL_SITE_DOCS, tools = window.SCHOOL_SITE_TOOLS;
+const sections = [...new Set(docs.map(x=>x.section))];
+let currentDoc = null;
+
+function route(name, id){
+  if(name==='doc' && id){ location.hash='doc/'+id; }
+  else location.hash=name;
+  renderRoute();
+}
+function renderRoute(){
+  const parts=location.hash.replace(/^#/,'').split('/');
+  const page=parts[0]||'home', id=parts[1];
+  document.querySelectorAll('#desktopNav button').forEach(b=>b.classList.toggle('active',b.dataset.route===page || (page==='doc'&&b.dataset.route==='docs')));
+  if(page==='doc' && id) renderDoc(id);
+  else if(page==='docs') renderDocs();
+  else if(page==='toolkit') renderToolkit();
+  else if(page==='download') renderDownload();
+  else renderHome();
+  renderSidebar(page,id);
+  window.scrollTo(0,0);
+}
+function renderSidebar(page,id){
+  const s=document.getElementById('sidebar');
+  if(page==='docs'||page==='doc'){
+    s.innerHTML='<div class="side-title">Documentation</div>'+sections.map(sec=>{
+      const items=docs.filter(d=>d.section===sec);
+      return `<div class="side-group"><div class="side-section">${sec}</div>${items.map(d=>`<button class="side-link ${d.id===id?'active':''}" onclick="route('doc','${d.id}')">${d.title}</button>`).join('')}</div>`;
+    }).join('');
+  } else {
+    s.innerHTML=`<div class="side-title">Quick navigation</div>
+      <button class="side-link ${page==='home'?'active':''}" onclick="route('home')">Overview</button>
+      <button class="side-link" onclick="route('docs')">All documentation</button>
+      <button class="side-link" onclick="route('toolkit')">All tools</button>
+      <button class="side-link" onclick="route('download')">Download</button>
+      <div class="side-note">Everything shown here is local to this project. No page needs to redirect users to the previous help site.</div>`;
+  }
+}
+  // <div class="hero-map"><div class="map-grid"></div><div class="zone z1"></div><div class="zone z2"></div><div class="zone z3"></div><div class="marker m1"></div><div class="marker m2"></div><div class="marker m3"></div><div class="map-label">PLAN / FORECAST / ASSIGN</div></div>
+
+function renderHome(){
+ document.getElementById('appMain').innerHTML=`
+ <section class="hero">
+  <div class="hero-copy">
+   <div class="eyebrow">ARCGIS PRO · SCHOOL PLANNING</div>
+
+   <h1>SchoolSite Pro, with the documentation built into the experience.</h1>
+
+   <p>
+    Browse the same planning topics, workflows, FAQs, forecast guidance,
+    release information and tool catalog in one responsive app-like site.
+   </p>
+
+   <div class="actions">
+    <button class="primary" onclick="route('docs')">
+     Browse documentation →
+    </button>
+    <button class="secondary" onclick="route('toolkit')">
+     Explore toolkit
+    </button>
+   </div>
+
+   <div class="trust-row">
+    <span>Build 1.9.6</span>
+    <span>ArcGIS Pro 3.3+</span>
+    <span>Windows</span>
+    <span>Local content</span>
+   </div>
+  </div>
+
+  <div class="hero-map">
+   <img
+    src="assets/home.png"
+    alt="SchoolSite Pro application home page"
+   >
+  </div>
+ </section>
+
+ <section class="section">
+  <div class="section-head">
+   <div>
+    <span class="eyebrow">START HERE</span>
+    <h2>Everything in one place</h2>
+   </div>
+
+   <p>
+    Use the documentation browser when you need procedure-level guidance,
+    or the toolkit when you need to find a specific command.
+   </p>
+  </div>
+
+  <div class="card-grid">
+   ${sections.map(sec=>{
+    const d=docs.find(x=>x.section===sec);
+    return `
+     <button class="card" onclick="route('doc','${d.id}')">
+      <span class="card-kicker">${sec}</span>
+      <h3>${d.title}</h3>
+      <p>${d.summary}</p>
+      <span class="arrow">Open section →</span>
+     </button>
+    `;
+   }).join('')}
+  </div>
+ </section>
+
+ <section class="band">
+  <div class="section">
+   <div class="section-head">
+    <div>
+     <span class="eyebrow">WORKFLOW</span>
+     <h2>From data to a delivered plan</h2>
+    </div>
+   </div>
+
+   <div class="steps">
+    <div>
+     <b>01</b>
+     <h3>Prepare data</h3>
+     <p>
+      Import and validate Study Areas, Schools, Students and optional
+      forecast datasets.
+     </p>
+    </div>
+
+    <div>
+     <b>02</b>
+     <h3>Create</h3>
+     <p>
+      Build a plan or forecast from the Create menu.
+     </p>
+    </div>
+
+    <div>
+     <b>03</b>
+     <h3>Analyze</h3>
+     <p>
+      Modify boundaries, factors, statistics and reports.
+     </p>
+    </div>
+
+    <div>
+     <b>04</b>
+     <h3>Share</h3>
+     <p>
+      Export the plan, statistics and planning outputs.
+     </p>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section class="section">
+  <div class="callout">
+   <div>
+    <span class="eyebrow">BUILD 1.9.6</span>
+    <h2>New site, same planning knowledge.</h2>
+    <p>
+     The new experience is self-contained. Replace the placeholder
+     installer when the signed package is ready.
+    </p>
+   </div>
+
+   <button class="primary" onclick="route('download')">
+    Open download page →
+   </button>
+  </div>
+ </section>`;
+}
+function renderDocs(){
+ document.getElementById('appMain').innerHTML=`
+ <section class="page-head"><span class="eyebrow">DOCUMENTATION</span><h1>SchoolSite Pro documentation</h1><p>Search across the complete local guide. Select an article to open it without leaving this site.</p></section>
+ <section class="section docs-layout"><div class="docs-main">
+ <div class="local-search"><span>⌕</span><input id="docSearch" placeholder="Search articles…" oninput="filterDocs(this.value)"></div>
+ <div id="docList" class="doc-list"></div></div></section>`;
+ filterDocs('');
+}
+function filterDocs(q){
+ const list=docs.filter(d=>(d.title+' '+d.summary+' '+d.section+' '+d.body.map(x=>x[1]).join(' ')).toLowerCase().includes(q.toLowerCase()));
+ document.getElementById('docList').innerHTML=list.map(d=>`<button class="doc-row" onclick="route('doc','${d.id}')"><div><span class="doc-section">${d.section}</span><h3>${d.title}</h3><p>${d.summary}</p></div><span>→</span></button>`).join('') || '<div class="empty">No documentation matched your search.</div>';
+}
+function renderDoc(id){
+ const d=docs.find(x=>x.id===id)||docs[0]; currentDoc=d;
+ document.getElementById('appMain').innerHTML=`
+ <section class="article-wrap"><div class="breadcrumbs"><button onclick="route('docs')">Documentation</button><span>/</span><span>${d.section}</span></div>
+ <article class="article"><span class="eyebrow">${d.section.toUpperCase()}</span><h1>${d.title}</h1><p class="article-lead">${d.summary}</p>
+ ${d.body.map(([h,p])=>`<section><h2>${h}</h2><p>${p}</p></section>`).join('')}
+ <div class="article-nav"><button class="secondary" onclick="route('docs')">← All documentation</button><button class="primary" onclick="route('toolkit')">Find related tools →</button></div>
+ </article></section>`;
+}
+function renderToolkit(){
+ document.getElementById('appMain').innerHTML=`
+ <section class="page-head"><span class="eyebrow">TOOLKIT</span><h1>Every tool, searchable</h1><p>Find commands by name or description. Tool cards open details without changing the page layout.</p></section>
+ <section class="section"><div class="local-search"><span>⌕</span><input id="toolSearch" placeholder="Search tools…" oninput="filterTools(this.value)"></div><div class="tool-layout"><div class="tool-cats" id="toolCats"></div><div><div id="toolCount" class="count"></div><div id="toolGrid" class="tool-grid"></div></div></div></section>`;
+ renderToolCats(); filterTools('');
+}
+let activeToolCat='All';
+function renderToolCats(){
+ const cats=['All','Data Setup','Create & Manage','Assign & Boundaries','Appearance','Share','Forecasting','Analysis Tools','School Programs','Reports'];
+ document.getElementById('toolCats').innerHTML=cats.map(c=>`<button class="${c===activeToolCat?'active':''}" onclick="activeToolCat='${c}';renderToolCats();filterTools(document.getElementById('toolSearch').value)">${c}</button>`).join('');
+}
+function inferCat(n){
+ if(/forecast|factor|mobility|housing|yield|student counts|enrollment/i.test(n)) return 'Forecasting';
+ if(/assign|school|study area|lock|target|statistics|number/i.test(n)) return 'Assign & Boundaries';
+ if(/report|matrix|utilization/i.test(n)) return 'Reports';
+ if(/program/i.test(n)) return 'School Programs';
+ if(/export|publish|overlay|comments/i.test(n)) return 'Share';
+ if(/setup|reset|syf export/i.test(n)) return 'Data Setup';
+ if(/select|label|symbology/i.test(n)) return 'Appearance';
+ if(/create|open|delete|copy|directory/i.test(n)) return 'Create & Manage';
+ return 'Analysis Tools';
+}
+function filterTools(q){
+ let list=tools.filter(t=>activeToolCat==='All'||inferCat(t.name)===activeToolCat);
+ if(q) list=list.filter(t=>(t.name+' '+t.desc).toLowerCase().includes(q.toLowerCase()));
+ document.getElementById('toolCount').textContent=`${list.length} tools`;
+ document.getElementById('toolGrid').innerHTML=list.map((t,i)=>`<button class="tool-card" onclick="openTool(${tools.indexOf(t)})"><img src="assets/tool-icon.svg"><div><span>${inferCat(t.name)}</span><h3>${t.name}</h3><p>${t.desc}</p></div><b>→</b></button>`).join('');
+}
+function openTool(i){
+ const t=tools[i], m=document.createElement('div'); m.className='modal'; m.id='toolModal';
+ m.innerHTML=`<div class="modal-box"><button class="modal-x" onclick="this.closest('.modal').remove()">×</button><span class="eyebrow">${inferCat(t.name).toUpperCase()}</span><h2>${t.name}</h2><p>${t.desc}</p><div class="modal-foot">SchoolSite Pro toolkit · Build 1.9.6</div></div>`;
+ document.body.appendChild(m);
+}
+function renderDownload(){
+ document.getElementById('appMain').innerHTML=`
+ <section class="download-page">
+   <div class="download-copy">
+     <span class="eyebrow">DESKTOP ADD-IN</span>
+
+     <h1>Install SchoolSite Pro 1.9.6</h1>
+
+     <p>
+       A single installer adds SchoolSite Pro to ArcGIS Pro.
+       Download the latest SchoolSite Pro package below.
+     </p>
+
+     <h2>What's new</h2>
+     <ul class="news">
+       <li>Utilization Report for boundary-comparison workflows.</li>
+       <li>SYF reports can be exported during Data Setup.</li>
+       <li>Automated Attendance Matrix includes CAPACITY.</li>
+       <li>Additional residential forecast charts.</li>
+       <li>Improved Address Directory performance.</li>
+       <li>Bulk reassignment can exclude selected schools.</li>
+     </ul>
+
+     <h2>Installation</h2>
+     <div class="steps install">
+       <div>
+         <b>01</b>
+         <h3>Close ArcGIS Pro</h3>
+         <p>Quit running Pro sessions.</p>
+       </div>
+
+       <div>
+         <b>02</b>
+         <h3>Run installer</h3>
+         <p>Launch the signed installer with required permissions.</p>
+       </div>
+
+       <div>
+         <b>03</b>
+         <h3>Open ArcGIS Pro</h3>
+         <p>The SchoolSite ribbon appears after restart.</p>
+       </div>
+
+       <div>
+         <b>04</b>
+         <h3>Run Data Setup</h3>
+         <p>Import and validate district data.</p>
+       </div>
+     </div>
+   </div>
+
+   <aside class="download-card">
+     <div class="version">1.9.6</div>
+
+     <p>September 2026 · MGT Impact Solutions</p>
+
+     <a
+       class="primary wide"
+       href="https://github.com/dbutz/SchoolSite-Pro-Docs/releases/download/1.9.6/SchoolSite.Pro.1.9.6.zip"
+       download
+     >
+       Download installer ↓
+     </a>
+
+     <dl>
+       <dt>Requires</dt>
+       <dd>ArcGIS Pro 3.3.0+</dd>
+
+       <dt>Platform</dt>
+       <dd>Windows x64</dd>
+
+       <dt>Publisher</dt>
+       <dd>MGT Impact Solutions</dd>
+
+       <dt>Add-in ID</dt>
+       <dd>43ea84e4…768b4</dd>
+     </dl>
+
+     <small>
+       SchoolSite Pro 1.9.6 is provided through the official GitHub release.
+     </small>
+   </aside>
+ </section>`;
+}
+function focusSearch(){document.getElementById('searchOverlay').classList.add('open');document.getElementById('globalSearch').focus();renderSearch('')}
+function closeSearch(){document.getElementById('searchOverlay').classList.remove('open')}
+function renderSearch(q){
+ const hits=[];
+ docs.forEach(d=>{if((d.title+' '+d.summary+' '+d.section+' '+d.body.flat().join(' ')).toLowerCase().includes(q.toLowerCase()))hits.push({type:'Documentation',title:d.title,meta:d.section,fn:()=>{closeSearch();route('doc',d.id)}})});
+ tools.forEach((t,i)=>{if((t.name+' '+t.desc).toLowerCase().includes(q.toLowerCase()))hits.push({type:'Tool',title:t.name,meta:inferCat(t.name),fn:()=>{closeSearch();route('toolkit');setTimeout(()=>openTool(i),50)}})});
+ document.getElementById('searchResults').innerHTML=hits.slice(0,30).map((h,i)=>`<button class="search-result" data-i="${i}"><span>${h.type}</span><strong>${h.title}</strong><small>${h.meta}</small></button>`).join('')||'<div class="empty">No matches.</div>';
+ [...document.querySelectorAll('.search-result')].forEach((el,i)=>el.onclick=hits[i].fn);
+}
+function toggleMenu(){document.getElementById('mobileNav').classList.toggle('open')}
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();focusSearch()} if(e.key==='Escape')closeSearch()});
+window.addEventListener('hashchange',renderRoute);
+renderRoute();
+</script>
+<script>
+(function () {
+  if (!window.chatbase || window.chatbase("getState") !== "initialized") {
+    window.chatbase = (...args) => {
+      if (!window.chatbase.q) {
+        window.chatbase.q = [];
+      }
+      window.chatbase.q.push(args);
+    };
+
+    window.chatbase = new Proxy(window.chatbase, {
+      get(target, prop) {
+        if (prop === "q") {
+          return target.q;
+        }
+
+        return (...args) => target(prop, ...args);
+      }
+    });
+  }
+
+  const onLoad = function () {
+    const script = document.createElement("script");
+    script.src = "https://www.chatbase.co/embed.min.js";
+    script.id = "c8BBOEDO7bSVDt69zISB6";
+    script.domain = "www.chatbase.co";
+    document.body.appendChild(script);
+  };
+
+  if (document.readyState === "complete") {
+    onLoad();
+  } else {
+    window.addEventListener("load", onLoad);
+  }
+})();
+</script>
+
+</body>
+</html>
