@@ -29,6 +29,7 @@
     --mono: 'IBM Plex Mono', monospace;
     --sans: 'IBM Plex Sans', sans-serif;
     --head: 'Space Grotesk', sans-serif;
+
 }
 
 
@@ -409,7 +410,7 @@ nav button.active {
     margin: 0 auto;
 
     display: grid;
-    grid-template-columns: 220px minmax(0, 1fr);
+    grid-template-columns: minmax(190px, 220px) minmax(0, 1fr);
 
     min-height: 72vh;
 }
@@ -612,9 +613,7 @@ nav button.active {
 
     display: grid;
 
-    grid-template-columns:
-        minmax(360px, .82fr)
-        minmax(560px, 1.18fr);
+    grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
 
     align-items: center;
 
@@ -1460,7 +1459,7 @@ nav button.active {
 .steps {
     display: grid;
 
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 
     border-top: 1px solid var(--line);
     border-left: 1px solid var(--line);
@@ -1949,9 +1948,7 @@ nav button.active {
 
     display: grid;
 
-    grid-template-columns:
-        minmax(0, 1fr)
-        380px;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
 
     align-items: start;
 
@@ -2191,7 +2188,7 @@ nav button.active {
 
     display: grid;
 
-    grid-template-columns: 110px minmax(0, 1fr) 100px;
+    grid-template-columns: max-content minmax(0, 1fr) max-content;
 
     gap: 10px;
 

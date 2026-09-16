@@ -1,3 +1,68 @@
+window.SCHOOL_SITE_RELEASE = {
+  "version": "1.9.7",
+  "releaseDate": "September 16, 2026",
+  "downloadUrl": "https://github.com/ParthaEsri/SchoolSite-Pro-Help/releases/download/1.9.7/SchoolSite.Pro.1.9.7.zip",
+  "githubUrl": "https://github.com/dbutz/SchoolSite-Pro-Docs",
+  "productName": "SchoolSite Pro",
+  "requirements": "ArcGIS Pro 3.3.0+"
+};
+
+window.SCHOOL_SITE_RELEASE_NOTES = [
+
+  {
+    "version": "1.9.7",
+    "date": "September 2026",
+    "description": "Current build changes and recent feature history.",
+    "features": [
+      "New Utilization Report; SYF reports from Data Setup; CAPACITY in automated attendance matrix exports; additional residential forecast charts; student-type availability based on imported data; faster Address Directory creation; updated Project Summary Report; excluded-school options for bulk Study Area reassignment; minor fixes and UI improvements."
+    ]
+  },
+  {
+    "version": "1.9.6",
+    "date": "September 2026",
+    "description": "Build 1.9.6 changes and feature history.",
+    "features": [
+      "New Utilization Report; SYF reports from Data Setup; CAPACITY in automated attendance matrix exports; additional residential forecast charts; student-type availability based on imported data; faster Address Directory creation; updated Project Summary Report; excluded-school options for bulk Study Area reassignment; minor fixes and UI improvements."
+    ]
+  },
+  {
+    "version": "1.9.4",
+    "date": "June 2026",
+    "description": "Build 1.9.4 changes and feature history.",
+    "features": ["SYF automation, improved Statistics Window sorting/zoom, historical student validation, plan locking, default school Map Tips, rebuilt Study Area numbering, and more flexible forecast summaries."]
+  },
+  {
+    "version": "1.9.3",
+    "date": "January 2026",
+    "description": "Build 1.9.3 changes and feature history.",
+    "features": ["Selected Study Area demographic reporting, broader Demographic Reports, and forecast/statistics fixes."]
+  },
+  {
+    "version": "1.9.2",
+    "date": "January 2026",
+    "description": "Build 1.9.2 changes and feature history.",
+    "features": ["Introduced Walk Zone analysis and several directory/statistics fixes."]
+  },
+  {
+    "version": "1.9.0",
+    "date": "December 2025",
+    "description": "Build 1.9.0 changes and feature history.",
+    "features": ["Introduced plan syncing, Student Attribute statistics, keyboard modifiers for Study Area selection, and enrollment forecast improvements."]
+  },
+  {
+    "version": "1.8.8/1.8.7",
+    "date": "Earlier release",
+    "description": "Build 1.8.8/1.8.7 changes and feature history.",
+    "features": ["Introduced automated attendance matrix, expanded student-type handling, data validation and data-enrichment improvements."]
+  },
+  {
+    "version": "Earlier builds",
+    "date": "Historical",
+    "description": "The historical release notes remain represented in this local guide so the new site can be published independently of the old documentation site.",
+    "features": []
+  }
+];
+
 window.SCHOOL_SITE_DOCS = [
   {
     "id": "home",
@@ -446,17 +511,13 @@ window.SCHOOL_SITE_DOCS = [
   {
     "id": "release-notes",
     "section": "Start here",
-    "title": "Release Notes — Build 1.9.7",
+    "title": "Release Notes",
     "summary": "Current build changes and recent feature history.",
     "body": [
-      ["Build 1.9.7 — September 2026", "New Utilization Report; SYF reports from Data Setup; CAPACITY in automated attendance matrix exports; additional residential forecast charts; student-type availability based on imported data; faster Address Directory creation; updated Project Summary Report; excluded-school options for bulk Study Area reassignment; minor fixes and UI improvements."],
-      ["Build 1.9.6 — September 2026", "New Utilization Report; SYF reports from Data Setup; CAPACITY in automated attendance matrix exports; additional residential forecast charts; student-type availability based on imported data; faster Address Directory creation; updated Project Summary Report; excluded-school options for bulk Study Area reassignment; minor fixes and UI improvements."],
-      ["Build 1.9.4 — June 2026", "SYF automation, improved Statistics Window sorting/zoom, historical student validation, plan locking, default school Map Tips, rebuilt Study Area numbering, and more flexible forecast summaries."],
-      ["Build 1.9.3 — January 2026", "Selected Study Area demographic reporting, broader Demographic Reports, and forecast/statistics fixes."],
-      ["Build 1.9.2 — January 2026", "Introduced Walk Zone analysis and several directory/statistics fixes."],
-      ["Build 1.9.0 — December 2025", "Introduced plan syncing, Student Attribute statistics, keyboard modifiers for Study Area selection, and enrollment forecast improvements."],
-      ["Build 1.8.8/1.8.7", "Introduced automated attendance matrix, expanded student-type handling, data validation and data-enrichment improvements."],
-      ["Earlier builds", "The historical release notes remain represented in this local guide so the new site can be published independently of the old documentation site."]
+      ...window.SCHOOL_SITE_RELEASE_NOTES.map(note => [
+        `Build ${note.version} — ${note.date}`,
+        `${note.description}${note.features.length ? ` ${note.features.join(" ")}` : ""}`
+      ])
     ]
   },
   {

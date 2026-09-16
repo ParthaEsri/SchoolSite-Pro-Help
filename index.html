@@ -10,7 +10,7 @@
 <body>
 <header class="topbar">
   <div class="topbar-inner">
-    <button class="brand" onclick="route('home')"><img src="assets/favicon.ico"><span>SchoolSite Pro</span><small>build 1.9.7</small></button>
+    <button class="brand" onclick="route('home')"><img src="assets/favicon.ico" alt=""><span>SchoolSite Pro</span><small>build <span data-app-build></span></small></button>
     <nav id="desktopNav">
       <button data-route="home" onclick="route('home')">Overview</button>
       <button data-route="docs" onclick="route('docs')">Documentation</button>
@@ -69,7 +69,7 @@
     <div><strong>SchoolSite Pro</strong><p>Independent documentation experience for ArcGIS Pro school planning, redistricting and forecasting.</p></div>
     <div class="footer-links"><button onclick="route('home')">Overview</button><button onclick="route('docs')">Docs</button><button onclick="route('toolkit')">Toolkit</button><button onclick="route('download')">Download</button></div>
   </div>
-  <div class="footer-bottom">Build 1.9.7 · September 2026 ·SchoolSite Pro documentation • Local content based on the official SchoolSite Pro Help. </div>
+  <div class="footer-bottom">Build <span data-app-build></span> · <span data-app-release-date></span> · SchoolSite Pro documentation · Local content based on the official SchoolSite Pro Help.</div>
 </footer>
 
 <div id="searchOverlay" class="overlay" onclick="if(event.target===this)closeSearch()">
@@ -105,9 +105,24 @@
 
 <script src="js/data.js"></script>
 <script>
-const docs = window.SCHOOL_SITE_DOCS, tools = window.SCHOOL_SITE_TOOLS;
+const RELEASE = window.SCHOOL_SITE_RELEASE;
+const docs = window.SCHOOL_SITE_DOCS;
+const tools = window.SCHOOL_SITE_TOOLS;
 const sections = [...new Set(docs.map(x=>x.section))];
 let currentDoc = null;
+
+// Apply release metadata to both the static shell and route-generated markup.
+function syncReleaseLabels() {
+  document.querySelectorAll('[data-app-build]').forEach(element => {
+    element.textContent = RELEASE.version;
+  });
+
+  document.querySelectorAll('[data-app-release-date]').forEach(element => {
+    element.textContent = RELEASE.releaseDate;
+  });
+}
+
+syncReleaseLabels();
 
 function route(name, id){
   if(name==='doc' && id){ location.hash='doc/'+id; }
@@ -124,6 +139,7 @@ function renderRoute(){
   else if(page==='download') renderDownload();
   else renderHome();
   renderSidebar(page,id);
+  syncReleaseLabels();
   window.scrollTo(0,0);
 }
 function renderSidebar(page,id){
@@ -145,7 +161,6 @@ function renderSidebar(page,id){
       <button class="side-link" onclick="route('download')">Download</button>`;
   }
 }
-// <div class="side-note">Everything shown here is local to this project. No page needs to redirect users to the previous help site.</div>`;
 
 function renderHome() {
   document.getElementById('appMain').innerHTML = `
@@ -198,7 +213,7 @@ function renderHome() {
           <div class="ss-hero-meta">
 
             <div>
-              <strong>1.9.7</strong>
+              <strong data-app-build></strong>
               <span>Build</span>
             </div>
 
@@ -246,7 +261,7 @@ function renderHome() {
               </div>
 
               <div class="ss-window-build">
-                1.9.7
+                <span data-app-build></span>
               </div>
 
             </div>
@@ -289,9 +304,8 @@ function renderHome() {
 
           <p>
             Explore the main planning experience through a
-            short visual tour. These images are temporary
-            placeholders and can be replaced with actual
-            SchoolSite Pro screenshots.
+            short visual tour of planning, analysis, sharing,
+            and forecasting workflows.
           </p>
 
         </div>
@@ -654,7 +668,7 @@ function renderHome() {
           <div>
 
             <span class="eyebrow">
-              BUILD 1.9.7
+              BUILD <span data-app-build></span>
             </span>
 
             <h2>
@@ -662,9 +676,8 @@ function renderHome() {
             </h2>
 
             <p>
-              The new experience is self-contained.
-              Replace the placeholder installer when
-              the signed package is ready.
+              The current signed installer and release notes
+              are available from the download page.
             </p>
 
           </div>
@@ -673,7 +686,7 @@ function renderHome() {
             class="primary"
             onclick="route('download')"
           >
-            Open download page →
+            Download installer →
           </button>
 
         </div>
@@ -867,16 +880,7 @@ function renderDoc(id){
  </article></section>`;
 }
 
-/* =========================================================
-   TOOLKIT — category now comes directly from each tool's
-   own "category" field instead of a regex guess, so every
-   tool always lands in the correct group and no group ever
-   silently drops items.
-   ========================================================= */
-
-/* =========================================================
-   TOOLKIT
-   ========================================================= */
+/* Toolkit browsing and category filtering. */
 
 let activeToolCat = "All";
 
@@ -1076,7 +1080,7 @@ function filterTools(search = "") {
 
 function openTool(i){
  const t=tools[i], m=document.createElement('div'); m.className='modal'; m.id='toolModal';
- m.innerHTML=`<div class="modal-box"><button class="modal-x" onclick="this.closest('.modal').remove()">×</button><span class="eyebrow">${toolCategory(t).toUpperCase()}</span><h2>${t.name}</h2><p>${t.desc}</p>${t.details?`<p class="modal-detail">${t.details}</p>`:''}<div class="modal-foot">SchoolSite Pro toolkit · Build 1.9.7</div></div>`;
+ m.innerHTML=`<div class="modal-box"><button class="modal-x" onclick="this.closest('.modal').remove()">×</button><span class="eyebrow">${toolCategory(t).toUpperCase()}</span><h2>${t.name}</h2><p>${t.desc}</p>${t.details?`<p class="modal-detail">${t.details}</p>`:''}<div class="modal-foot">${RELEASE.productName} toolkit · Build ${RELEASE.version}</div></div>`;
  document.body.appendChild(m);
 }
 function renderDownload(){
@@ -1085,7 +1089,7 @@ function renderDownload(){
    <div class="download-copy">
      <span class="eyebrow">DESKTOP ADD-IN</span>
 
-     <h1>Install SchoolSite Pro 1.9.7</h1>
+    <h1>Install ${RELEASE.productName} ${RELEASE.version}</h1>
 
      <p>
        A single installer adds SchoolSite Pro to ArcGIS Pro.
@@ -1131,13 +1135,13 @@ function renderDownload(){
    </div>
 
    <aside class="download-card">
-     <div class="version">1.9.7</div>
+    <div class="version">${RELEASE.version}</div>
 
-     <p>September 2026 · MGT Impact Solutions</p>
+    <p>${RELEASE.releaseDate} · MGT Impact Solutions</p>
 
      <a
        class="primary wide"
-       href="https://github.com/ParthaEsri/SchoolSite-Pro-Help/releases/download/1.9.8/SchoolSite.Pro.1.9.7.zip"
+      href="${RELEASE.downloadUrl}"
        download
      >
        Download installer ↓
@@ -1145,7 +1149,7 @@ function renderDownload(){
 
      <dl>
        <dt>Requires</dt>
-       <dd>ArcGIS Pro 3.3.0+</dd>
+      <dd>${RELEASE.requirements}</dd>
 
        <dt>Platform</dt>
        <dd>Windows x64</dd>
@@ -1158,8 +1162,8 @@ function renderDownload(){
      </dl>
 
 <small>
-  SchoolSite Pro 1.9.7 is provided through the official GitHub release.
-  <a href="https://github.com/dbutz/SchoolSite-Pro-Docs" target="_blank" rel="noopener noreferrer">
+  ${RELEASE.productName} ${RELEASE.version} is provided through the official GitHub release.
+  <a href="${RELEASE.githubUrl}" target="_blank" rel="noopener noreferrer">
     View on GitHub
   </a>
 </small>
@@ -1204,13 +1208,7 @@ function closeSearch() {
   }
 }
 
-/* =========================================================
-   GLOBAL SEARCH OVERLAY (Ctrl/Cmd + K)
-   This function was previously missing entirely, which is
-   why the overlay opened but never returned any results —
-   the "no results" state you were seeing was really an
-   undefined-function error being swallowed silently.
-   ========================================================= */
+/* Search the local documentation and toolkit from the Ctrl/Cmd + K palette. */
 function buildSearchHits(q) {
   q = (q || '').trim();
   if (!q) return [];
@@ -1270,8 +1268,6 @@ function renderSearch(q) {
     results.innerHTML = '<div class="search-empty"></div>';
     return;
   }
-  // Start typing to search documentation and tools…
-
   const hits = buildSearchHits(q);
 
   if (!hits.length) {
