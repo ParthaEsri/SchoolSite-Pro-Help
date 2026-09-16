@@ -1027,7 +1027,7 @@ nav button.active {
 
     margin: 0 auto;
 
-    padding: 100px 0 115px;
+    padding: 78px 0 92px;
 }
 
 .ss-tour-heading {
@@ -1039,9 +1039,9 @@ nav button.active {
 
     align-items: end;
 
-    gap: 60px;
+    gap: 42px;
 
-    margin-bottom: 40px;
+    margin-bottom: 28px;
 }
 
 .ss-section-label {
@@ -1058,7 +1058,7 @@ nav button.active {
 
     margin: 10px 0 0;
 
-    font-size: clamp(34px, 4vw, 48px);
+    font-size: clamp(30px, 3.5vw, 44px);
     letter-spacing: -.035em;
 }
 
@@ -1086,21 +1086,32 @@ nav button.active {
 .ss-tour-stage {
     position: relative;
 
-    min-height: clamp(430px, 48vw, 650px);
+    display: grid;
+    width: min(100%, 1000px);
+    height: auto;
+    min-height: 0;
+    margin: 0 auto;
 
     overflow: hidden;
 
-    border-radius: 18px;
+    padding: 14px;
+    border: 1px solid rgba(216, 224, 228, .9);
+    border-radius: 16px;
 
-    background: #202A31;
+    background: linear-gradient(145deg, rgba(231, 238, 243, .92), rgba(255, 255, 255, .76));
 
     box-shadow:
-        0 30px 70px rgba(22, 34, 46, .13);
+        0 20px 48px rgba(22, 34, 46, .11);
 }
 
 .ss-tour-slide {
-    position: absolute;
-    inset: 0;
+    position: relative;
+    grid-area: 1 / 1;
+
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: 12px;
+    padding: 14px;
 
     opacity: 0;
     visibility: hidden;
@@ -1121,10 +1132,19 @@ nav button.active {
 }
 
 .ss-tour-image {
-    position: absolute;
-    inset: 0;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.88;
+    min-height: 0;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
+
+    border: 1px solid rgba(216, 224, 228, .9);
+    border-radius: 11px;
+    background: rgba(255, 255, 255, .72);
 }
 
 .ss-tour-image img {
@@ -1133,16 +1153,10 @@ nav button.active {
 
     display: block;
 
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
 
-    transform: scale(1.03);
-
-    transition: transform 5.8s ease;
-}
-
-.ss-tour-slide.active .ss-tour-image img {
-    transform: scale(1.08);
+    padding: 8px;
 }
 
 .ss-tour-image::after {
@@ -1151,31 +1165,24 @@ nav button.active {
     position: absolute;
     inset: 0;
 
-    background:
-        linear-gradient(
-            180deg,
-            rgba(15, 24, 30, .08) 0%,
-            rgba(15, 24, 30, .12) 40%,
-            rgba(15, 24, 30, .82) 100%
-        );
+    background: linear-gradient(135deg, rgba(255, 255, 255, .18), transparent 45%);
 }
 
 
 /* Tour caption */
 
 .ss-tour-caption {
-    position: absolute;
-
-    left: 38px;
-    right: 38px;
-    bottom: 38px;
-
+    position: relative;
     z-index: 3;
-
     display: flex;
     align-items: flex-start;
 
-    gap: 18px;
+    gap: 13px;
+    min-width: 0;
+    padding: 12px 14px;
+
+    border-radius: 10px;
+    background: rgba(22, 34, 46, .94);
 
     color: #FFFFFF;
 }
@@ -1191,20 +1198,20 @@ nav button.active {
 .ss-tour-caption strong {
     display: block;
 
-    font: 600 clamp(24px, 3vw, 34px) var(--head);
+    font: 600 clamp(20px, 2.4vw, 28px) var(--head);
 
     letter-spacing: -.025em;
 }
 
 .ss-tour-caption p {
-    max-width: 560px;
+    max-width: 680px;
 
-    margin: 6px 0 0;
+    margin: 3px 0 0;
 
     color: rgba(255, 255, 255, .78);
 
-    font-size: 14px;
-    line-height: 1.6;
+    font-size: 12px;
+    line-height: 1.45;
 }
 
 
@@ -1217,12 +1224,12 @@ nav button.active {
     align-items: center;
     justify-content: space-between;
 
-    margin-top: 18px;
+    margin-top: 14px;
 }
 
 .ss-tour-arrow {
-    width: 43px;
-    height: 43px;
+    width: 38px;
+    height: 38px;
 
     border: 1px solid var(--line);
     border-radius: 50%;
@@ -1662,19 +1669,6 @@ nav button.active {
     font-size: 17px;
 }
 
-.article-source {
-    margin: 18px 0 0;
-
-    color: var(--green);
-
-    font: 11px var(--mono);
-}
-
-.article-source a:hover {
-    color: var(--green-dark);
-    text-decoration: underline;
-}
-
 .article-image {
     max-width: 920px;
     margin: 28px 0 34px;
@@ -1722,6 +1716,17 @@ nav button.active {
     margin: 0;
 
     color: #354654;
+}
+
+.article section ul,
+.article section ol {
+    margin: 0;
+    padding-left: 22px;
+    color: #354654;
+}
+
+.article section li + li {
+    margin-top: 8px;
 }
 
 .article-nav {
@@ -2335,6 +2340,22 @@ footer {
 
 @media (max-width: 980px) {
 
+    #desktopNav {
+        display: none;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .header-search {
+        width: min(190px, 34vw);
+    }
+
+    .topbar-inner {
+        gap: 12px;
+    }
+
     #sidebar {
         display: none;
     }
@@ -2365,6 +2386,23 @@ footer {
     .tool-grid {
         grid-template-columns: 1fr 1fr;
     }
+
+    .ss-hero-visual,
+    .ss-app-window,
+    .ss-tour-section,
+    .ss-tour,
+    .ss-tour-stage {
+        max-width: 100%;
+    }
+
+    .ss-hero-visual {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .ss-tour-image img {
+        max-width: 100%;
+    }
 }
 
 
@@ -2378,10 +2416,6 @@ footer {
         width: calc(100% - 28px);
 
         min-height: 58px;
-    }
-
-    nav {
-        display: none;
     }
 
     .brand {
@@ -2409,10 +2443,6 @@ footer {
 
     .header-search-icon {
         margin: auto;
-    }
-
-    .menu-btn {
-        display: block;
     }
 
     .mobile-nav.open {
@@ -2483,7 +2513,7 @@ footer {
     .ss-tour-section {
         width: calc(100% - 32px);
 
-        padding: 70px 0 80px;
+        padding: 56px 0 72px;
     }
 
     .ss-tour-heading h2 {
@@ -2491,19 +2521,27 @@ footer {
     }
 
     .ss-tour-stage {
-        min-height: 430px;
+        min-height: 0;
+
+        padding: 10px;
 
         border-radius: 12px;
     }
 
+    .ss-tour-image img {
+        max-width: 100%;
+    }
+
     .ss-tour-caption {
-        left: 23px;
-        right: 23px;
-        bottom: 25px;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        gap: 10px;
+        padding: 10px 12px;
     }
 
     .ss-tour-caption strong {
-        font-size: 27px;
+        font-size: 22px;
     }
 
     .ss-tour-caption p {
@@ -2567,6 +2605,11 @@ footer {
 
     .article {
         padding: 28px;
+    }
+
+    .article-image {
+        margin-right: 0;
+        margin-left: 0;
     }
 
     .article h1 {

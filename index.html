@@ -163,6 +163,29 @@ function renderSidebar(page,id){
 }
 
 function renderHome() {
+  const overviewCards = [
+    {
+      section: 'Overview',
+      title: 'SchoolSite Pro',
+      summary: 'A planning workspace for school data, forecasts, attendance boundaries, reports and GIS analysis.',
+      id: 'home'
+    },
+    ...sections
+      .filter(section => !['Start here', 'Tools', 'Troubleshooting'].includes(section))
+      .map(section => {
+        const doc = section === 'Redistricting'
+          ? docs.find(item => item.id === 'redistricting-tour')
+          : docs.find(item => item.section === section);
+
+        return {
+          section,
+          title: doc.title,
+          summary: doc.summary,
+          id: doc.id
+        };
+      })
+  ];
+
   document.getElementById('appMain').innerHTML = `
 
     <!-- =========================================
@@ -523,29 +546,24 @@ function renderHome() {
 
         <div class="card-grid">
 
-          ${sections.map(sec => {
-
-            const d = sec === 'Redistricting'
-              ? docs.find(x => x.id === 'redistricting-tour')
-              : docs.find(x => x.section === sec);
-
+          ${overviewCards.map(card => {
             return `
 
               <button
                 class="card"
-                onclick="route('doc','${d.id}')"
+                onclick="route('doc','${card.id}')"
               >
 
                 <span class="card-kicker">
-                  ${sec}
+                  ${card.section}
                 </span>
 
                 <h3>
-                  ${d.title}
+                  ${card.title}
                 </h3>
 
                 <p>
-                  ${d.summary}
+                  ${card.summary}
                 </p>
 
                 <span class="arrow">
@@ -865,8 +883,16 @@ function renderDocs(){
  <div id="docList" class="doc-list"></div></div></section>`;
  filterDocs('');
 }
+
+function articleContentText(content) {
+ if (content && typeof content === 'object') {
+   return [content.text || '', ...(content.items || [])].join(' ');
+ }
+ return String(content || '');
+}
+
 function filterDocs(q){
- const list=docs.filter(d=>(d.title+' '+d.summary+' '+d.section+' '+d.body.map(x=>x[1]).join(' ')).toLowerCase().includes(q.toLowerCase()));
+ const list=docs.filter(d=>(d.title+' '+d.summary+' '+d.section+' '+d.body.map(x=>articleContentText(x[1])).join(' ')).toLowerCase().includes(q.toLowerCase()));
  document.getElementById('docList').innerHTML=list.map(d=>`<button class="doc-row" onclick="route('doc','${d.id}')"><div><span class="doc-section">${d.section}</span><h3>${d.title}</h3><p>${d.summary}</p></div><span>→</span></button>`).join('') || '<div class="empty">No documentation matched your search.</div>';
 }
 function renderDoc(id){
@@ -874,11 +900,35 @@ function renderDoc(id){
  document.getElementById('appMain').innerHTML=`
  <section class="article-wrap"><div class="breadcrumbs"><button onclick="route('docs')">Documentation</button><span>/</span><span>${d.section}</span></div>
  <article class="article"><span class="eyebrow">${d.section.toUpperCase()}</span><h1>${d.title}</h1><p class="article-lead">${d.summary}</p>
- ${d.sourceUrl ? `<p class="article-source"><a href="${escapeHtml(d.sourceUrl)}" target="_blank" rel="noopener noreferrer">View the official source article ↗</a></p>` : ''}
  ${d.image ? `<figure class="article-image"><img src="${escapeHtml(d.image.src)}" alt="${escapeHtml(d.image.alt)}"><figcaption>${escapeHtml(d.image.caption)}</figcaption></figure>` : ''}
- ${d.body.map(([h,p])=>`<section><h2>${h}</h2><p>${p}</p></section>`).join('')}
+ ${d.body.map(([h,content])=>renderArticleSection(h,content)).join('')}
  <div class="article-nav"><button class="secondary" onclick="route('docs')">← All documentation</button><button class="primary" onclick="route('toolkit')">Find related tools →</button></div>
  </article></section>`;
+}
+
+// Render legacy content as readable sections while allowing future records to
+// use explicit paragraph, list, or steps blocks without changing the page shell.
+function renderArticleSection(heading, content) {
+  if (content && typeof content === 'object') {
+    if (content.type === 'list') {
+      return `<section><h2>${escapeHtml(heading)}</h2><ul>${content.items.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul></section>`;
+    }
+
+    if (content.type === 'steps') {
+      return `<section><h2>${escapeHtml(heading)}</h2><ol>${content.items.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ol></section>`;
+    }
+
+    content = content.text || '';
+  }
+
+  const text = String(content || '');
+  const items = text.split(';').map(item => item.trim()).filter(Boolean);
+
+  if (items.length > 1) {
+    return `<section><h2>${escapeHtml(heading)}</h2><ul>${items.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul></section>`;
+  }
+
+  return `<section><h2>${escapeHtml(heading)}</h2><p>${escapeHtml(text)}</p></section>`;
 }
 
 /* Toolkit browsing and category filtering. */
@@ -1222,7 +1272,7 @@ function buildSearchHits(q) {
       d.title + ' ' +
       d.summary + ' ' +
       d.section + ' ' +
-      d.body.flat().join(' ')
+      d.body.map(item => `${item[0]} ${articleContentText(item[1])}`).join(' ')
     ).toLowerCase();
 
     if (text.includes(query)) {

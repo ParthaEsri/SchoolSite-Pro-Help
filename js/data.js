@@ -619,7 +619,14 @@ window.SCHOOL_SITE_DOCS = [
     "title": "Creating Schools",
     "summary": "Create the point feature class containing school locations, grade coverage and capacity.",
     "sourceUrl": "https://ssphelp.mgt.us/dataManagement/createData/createSchools.html",
-    "body": [["Dataset", "Schools are point features representing campuses and their planning attributes."], ["Required fields", "Include school identifiers, names, grade ranges and capacity fields required by Data Setup."], ["Points to remember", "Check school locations, served grades and capacity values before building plans or validating Study Areas."]]
+    "body": [
+      ["Dataset and source", "Schools are point features representing campuses. The district is the source for this information."],
+      ["Required fields", { "type": "list", "items": ["NAME: unique Text field up to 50 characters.", "SCHL_CODE: unique Short Integer school code; code 0 may be reused.", "CAPACITY: maximum school capacity as a Short Integer.", "STRT_GRD: first grade served; use 0 for kindergarten and -1 for pre-kindergarten.", "END_GRD: last grade served; values cannot be greater than 12."] }],
+      ["Attendance-area relationship", "When a school has an attendance area, its SCHL_CODE must appear in at least one of the ELEM_, MID_, INT_ or HIGH_ fields in the Study Areas dataset."],
+      ["SchoolSite Locator fields", { "type": "list", "items": ["GRD_RANGE: school grade-range text.", "ADDRESS: street address text up to 100 characters.", "CITY: city text up to 50 characters.", "ZIP: Short Integer ZIP code.", "PHONE: phone text up to 12 characters.", "WEBSITE: web address text up to 150 characters with the http:// prefix."] }],
+      ["Additional classification fields", { "type": "list", "items": ["NOTES: optional text up to 150 characters.", "SCHL_TYPE: suggested codes include ES, MS, IS, JHS, HS, K8, 712 and OTH.", "SCHL_STATUS: suggested codes include DIST, SPED, MAGN, ACDY, CONT, ALTN, RGLR, FUTR, CLSD and OTHR."] }],
+      ["Points to remember", "Individual school codes must be unique, served-grade ranges must be valid, and capacity and location values should be checked before Data Setup validation." ]
+    ]
   },
   {
     "id": "create-tracts",
