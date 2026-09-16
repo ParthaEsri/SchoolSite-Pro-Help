@@ -874,6 +874,7 @@ function renderDoc(id){
  document.getElementById('appMain').innerHTML=`
  <section class="article-wrap"><div class="breadcrumbs"><button onclick="route('docs')">Documentation</button><span>/</span><span>${d.section}</span></div>
  <article class="article"><span class="eyebrow">${d.section.toUpperCase()}</span><h1>${d.title}</h1><p class="article-lead">${d.summary}</p>
+ ${d.sourceUrl ? `<p class="article-source"><a href="${escapeHtml(d.sourceUrl)}" target="_blank" rel="noopener noreferrer">View the official source article ↗</a></p>` : ''}
  ${d.image ? `<figure class="article-image"><img src="${escapeHtml(d.image.src)}" alt="${escapeHtml(d.image.alt)}"><figcaption>${escapeHtml(d.image.caption)}</figcaption></figure>` : ''}
  ${d.body.map(([h,p])=>`<section><h2>${h}</h2><p>${p}</p></section>`).join('')}
  <div class="article-nav"><button class="secondary" onclick="route('docs')">← All documentation</button><button class="primary" onclick="route('toolkit')">Find related tools →</button></div>

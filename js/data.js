@@ -12,17 +12,25 @@ window.SCHOOL_SITE_RELEASE_NOTES = [
   {
     "version": "1.9.7",
     "date": "September 2026",
-    "description": "Current build changes and recent feature history.",
+    "description": "FY26 Q4 Update 10 patch.",
     "features": [
-      "New Utilization Report; SYF reports from Data Setup; CAPACITY in automated attendance matrix exports; additional residential forecast charts; student-type availability based on imported data; faster Address Directory creation; updated Project Summary Report; excluded-school options for bulk Study Area reassignment; minor fixes and UI improvements."
+      "Quick patch to fix an issue when calculating mobility that broke at 1.9.6."
     ]
   },
   {
     "version": "1.9.6",
     "date": "September 2026",
-    "description": "Build 1.9.6 changes and feature history.",
+    "description": "FY26 Q4 Update 9.",
     "features": [
-      "New Utilization Report; SYF reports from Data Setup; CAPACITY in automated attendance matrix exports; additional residential forecast charts; student-type availability based on imported data; faster Address Directory creation; updated Project Summary Report; excluded-school options for bulk Study Area reassignment; minor fixes and UI improvements."
+      "New Utilization Report; export SYF reports during Data Setup; CAPACITY in automated attendance matrix exports; additional residential forecast charts; student-type availability based on imported data; faster Address Directory creation; updated Project Summary Report; excluded-school options for bulk Study Area reassignment; fixes for SYF geometry, projected housing warnings, Esri travel modes, Tapestry reports, and forecast-plan statistics."
+    ]
+  },
+  {
+    "version": "1.9.5",
+    "date": "July 2026",
+    "description": "FY26 Q4 Update 8.",
+    "features": [
+      "Added school removal with automatic reassignment to Unassigned; forecast report exports now include tabular data and charts in one file; improved forecast calculation performance and year-12 projected housing calculations; minor bug fixes and UI improvements."
     ]
   },
   {
@@ -44,16 +52,88 @@ window.SCHOOL_SITE_RELEASE_NOTES = [
     "features": ["Introduced Walk Zone analysis and several directory/statistics fixes."]
   },
   {
+    "version": "1.9.1",
+    "date": "December 2025",
+    "description": "FY26 Q1 Update 4.",
+    "features": [
+      "Fixed Rate of Change enrollment forecasts for grades 10-12; enabled selected study-area factor options; fixed forecast-factor table closing; clarified data-validation messaging."
+    ]
+  },
+  {
     "version": "1.9.0",
     "date": "December 2025",
     "description": "Build 1.9.0 changes and feature history.",
     "features": ["Introduced plan syncing, Student Attribute statistics, keyboard modifiers for Study Area selection, and enrollment forecast improvements."]
   },
   {
+    "version": "1.8.9",
+    "date": "November 2025",
+    "description": "FY26 Q1 Update 2.",
+    "features": [
+      "Added Rate of Change enrollment forecasts, forecast Study Area ID inspection, multiple plan overlays, improved Data Enrichment and Enrollment Forecast tooltips, clearer help information, UI consistency updates, and a SchoolSite ribbon Help button."
+    ]
+  },
+  {
     "version": "1.8.8/1.8.7",
     "date": "Earlier release",
     "description": "Build 1.8.8/1.8.7 changes and feature history.",
     "features": ["Introduced automated attendance matrix, expanded student-type handling, data validation and data-enrichment improvements."]
+  },
+  {
+    "version": "1.8.6",
+    "date": "Earlier release",
+    "description": "Program reassignment and expanded data validation release.",
+    "features": [
+      "Added program import, add, delete, and reassignment; modified capacity reporting; added validation for grade coverage, student grade enrollment, and schools serving grades without enrolled students; minor UI and tooltip updates."
+    ]
+  },
+  {
+    "version": "1.8.5/1.8.4",
+    "date": "March 2025",
+    "description": "Pre-Fall revisions and upgrades.",
+    "features": [
+      "Improved enrollment plans, student enrichment, forecast locking, forecast appearance labels, help and tooltip information, Address Directory compatibility, Reset Project options, copy actions, capacity persistence, and map rendering."
+    ]
+  },
+  {
+    "version": "1.8.3/1.8.2",
+    "date": "March-April 2025",
+    "description": "Plans with enrollment and Address Directory updates.",
+    "features": [
+      "Introduced plans with residence and enrollment counts, plan and forecast comments, updated help icons, Excel auto-open behavior, and expanded address-directory output fields."
+    ]
+  },
+  {
+    "version": "1.8.1/1.8.0",
+    "date": "February 2025",
+    "description": "Street and Address Directory releases.",
+    "features": [
+      "Added beta Street and Address Directory tools, special-character validation, improved help links, MGT branding, start-page layout updates, and enrollment forecast Excel formatting."
+    ]
+  },
+  {
+    "version": "1.7.9/1.7.8/1.7.7/1.7.6",
+    "date": "July-August 2024",
+    "description": "ArcGIS Pro 3.3 compatibility and reporting updates.",
+    "features": [
+      "Fixed Plan Impact Summary and forecast-copying issues; improved enrollment forecast and Excel consistency; fixed ArcGIS Pro 3.3 field-name export/import issues; added street-data import; released Data Enrichment and forecast-report capacity improvements."
+    ]
+  },
+  {
+    "version": "1.7.5/1.7.4/1.7.3/1.7.2/1.7.1",
+    "date": "August-November 2023",
+    "description": "Forecast, data validation, reporting, and planning updates.",
+    "features": [
+      "Fixed historical-student imports, copied-plan assignments, plan labeling, forecast symbology, selected-area statistics, grade-range changes, and forecast errors; expanded Student Yield Factors to individual grades; added Reset Geodatabase, flexible grade ranges, definition-expression warnings, Buildout naming, and mobility-report fixes."
+    ]
+  },
+  {
+    "version": "1.7.0/1.6.9/1.6.8/1.6.7/1.6.6/1.6.5",
+    "date": "October 2022-February 2023",
+    "description": "Early public releases and reporting improvements.",
+    "features": [
+      "Updated the start page, plan and forecast exports, licensing warnings, enrollment forecasts, boundary reassignment, rounding, report setup, school ordering, Student Reports, staffing forecasts, and ArcGIS Pro 3.0 support; first release out of beta."
+    ]
   },
   {
     "version": "Earlier builds",
@@ -508,6 +588,386 @@ window.SCHOOL_SITE_DOCS = [
     ]
   },
 
+  {
+    "id": "create-data-guide",
+    "section": "Manage data",
+    "title": "How To Create Your Own Data",
+    "summary": "Prepare the source GIS datasets required for SchoolSite Pro workflows.",
+    "sourceUrl": "https://ssphelp.mgt.us/dataManagement/createData/howToCreateData.html",
+    "body": [["Overview", "Create compatible Study Areas, Students, Schools, Tracts, Assessor, Trustee Areas and Streets datasets before importing them into Data Setup."], ["Data quality", "Use valid geometry, consistent field types, stable identifiers and the required grade, school and student-type coding described in the individual data guides."]]
+  },
+  {
+    "id": "create-study-areas",
+    "section": "Manage data",
+    "title": "Creating Study Areas",
+    "summary": "Create the polygon feature class used as the geographic foundation for plans and forecasts.",
+    "sourceUrl": "https://ssphelp.mgt.us/dataManagement/createData/createStudyareas.html",
+    "image": { "src": "https://raw.githubusercontent.com/dbutz/SchoolSite-Pro-Docs/main/dataManagement/studyareas.png", "alt": "Study Area polygons", "caption": "Study Areas are polygon units used throughout SchoolSite Pro." },
+    "body": [["Dataset", "Study Areas are polygon features representing logical neighborhoods or planning units."], ["Required fields", "Use the required Study Area identifier and school-assignment fields, then add optional attributes needed for reporting or district grouping."], ["Coding", "Keep Study Area identifiers unique and use consistent attendance-area assignments across school years."]]
+  },
+  {
+    "id": "create-students",
+    "section": "Manage data",
+    "title": "Creating Students",
+    "summary": "Create the point feature class that supplies resident and enrollment student records.",
+    "sourceUrl": "https://ssphelp.mgt.us/dataManagement/createData/createStudents.html",
+    "body": [["Dataset", "Students are point features with grade, student type, residence and enrollment information."], ["Required fields", "Provide the required grade, student-type, residence-school and enrollment-school fields used by plans and forecasts."], ["Student types", "Student classification codes control which records participate in resident, enrollment and forecast workflows."]]
+  },
+  {
+    "id": "create-schools",
+    "section": "Manage data",
+    "title": "Creating Schools",
+    "summary": "Create the point feature class containing school locations, grade coverage and capacity.",
+    "sourceUrl": "https://ssphelp.mgt.us/dataManagement/createData/createSchools.html",
+    "body": [["Dataset", "Schools are point features representing campuses and their planning attributes."], ["Required fields", "Include school identifiers, names, grade ranges and capacity fields required by Data Setup."], ["Points to remember", "Check school locations, served grades and capacity values before building plans or validating Study Areas."]]
+  },
+  {
+    "id": "create-tracts",
+    "section": "Manage data",
+    "title": "Creating Tracts",
+    "summary": "Create polygon housing-development data for projected units and residential forecasting.",
+    "sourceUrl": "https://ssphelp.mgt.us/dataManagement/createData/createTracts.html",
+    "body": [["Dataset", "Tracts represent housing projects or development areas used by projected housing and forecast calculations."], ["Required fields", "Provide project, unit-type, unit-count and phasing fields needed to calculate future housing."], ["Phasing", "Use year-by-year phases to represent when units are expected to be occupied and included in forecasts."]]
+  },
+  {
+    "id": "create-assessor",
+    "section": "Manage data",
+    "title": "Creating Assessor Data",
+    "summary": "Create assessor or parcel data used for current housing and maturation calculations.",
+    "sourceUrl": "https://ssphelp.mgt.us/dataManagement/createData/createAssessor.html",
+    "body": [["Dataset", "Assessor data can be supplied as point or polygon features describing existing housing units and housing types."], ["Required fields", "Include the housing, unit-count and Study Area association fields needed by buildout and student-yield calculations."], ["Use", "Assessor data supports current housing analysis, maturation factors and housing-type reporting."]]
+  },
+  {
+    "id": "create-trustee-areas",
+    "section": "Manage data",
+    "title": "Creating Trustee Areas",
+    "summary": "Create trustee-area polygons for district governance and reporting context.",
+    "sourceUrl": "https://ssphelp.mgt.us/dataManagement/createData/createTrustee.html",
+    "body": [["Dataset", "Trustee Areas are polygon features representing elected or governance areas."], ["Use", "Import trustee boundaries when they are needed for district reporting or map context."]]
+  },
+  {
+    "id": "create-streets",
+    "section": "Manage data",
+    "title": "Creating Streets",
+    "summary": "Create the street line dataset used by Street Directory workflows.",
+    "sourceUrl": "https://ssphelp.mgt.us/dataManagement/createData/createStreets.html",
+    "body": [["Dataset", "Streets are line features with street names and address-range attributes."], ["Use", "A valid street network supports Street Directory creation and address-based planning workflows."]]
+  },
+  {
+    "id": "data-validation",
+    "section": "Manage data",
+    "title": "Data Validation",
+    "summary": "Validate imported feature classes and their relationships before planning.",
+    "sourceUrl": "https://ssphelp.mgt.us/dataManagement/validateData/index.html",
+    "body": [["Importing and validating", "Data Setup validates individual feature classes and checks relationships among Schools, Students, Study Areas, Tracts and Assessor data."], ["Results", "Warnings identify items to review, while errors must be corrected before the related workflow can continue."]]
+  },
+  {
+    "id": "data-setup",
+    "section": "Manage data",
+    "title": "Using Data Setup",
+    "summary": "Run the first and second rounds of SchoolSite Pro data validation.",
+    "sourceUrl": "https://ssphelp.mgt.us/dataManagement/validateData/dataSetup.html",
+    "image": { "src": "https://raw.githubusercontent.com/dbutz/SchoolSite-Pro-Docs/main/dataManagement/validateData/datasetup.png", "alt": "Data Setup validation panel", "caption": "Data Setup reports validation status for imported datasets." },
+    "body": [["First round", "Validate individual feature classes and confirm that each dataset meets the expected schema."], ["Second round", "Validate relationships between datasets for Redistricting, Forecasts or SchoolSite Locator workflows."], ["Status", "Correct errors before continuing and review warnings for data-quality issues that could affect results."]]
+  },
+  {
+    "id": "validate-redistricting",
+    "section": "Manage data",
+    "title": "Data Checks Made for Redistricting Plans",
+    "summary": "Validate schools, students and Study Area relationships for redistricting.",
+    "sourceUrl": "https://ssphelp.mgt.us/dataManagement/validateData/checkRedistrict.html",
+    "body": [["Individual datasets", "Check the schema and required fields for Schools, Students and Study Areas."], ["Relationships", "Check Schools versus Study Areas and Students versus Schools before creating a plan."]]
+  },
+  {
+    "id": "validate-forecasts",
+    "section": "Manage data",
+    "title": "Data Checks Made for Forecasts",
+    "summary": "Validate the feature classes and relationships required for forecasting.",
+    "sourceUrl": "https://ssphelp.mgt.us/dataManagement/validateData/checkForecasts.html",
+    "body": [["Individual datasets", "Validate Schools, Students, Study Areas, Tracts and Assessor data."], ["Relationships", "Check Schools versus Study Areas, Students versus Study Areas and Schools, Tracts versus Study Areas, and Tracts versus Assessor data."]]
+  },
+  {
+    "id": "validate-locator",
+    "section": "Manage data",
+    "title": "Data Checks Made for Locator",
+    "summary": "Validate the individual datasets used by SchoolSite Locator workflows.",
+    "sourceUrl": "https://ssphelp.mgt.us/dataManagement/validateData/checkLocator.html",
+    "body": [["Validation", "Run individual feature-class checks and correct schema or geometry problems before using locator tools."]]
+  },
+  {
+    "id": "change-boundaries",
+    "section": "Redistricting",
+    "title": "Change Boundaries Between Schools",
+    "summary": "Edit assignments, inspect proposed statistics and commit attendance-area changes.",
+    "sourceUrl": "https://ssphelp.mgt.us/redistricting/modifyPlans/changeBoundaries.html",
+    "body": [["Edit session", "Start an assignment session, choose the target school and select Study Areas with rectangle, polygon, lasso or circle tools."], ["Review", "Use Proposed and Selected Statistics tabs to inspect the effect before committing changes."], ["Commit", "Use Undo before saving, then Save Assignments and stop the edit session when the boundary change is final."]]
+  },
+  {
+    "id": "add-existing-school",
+    "section": "Redistricting",
+    "title": "Add an Existing School",
+    "summary": "Add a school from the district data to an open redistricting plan.",
+    "sourceUrl": "https://ssphelp.mgt.us/redistricting/modifyPlans/addExistingSchool.html",
+    "body": [["Use", "Add an existing school when a campus from the imported Schools data should participate in the plan."], ["Next step", "Assign Study Areas to the school to establish its attendance boundary."]]
+  },
+  {
+    "id": "add-new-school",
+    "section": "Redistricting",
+    "title": "Add a New School",
+    "summary": "Simulate opening a new school and assign Study Areas to it.",
+    "sourceUrl": "https://ssphelp.mgt.us/redistricting/modifyPlans/addSchool.html",
+    "body": [["Use", "Add a new school to model a future campus or planning scenario."], ["Assignment", "After adding the school, assign Study Areas to create its proposed attendance area."]]
+  },
+  {
+    "id": "close-schools",
+    "section": "Redistricting",
+    "title": "Close Schools",
+    "summary": "Remove unassigned schools from a plan to simulate closing a campus.",
+    "sourceUrl": "https://ssphelp.mgt.us/redistricting/modifyPlans/closingSchools.html",
+    "body": [["Use", "Reassign a school’s Study Areas, then remove the school from the plan to model closure and review the resulting facility impacts."]]
+  },
+  {
+    "id": "reassign-schools",
+    "section": "Redistricting",
+    "title": "Reassign Schools",
+    "summary": "Use bulk reassignment methods to rebuild attendance boundaries by planning rule.",
+    "sourceUrl": "https://ssphelp.mgt.us/redistricting/modifyPlans/reassignSchools.html",
+    "body": [["Methods", "Reassign Study Areas by current boundaries, closest school, capacity or maximum student limit."], ["Review", "Inspect the resulting Statistics Window and exclude schools when the current release supports that option."]]
+  },
+  {
+    "id": "share-plan-details",
+    "section": "Redistricting",
+    "title": "Share Your Redistricting Plan",
+    "summary": "Publish plans to ArcGIS Online or export them locally for stakeholders.",
+    "sourceUrl": "https://ssphelp.mgt.us/redistricting/share/",
+    "body": [["Online options", "Share a plan as a Web Map or Web Layer through ArcGIS Online or ArcGIS Enterprise."], ["Local options", "Export plan boundaries and statistics for local review, presentation and downstream workflows."]]
+  },
+  {
+    "id": "forecast-properties",
+    "section": "Forecasts",
+    "title": "Forecast Properties",
+    "summary": "Review the property, report and display settings for an open forecast.",
+    "sourceUrl": "https://ssphelp.mgt.us/forecasts/forecastProperties/",
+    "body": [["Forecast settings", "Forecast Properties contains report, historical-data, residential-forecast and map-display workflows for an open forecast."]]
+  },
+  {
+    "id": "residential-forecasts",
+    "section": "Forecasts",
+    "title": "Residential Forecasts",
+    "summary": "Understand how resident population forecasts are calculated and summarized.",
+    "sourceUrl": "https://ssphelp.mgt.us/forecasts/forecastProperties/residentialForecasts.html",
+    "body": [["Purpose", "Residential forecasts project future resident students from births, mobility, student yields, housing development and maturation factors."], ["Output", "Summaries can be grouped by Study Area, attendance zone, subdistrict, district or another available field."]]
+  },
+  {
+    "id": "map-display",
+    "section": "Forecasts",
+    "title": "Configure the Look of Your Map",
+    "summary": "Control how forecast results are symbolized and labeled in ArcGIS Pro.",
+    "sourceUrl": "https://ssphelp.mgt.us/forecasts/mapDisplay/",
+    "body": [["Display", "Configure colors, labels and forecast-result symbology to make projected student changes easier to interpret on the map."]]
+  },
+  {
+    "id": "historical-residence-data",
+    "section": "Forecasts",
+    "title": "Historical Residence Data in Forecast Report",
+    "summary": "Use historical resident data and weighting choices when reviewing forecast reports.",
+    "sourceUrl": "https://ssphelp.mgt.us/forecasts/forecastProperties/historicalData.md",
+    "body": [["Data", "Include one, two or three years of historical resident data in forecast reports."], ["Weighting", "Choose whether to emphasize the most recent year, the least recent year or use no weighting."]]
+  },
+  {
+    "id": "historical-student-data",
+    "section": "Forecasts",
+    "title": "Include Historical Student Data",
+    "summary": "Import historical student data and display it in forecast reports.",
+    "sourceUrl": "https://ssphelp.mgt.us/forecasts/historical/",
+    "body": [["Project setup", "Import historical students through Data Setup for the years required by mobility and enrollment calculations."], ["Report display", "Enable historical student columns in Forecast Reports after the data is imported and validated."]]
+  },
+  {
+    "id": "development-summary",
+    "section": "Forecasts",
+    "title": "Development Summary Report",
+    "summary": "Summarize projected housing development, units and students by phase and year.",
+    "sourceUrl": "https://ssphelp.mgt.us/forecasts/developmentSummary/",
+    "body": [["Purpose", "Review projected development and the students generated by housing phases using forecast and Student Yield Factor inputs."]]
+  },
+  {
+    "id": "project-summary",
+    "section": "Forecasts",
+    "title": "Project Summary Report",
+    "summary": "Review a project-level summary of plans, forecasts, schools and programs.",
+    "sourceUrl": "https://ssphelp.mgt.us/forecasts/projectSummary/",
+    "body": [["Purpose", "The Project Summary Report brings together major project planning outputs for district review and delivery."]]
+  },
+  {
+    "id": "understanding-enrollment",
+    "section": "Forecasts",
+    "title": "Understanding the Enrollment Forecast Report",
+    "summary": "Interpret the tables and methodology behind enrollment forecast results.",
+    "sourceUrl": "https://ssphelp.mgt.us/forecasts/enrollmentForecasts/understandingEnrollment.md",
+    "body": [["Interpretation", "Review enrollment forecast values by school and grade, then compare the method and historical transfer assumptions used to produce the report."]]
+  },
+  {
+    "id": "staffing-forecasts",
+    "section": "Forecasts",
+    "title": "Staffing Forecasts",
+    "summary": "Reference page for staffing-oriented forecast planning.",
+    "sourceUrl": "https://ssphelp.mgt.us/forecasts/forecastProperties/staffingForecasts.md",
+    "body": [["Status", "This source page is a placeholder for staffing forecast guidance and remains included in the documentation index for source compatibility."]]
+  },
+  {
+    "id": "maturation-data",
+    "section": "Forecasts",
+    "title": "Include Maturation Data in Your Forecast",
+    "summary": "Use current housing, planned development, potential development and maturation Student Yield Factors for long-range projections.",
+    "sourceUrl": "https://ssphelp.mgt.us/forecasts/maturation/",
+    "image": { "src": "https://raw.githubusercontent.com/dbutz/SchoolSite-Pro-Docs/main/forecasts/maturation/projmethodology.png", "alt": "Forecast maturation methodology", "caption": "Maturation combines housing and student-yield inputs for long-range projections." },
+    "body": [["Inputs", "Maturation uses current housing, planned development, potential development and maturation Student Yield Factors."], ["Output", "The resulting buildout values extend the forecast beyond the initial housing-development years."]]
+  },
+  {
+    "id": "housing-units",
+    "section": "Forecasts",
+    "title": "More About Current Housing Units",
+    "summary": "Use assessor data and projected housing units to model current and future development.",
+    "sourceUrl": "https://ssphelp.mgt.us/forecasts/maturation/housingUnits.md",
+    "body": [["Assessor data", "Assessor data supplies current housing-unit information used by maturation calculations."], ["Projected units", "Modify projected housing units by type, phase and occupancy year when development assumptions change."]]
+  },
+  {
+    "id": "potential-development",
+    "section": "Forecasts",
+    "title": "More About Potential Development",
+    "summary": "Estimate development potential and enter assumptions for future housing growth.",
+    "sourceUrl": "https://ssphelp.mgt.us/forecasts/maturation/potentialDev.md",
+    "body": [["Calculation", "Potential Development estimates additional units that may be built after known planned projects."], ["Use", "Enter potential development assumptions when long-range planning needs to account for buildout beyond currently identified projects."]]
+  },
+  {
+    "id": "maturation-student-yield",
+    "section": "Forecasts",
+    "title": "More About Maturation Student Yield Factors",
+    "summary": "Calculate and enter Student Yield Factors for fully matured development.",
+    "sourceUrl": "https://ssphelp.mgt.us/forecasts/maturation/matStudentYield.md",
+    "body": [["Calculation", "Maturation Student Yield Factors estimate students associated with housing after development reaches maturity."], ["Entry", "Review calculated values and enter approved factors when district assumptions require an adjustment."]]
+  },
+  {
+    "id": "maturation-concept",
+    "section": "Forecasts",
+    "title": "Maturation Concept",
+    "summary": "Understand how housing occupancy and student yields mature over time.",
+    "sourceUrl": "https://ssphelp.mgt.us/forecasts/maturation/maturationConcept.md",
+    "body": [["Concept", "Maturation models the gradual change from initial occupancy to the expected student population at full development."]]
+  },
+  {
+    "id": "maturation-methodology",
+    "section": "Forecasts",
+    "title": "Maturation Methodology",
+    "summary": "Review the methodology for current housing, planned development, potential development and maturation yields.",
+    "sourceUrl": "https://ssphelp.mgt.us/forecasts/maturation/methodology.md",
+    "body": [["Method", "The methodology combines current housing, known planned units, potential development and maturation Student Yield Factors to calculate long-range student projections."]]
+  },
+  {
+    "id": "distributed-enrollment",
+    "section": "Forecasts",
+    "title": "Distributed Enrollment",
+    "summary": "Distribute mature forecasted students across grades using weighted factors.",
+    "sourceUrl": "https://ssphelp.mgt.us/forecasts/modifyingFactors/distributedEnrollment.md",
+    "body": [["Factors", "Modify grade-level distribution weights for mature enrollment, keeping the configured grade totals consistent."], ["Use", "Distributed enrollment supports forecasts where mature students must be allocated across grade levels for planning."]]
+  },
+  {
+    "id": "birth-factors",
+    "section": "Forecasts",
+    "title": "Kindergarten and Pre-Kindergarten Birth Factors",
+    "summary": "Calculate and enter birth factors for incoming PK and kindergarten students.",
+    "sourceUrl": "https://ssphelp.mgt.us/forecasts/modifyingFactors/KandPKFactors.md",
+    "image": { "src": "https://raw.githubusercontent.com/dbutz/SchoolSite-Pro-Docs/main/forecasts/modifyingFactors/factorImages/pkFactors.png", "alt": "PK and kindergarten factor editor", "caption": "Birth factors drive incoming PK and kindergarten projections." },
+    "body": [["Calculation", "Birth factors use historical births and student counts to estimate incoming PK and kindergarten students."], ["Entry", "Review calculated factors and enter approved values before refreshing the forecast."]]
+  },
+  {
+    "id": "mobility-factors",
+    "section": "Forecasts",
+    "title": "Mobility Factors",
+    "summary": "Calculate mobility from historical student movement into and out of existing housing.",
+    "sourceUrl": "https://ssphelp.mgt.us/forecasts/modifyingFactors/mobilityFactors.md",
+    "body": [["Calculation", "Mobility factors model net student movement associated with existing homes and historical student records."], ["Use", "Review and adjust mobility factors when local enrollment patterns require a district-approved assumption."]]
+  },
+  {
+    "id": "projected-housing",
+    "section": "Forecasts",
+    "title": "Calculating Projected Housing Units",
+    "summary": "Calculate, modify and recalculate projected housing units for forecast phases.",
+    "sourceUrl": "https://ssphelp.mgt.us/forecasts/modifyingFactors/projectedHousing.md",
+    "body": [["Calculation", "Projected Housing Units use tract development phases, unit types and occupancy years to add future housing to the forecast."], ["Modification", "Review unit numbers, recalculate them when assumptions change and create a Development Summary when needed."]]
+  },
+  {
+    "id": "student-counts",
+    "section": "Forecasts",
+    "title": "Student Counts",
+    "summary": "Review and enter current student counts by Study Area and grade.",
+    "sourceUrl": "https://ssphelp.mgt.us/forecasts/modifyingFactors/studentCounts.md",
+    "body": [["Review", "Student Counts are populated from geocoded student data and can be corrected when late or unmatched records need adjustment."], ["Entry", "Enter approved grade-level counts before refreshing a forecast."]]
+  },
+  {
+    "id": "student-yield-factors",
+    "section": "Forecasts",
+    "title": "Student Yield Factors",
+    "summary": "Estimate students generated by recently built housing units.",
+    "sourceUrl": "https://ssphelp.mgt.us/forecasts/modifyingFactors/studentYieldFactors.md",
+    "body": [["Calculation", "Student Yield Factors estimate students per housing unit using recent construction and student data."], ["Entry", "Review or enter approved factors before applying them to projected units."]]
+  },
+  {
+    "id": "creating-forecast-tracts",
+    "section": "Forecasts",
+    "title": "Create Forecast Tracts",
+    "summary": "Prepare tract polygon data for projected housing and development forecasting.",
+    "sourceUrl": "https://ssphelp.mgt.us/forecasts/modifyingFactors/creatingTracts.md",
+    "body": [["Dataset", "Forecast tracts use polygon development areas with project, unit-type, phasing and occupancy attributes."], ["Use", "Prepare tract data before entering projected housing and development assumptions."]]
+  },
+  {
+    "id": "address-directories",
+    "section": "Tools",
+    "title": "SchoolSite Pro Address Directories",
+    "summary": "Create address directories from schools, Study Areas and address or parcel data.",
+    "sourceUrl": "https://ssphelp.mgt.us/tools/addressDirectory.md",
+    "body": [["Inputs", "Address Directory uses Schools, Study Areas and either Address Points or parcel polygons."], ["Output", "Generate a directory table that connects addresses to schools and attendance areas, then export it for district use."]]
+  },
+  {
+    "id": "demographic-reports-source",
+    "section": "Tools",
+    "title": "SchoolSite Pro Demographic Reports",
+    "summary": "Generate demographic reports for selected areas using Esri demographic services.",
+    "sourceUrl": "https://ssphelp.mgt.us/tools/demoReports.md",
+    "body": [["Use", "Select an area on the map and generate population, household and housing context alongside SchoolSite student reports."], ["Requirements", "The tool uses the configured Esri Business Analyst services and organizational credits."]]
+  },
+  {
+    "id": "troubleshoot-bao-report",
+    "section": "Troubleshooting",
+    "title": "Business Analyst Report Is Empty",
+    "summary": "Troubleshoot empty Esri Business Analyst reports.",
+    "sourceUrl": "https://ssphelp.mgt.us/troubleshooting/baoReportEmpty.md",
+    "body": [["Error", "A Business Analyst report may be empty when the selected area, service configuration or available credits do not support the request."], ["Solution", "Verify the selected geography, ArcGIS Online connection, service credits and Business Analyst availability, then run the report again."]]
+  },
+  {
+    "id": "troubleshoot-edit-error",
+    "section": "Troubleshooting",
+    "title": "Edit Error",
+    "summary": "Troubleshoot editing errors while modifying plans or source data.",
+    "sourceUrl": "https://ssphelp.mgt.us/troubleshooting/editError.md",
+    "body": [["Error", "Editing can fail when the map, layer, workspace or current assignment session is not in an editable state."], ["Solution", "Confirm the correct plan is open, stop conflicting edits, verify layer permissions and retry the operation."]]
+  },
+  {
+    "id": "troubleshoot-excel-export",
+    "section": "Troubleshooting",
+    "title": "Export to Excel Error",
+    "summary": "Troubleshoot failures when exporting SchoolSite reports to Excel.",
+    "sourceUrl": "https://ssphelp.mgt.us/troubleshooting/exportToExcelError.md",
+    "body": [["Error", "Excel export can fail when the target file is open, the output folder is unavailable or required fields cannot be written."], ["Solution", "Close the existing workbook, verify the Project home directory and permissions, then export again."]]
+  },
+  {
+    "id": "faq-upgrading-pro",
+    "section": "FAQ",
+    "title": "Upgrading to SchoolSite Pro",
+    "summary": "Reference guidance for upgrading from earlier SchoolSite releases.",
+    "sourceUrl": "https://ssphelp.mgt.us/faq/upgradingToPro.html",
+    "body": [["Upgrade", "Close ArcGIS Pro, install the new signed SchoolSite Pro package and reopen the application before validating project data."], ["After upgrade", "Run Data Setup and review release notes for changes that affect existing plans, forecasts or imported datasets."]]
+  },
   {
     "id": "release-notes",
     "section": "Start here",
