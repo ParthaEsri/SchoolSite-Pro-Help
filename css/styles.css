@@ -1133,9 +1133,11 @@ nav button.active {
 
 .ss-tour-image {
     position: relative;
-    width: 100%;
+    width: min(100%, 880px);
+    max-width: 880px;
     aspect-ratio: 1.88;
     min-height: 0;
+    margin: 0 auto;
 
     display: flex;
     align-items: center;
@@ -1389,6 +1391,87 @@ nav button.active {
     color: var(--soft);
 
     font-size: 13px;
+}
+
+.release-notes-list {
+    position: relative;
+    display: grid;
+    gap: 0;
+    padding-left: 28px;
+}
+
+.release-notes-list::before {
+    content: "";
+    position: absolute;
+    top: 18px;
+    bottom: 18px;
+    left: 10px;
+    width: 2px;
+    background: var(--green);
+}
+
+.article .release-note {
+    position: relative;
+    padding: 28px 24px 30px;
+    border: 1px solid var(--line);
+    border-left: 0;
+    background: rgba(255, 255, 255, .72);
+}
+
+.article .release-note::before {
+    content: "";
+    position: absolute;
+    top: 31px;
+    left: -24px;
+    width: 10px;
+    height: 10px;
+    border: 3px solid var(--green);
+    border-radius: 50%;
+    background: #FFFFFF;
+}
+
+.release-note-heading {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.release-note-label {
+    color: var(--green);
+    font: 10px var(--mono);
+    letter-spacing: .05em;
+}
+
+.release-note h2 {
+    margin: 7px 0 0;
+    font-size: 23px;
+}
+
+.release-note time {
+    flex: 0 0 auto;
+    color: var(--soft);
+    font: 12px var(--mono);
+}
+
+.release-note-description {
+    margin: 16px 0 0;
+    color: var(--soft);
+}
+
+.release-note ul {
+    margin: 16px 0 0;
+    padding-left: 20px;
+}
+
+.release-note li + li {
+    margin-top: 8px;
+}
+
+.release-note-empty {
+    margin: 16px 0 0;
+    color: var(--soft);
+    font-style: italic;
 }
 
 .arrow {
@@ -1657,6 +1740,9 @@ nav button.active {
     margin: 10px 0 12px;
 
     font-size: 44px;
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--ink);
 }
 
 .article-lead {
@@ -1664,14 +1750,16 @@ nav button.active {
 
     border-bottom: 1px solid var(--line);
 
-    color: var(--soft);
-
+    color: var(--ink);
     font-size: 17px;
+    font-weight: 700;
+    line-height: 1.6;
 }
 
 .article-image {
-    max-width: 920px;
-    margin: 28px 0 34px;
+    width: min(100%, 820px);
+    max-width: 820px;
+    margin: 28px auto 34px;
     padding: 10px;
     border: 1px solid var(--line);
     border-radius: 12px;
@@ -1682,7 +1770,7 @@ nav button.active {
 .article-image img {
     width: 100%;
     height: auto;
-    max-height: 560px;
+    max-height: 440px;
     display: block;
     object-fit: contain;
     border: 0;
@@ -1710,12 +1798,36 @@ nav button.active {
     margin: 0 0 8px;
 
     font-size: 22px;
+    font-weight: 800;
 }
 
 .article section p {
     margin: 0;
-
+    line-height: 1.8;
     color: #354654;
+}
+
+.article section strong {
+    font-weight: 700;
+    color: var(--ink);
+}
+
+.article section p + p,
+.article section p + ul,
+.article section p + ol,
+.article section p + table,
+.article section p + figure,
+.article section ul + p,
+.article section ol + p,
+.article section figure + p {
+    margin-top: 18px;
+}
+
+.article section a {
+    color: var(--green);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
 }
 
 .article section ul,
@@ -1725,8 +1837,60 @@ nav button.active {
     color: #354654;
 }
 
+.article section ul ul,
+.article section ul ol,
+.article section ol ul,
+.article section ol ol {
+    margin-top: 8px;
+}
+
 .article section li + li {
     margin-top: 8px;
+}
+
+.article section table {
+    width: 100%;
+    margin-top: 18px;
+    border-collapse: collapse;
+    border: 1px solid var(--line-dark);
+    background: #fff;
+    table-layout: fixed;
+}
+
+.article section th,
+.article section td {
+    padding: 10px 12px;
+    border: 1px solid var(--line-dark);
+    vertical-align: top;
+    text-align: left;
+    color: #354654;
+}
+
+.article section th {
+    background: #F3F7F9;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.article section td:first-child {
+    width: 84px;
+    min-width: 84px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 28px;
+    line-height: 1;
+    color: #2f4557;
+}
+
+.article section figure + p,
+.article section p + figure,
+.article section ul + p,
+.article section p + ul,
+.article section ol + p,
+.article section p + ol,
+.article section table + p,
+.article section p + table {
+    margin-top: 18px;
 }
 
 .article-nav {
@@ -2614,6 +2778,15 @@ footer {
 
     .article h1 {
         font-size: 34px;
+    }
+
+    .release-note-heading {
+        display: block;
+    }
+
+    .release-note time {
+        display: block;
+        margin-top: 8px;
     }
 
     .article-nav {

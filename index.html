@@ -103,6 +103,7 @@
   </div>
 </div>
 
+<script src="js/docs.js"></script>
 <script src="js/data.js"></script>
 <script>
 const RELEASE = window.SCHOOL_SITE_RELEASE;
@@ -209,9 +210,7 @@ function renderHome() {
           </h1>
 
           <p class="ss-hero-description">
-            SchoolSite Pro brings school planning, forecasting,
-            redistricting and analysis together inside ArcGIS Pro —
-            with the documentation built directly into the experience.
+           SchoolSite Pro is the planning tool developed and used in-house by MGT staff and also empowers school planners with GIS experience to create student forecasts and attendance area redistricting plans. As an extension for Esri’s ArcGIS Pro, SchoolSite Pro allows users to compare their plans with the wealth of GIS data available to planners and perform powerful analysis.
           </p>
 
           <div class="ss-hero-actions">
@@ -885,18 +884,210 @@ function renderDocs(){
 }
 
 function articleContentText(content) {
- if (content && typeof content === 'object') {
-   return [content.text || '', ...(content.items || [])].join(' ');
- }
- return String(content || '');
+  if (Array.isArray(content)) {
+    return content.map(item => articleContentText(item)).join(' ');
+  }
+
+  if (content && typeof content === 'object') {
+    if (content.type === 'image') {
+      return [content.alt || '', content.caption || '', content.src || ''].join(' ');
+    }
+
+    if (content.type === 'table') {
+      const rows = content.rows || [];
+      return rows.flat().map(item => articleContentText(item)).join(' ');
+    }
+
+    if (content.type === 'list' || content.type === 'steps' || content.type === 'ordered') {
+      return (content.items || []).map(item => articleContentText(item)).join(' ');
+    }
+
+    if (content.blocks) {
+      return content.blocks.map(item => articleContentText(item)).join(' ');
+    }
+
+    if (content.items) {
+      return content.items.map(item => articleContentText(item)).join(' ');
+    }
+
+    if (content.text) {
+      return String(content.text || '');
+    }
+
+    return Object.values(content).map(item => articleContentText(item)).join(' ');
+  }
+
+  return String(content || '');
+}
+
+function looksLikeListText(text) {
+  return /(?:^|\n)\s*(?:[-*•]|\d+\.)\s+/m.test(text);
+}
+
+function parseListText(text) {
+  return text
+    .split(/\n+/)
+    .map(line => line.trim())
+    .filter(Boolean)
+    .map(line => {
+      const match = line.match(/^(?:[-*•]|\d+\.)\s+(.*)$/);
+      return match ? match[1].trim() : line;
+    })
+    .filter(Boolean);
+}
+
+function resolveTextValue(value) {
+  if (value == null) return '';
+  if (typeof value === 'string') return value.trim();
+  if (Array.isArray(value)) return value.map(resolveTextValue).filter(Boolean).join(' ');
+  if (typeof value === 'object') {
+    if (value.text) return resolveTextValue(value.text);
+    if (value.label) return resolveTextValue(value.label);
+    if (value.title) return resolveTextValue(value.title);
+    return Object.values(value).map(resolveTextValue).filter(Boolean).join(' ');
+  }
+  return String(value).trim();
+}
+
+function formatInlineRichText(value) {
+  const text = String(value ?? '');
+
+  if (!text) {
+    return '';
+  }
+
+  const parts = text.split(/(\*\*[^*]+\*\*|__[^_]+__)/g).filter(Boolean);
+  const formatted = parts.map(part => {
+    const match = part.match(/^\*\*(.+)\*\*$|^__(.+)__$|^(.+)$/);
+
+    if (match) {
+      const strongValue = match[1] ?? match[2];
+
+      if (strongValue !== undefined) {
+        return `<strong>${escapeHtml(strongValue)}</strong>`;
+      }
+    }
+
+    return escapeHtml(part);
+  }).join('');
+
+  return formatted
+    .replace(/"([^"]+)"/g, '“$1”')
+    .replace(/'([^']+)'/g, '‘$1’');
+}
+
+function renderListItem(item, ordered) {
+  if (typeof item === 'string') {
+    return `<li>${formatInlineRichText(item.trim())}</li>`;
+  }
+
+  if (Array.isArray(item)) {
+    return item.map(part => renderListItem(part, ordered)).join('');
+  }
+
+  if (item && typeof item === 'object') {
+    const textValue = resolveTextValue(item);
+    const labelText = textValue && textValue !== '[object Object]' ? textValue : 'Item';
+    const label = item.href
+      ? `<a href="${escapeHtml(item.href)}" onclick="${escapeHtml(item.onClick || '')}">${formatInlineRichText(labelText)}</a>`
+      : formatInlineRichText(labelText);
+    const children = item.subitems || item.items || item.children || [];
+    const nested = children.length ? `<${ordered ? 'ol' : 'ul'}>${children.map(child => renderListItem(child, item.ordered || ordered)).join('')}</${ordered ? 'ol' : 'ul'}>` : '';
+    return `<li>${label}${nested}</li>`;
+  }
+
+  const safe = resolveTextValue(item);
+  return `<li>${formatInlineRichText(safe || 'Item')}</li>`;
+}
+
+function isArticleHeadingText(text) {
+  const value = (text || '').trim();
+
+  if (!value || value.length > 90) {
+    return false;
+  }
+
+  if (/[.!?]/.test(value)) {
+    return false;
+  }
+
+  return !/^\s*[-*•]\s+/.test(value);
+}
+
+function renderStructuredBlock(block) {
+  if (Array.isArray(block)) {
+    return block.map(item => renderStructuredBlock(item)).join('');
+  }
+
+  if (typeof block === 'string') {
+    const trimmed = block.trim();
+    if (!trimmed) {
+      return '';
+    }
+    if (looksLikeListText(trimmed)) {
+      return `<ul>${parseListText(trimmed).map(item => renderListItem(item, false)).join('')}</ul>`;
+    }
+    return `<p>${formatInlineRichText(trimmed)}</p>`;
+  }
+
+  if (!block || typeof block !== 'object') {
+    return '';
+  }
+
+  if (block.type === 'image') {
+    return `<figure class="article-image"><img src="${escapeHtml(block.src || '')}" alt="${escapeHtml(block.alt || '')}"><figcaption>${escapeHtml(block.caption || '')}</figcaption></figure>`;
+  }
+
+  if (block.type === 'table') {
+    const headers = block.headers || [];
+    const rows = block.rows || [];
+    const headerHtml = headers.length ? `<thead><tr>${headers.map(h => `<th>${escapeHtml(String(h))}</th>`).join('')}</tr></thead>` : '';
+    const bodyHtml = rows.length ? `<tbody>${rows.map(row => `<tr>${(row || []).map(cell => `<td>${escapeHtml(String(cell ?? ''))}</td>`).join('')}</tr>`).join('')}</tbody>` : '';
+    return `<table class="article-table">${headerHtml}${bodyHtml}</table>`;
+  }
+
+  if (block.type === 'paragraph' || block.text) {
+    const text = block.text || block.content || '';
+    if (isArticleHeadingText(text)) {
+      return `<p><strong>${formatInlineRichText(text)}</strong></p>`;
+    }
+    return `<p>${formatInlineRichText(text)}</p>`;
+  }
+
+  if (block.type === 'list' || block.type === 'steps' || block.type === 'ordered' || block.items) {
+    const ordered = block.type === 'steps' || block.type === 'ordered' || block.ordered;
+    const items = block.items || [];
+    return `<${ordered ? 'ol' : 'ul'}>${items.map(item => renderListItem(item, ordered)).join('')}</${ordered ? 'ol' : 'ul'}>`;
+  }
+
+  if (block.type === 'section' || block.blocks) {
+    return (block.blocks || []).map(item => renderStructuredBlock(item)).join('');
+  }
+
+  return '';
+}
+
+function renderArticleSection(heading, content) {
+  const items = Array.isArray(content) ? content : [content];
+  const sectionContent = items.map(item => renderStructuredBlock(item)).filter(Boolean).join('');
+
+  if (!sectionContent) {
+    return '';
+  }
+
+  return `<section>${heading ? `<h2>${escapeHtml(heading)}</h2>` : ''}${sectionContent}</section>`;
 }
 
 function filterDocs(q){
- const list=docs.filter(d=>(d.title+' '+d.summary+' '+d.section+' '+d.body.map(x=>articleContentText(x[1])).join(' ')).toLowerCase().includes(q.toLowerCase()));
+ const list=docs.filter(d=>(d.title+' '+d.summary+' '+d.section+' '+(Array.isArray(d.body) ? d.body.map(x=>articleContentText(x[1])).join(' ') : '')).toLowerCase().includes(q.toLowerCase()));
  document.getElementById('docList').innerHTML=list.map(d=>`<button class="doc-row" onclick="route('doc','${d.id}')"><div><span class="doc-section">${d.section}</span><h3>${d.title}</h3><p>${d.summary}</p></div><span>→</span></button>`).join('') || '<div class="empty">No documentation matched your search.</div>';
 }
 function renderDoc(id){
  const d=docs.find(x=>x.id===id)||docs[0]; currentDoc=d;
+ if (id === 'release-notes') {
+   renderReleaseNotes();
+   return;
+ }
  document.getElementById('appMain').innerHTML=`
  <section class="article-wrap"><div class="breadcrumbs"><button onclick="route('docs')">Documentation</button><span>/</span><span>${d.section}</span></div>
  <article class="article"><span class="eyebrow">${d.section.toUpperCase()}</span><h1>${d.title}</h1><p class="article-lead">${d.summary}</p>
@@ -906,29 +1097,24 @@ function renderDoc(id){
  </article></section>`;
 }
 
-// Render legacy content as readable sections while allowing future records to
-// use explicit paragraph, list, or steps blocks without changing the page shell.
-function renderArticleSection(heading, content) {
-  if (content && typeof content === 'object') {
-    if (content.type === 'list') {
-      return `<section><h2>${escapeHtml(heading)}</h2><ul>${content.items.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul></section>`;
-    }
-
-    if (content.type === 'steps') {
-      return `<section><h2>${escapeHtml(heading)}</h2><ol>${content.items.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ol></section>`;
-    }
-
-    content = content.text || '';
-  }
-
-  const text = String(content || '');
-  const items = text.split(';').map(item => item.trim()).filter(Boolean);
-
-  if (items.length > 1) {
-    return `<section><h2>${escapeHtml(heading)}</h2><ul>${items.map(item => `<li>${escapeHtml(item)}</li>`).join('')}</ul></section>`;
-  }
-
-  return `<section><h2>${escapeHtml(heading)}</h2><p>${escapeHtml(text)}</p></section>`;
+function renderReleaseNotes() {
+ document.getElementById('appMain').innerHTML=`
+ <section class="article-wrap"><div class="breadcrumbs"><button onclick="route('docs')">Documentation</button><span>/</span><span>Start here</span></div>
+ <article class="article release-notes-article"><span class="eyebrow">START HERE</span><h1>Release Notes</h1><p class="article-lead">Current build changes and recent feature history.</p>
+ <div class="release-notes-list">
+   ${window.SCHOOL_SITE_RELEASE_NOTES.map(release => `
+     <section class="release-note">
+       <div class="release-note-heading">
+         <div><span class="release-note-label">RELEASE</span><h2>Build ${escapeHtml(release.version)}</h2></div>
+         <time>${escapeHtml(release.date)}</time>
+       </div>
+       <p class="release-note-description">${escapeHtml(release.description)}</p>
+       ${release.features.length ? `<ul>${release.features.map(feature => `<li>${escapeHtml(feature)}</li>`).join('')}</ul>` : '<p class="release-note-empty">No additional feature notes were recorded for this release.</p>'}
+     </section>
+   `).join('')}
+ </div>
+ <div class="article-nav"><button class="secondary" onclick="route('docs')">← All documentation</button><button class="primary" onclick="route('download')">Download latest build →</button></div>
+ </article></section>`;
 }
 
 /* Toolkit browsing and category filtering. */
