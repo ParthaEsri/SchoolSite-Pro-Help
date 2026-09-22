@@ -9,7 +9,7 @@ window.SCHOOL_SITE_DOCS = [
         "SchoolSite Pro for ArcGIS Pro 3.3+",
         [
           { "type": "paragraph", "text": "SchoolSite Pro is the planning tool developed and used in-house by MGT staff and also empowers school planners with GIS experience to create student forecasts and attendance-area redistricting plans." },
-          { "type": "paragraph", "text": "It runs as an extension for Esriâ€™s ArcGIS Pro and helps planners compare planning scenarios with GIS data for analysis and decision-making." }
+          { "type": "paragraph", "text": "It runs as an extension for Esri’s  ArcGIS Pro and helps planners compare planning scenarios with GIS data for analysis and decision-making." }
         ]
       ],
       [
@@ -83,16 +83,16 @@ window.SCHOOL_SITE_DOCS = [
       [
         "Overview of the SchoolSite ribbon",
         [
-          { "type": "image", "src": "https://raw.githubusercontent.com/dbutz/SchoolSite-Pro-Docs/main/images/SchoolSite.png", "alt": "SchoolSite Pro ribbon in ArcGIS Pro", "caption": "SchoolSite Pro runs as an extension inside ArcGIS Pro." }
+          { "type": "image", "src": "assets/images/SchoolSite.png", "alt": "SchoolSite Pro ribbon in ArcGIS Pro", "caption": "SchoolSite Pro runs as an extension inside ArcGIS Pro." }
         ]
       ],
       [
         "Installation & System requirements",
         [
-          { "type": "paragraph", "text": "SchoolSite Pro works as a configuration to ArcGIS Pro. You must install ArcGIS Pro first in order to install SchoolSite Pro. Please visit Esriâ€™s website for detailed instructions on how to install ArcGIS Pro, including system requirements and Esriâ€™s licensing information." },
-          { "type": "paragraph", "text": "SchoolSite Pro system requirements generally follow the same requirements as specified for ArcGIS Pro in terms of required memory, CPU, and graphics abilities. Please refer to Esriâ€™s documentation and whenever possible, use a computer that exceeds the minimum requirements." },
+          { "type": "paragraph", "text": "SchoolSite Pro works as a configuration to ArcGIS Pro. You must install ArcGIS Pro first in order to install SchoolSite Pro. Please visit Esri’s  website for detailed instructions on how to install ArcGIS Pro, including system requirements and Esri’s  licensing information." },
+          { "type": "paragraph", "text": "SchoolSite Pro system requirements generally follow the same requirements as specified for ArcGIS Pro in terms of required memory, CPU, and graphics abilities. Please refer to Esri’s  documentation and whenever possible, use a computer that exceeds the minimum requirements." },
           { "type": "paragraph", "text": "SchoolSite Pro currently works with Windows 10 or Windows 11 and is built for the latest version of ArcGIS Pro. It will most likely work with previous minor releases. For example, if SchoolSite Pro is built on ArcGIS Pro 3.3 then it should work with any 3.x release such as 3.0 or the not yet released 3.3 or 3.4 in the future." },
-          { "type": "paragraph", "text": "You can download the latest version of SchoolSite Pro from this website, look for the â€˜Download SchoolSite Proâ€™ button in the top banner." }
+          { "type": "paragraph", "text": "You can download the latest version of SchoolSite Pro from this website, look for the Download SchoolSite Pro button in the top banner." }
         ]
       ],
       [
@@ -132,7 +132,7 @@ window.SCHOOL_SITE_DOCS = [
     "title": "Manage your data",
     "summary": "Prepare, create, import, and validate the district data used by SchoolSite Pro.",
     "image": {
-      "src": "https://raw.githubusercontent.com/dbutz/SchoolSite-Pro-Docs/main/dataManagement/validateData/datasetup.png",
+      "src": "assets/images/datasetup.png",
       "alt": "SchoolSite Pro Data Setup panel",
       "caption": "Data Setup validates the datasets used by SchoolSite Pro."
     },
@@ -174,7 +174,7 @@ window.SCHOOL_SITE_DOCS = [
     "title": "Organizing your data",
     "summary": "A practical structure for GIS data, school years, maps, forecasts, and redistricting plans.",
     "image": {
-      "src": "https://raw.githubusercontent.com/dbutz/SchoolSite-Pro-Docs/main/dataManagement/organizingData.PNG",
+      "src": "assets/images/organizingData.PNG",
       "alt": "Recommended SchoolSite Pro data organization",
       "caption": "A school-year folder structure keeps source data and planning outputs organized."
     },
@@ -232,7 +232,7 @@ window.SCHOOL_SITE_DOCS = [
     "title": "What are Study Areas?",
     "summary": "Study Areas are the geographic building blocks used to collect data and model attendance boundaries.",
     "image": {
-      "src": "https://raw.githubusercontent.com/dbutz/SchoolSite-Pro-Docs/main/dataManagement/studyareas.png",
+      "src": "assets/images/studyareas.png",
       "alt": "Study Area polygons in SchoolSite Pro",
       "caption": "Study Areas provide the geographic units used for student and boundary analysis."
     },
@@ -283,7 +283,7 @@ window.SCHOOL_SITE_DOCS = [
     "title": "SchoolSite Pro Redistricting Plans",
     "summary": "Create, compare, modify, analyze and share attendance-boundary scenarios.",
     "image": {
-      "src": "https://raw.githubusercontent.com/dbutz/SchoolSite-Pro-Docs/main/images/Assign.png",
+      "src": "assets/images/Assign.png",
       "alt": "SchoolSite Pro redistricting Assign ribbon",
       "caption": "The Assign ribbon contains the core redistricting controls."
     },
@@ -340,7 +340,7 @@ window.SCHOOL_SITE_DOCS = [
     "title": "A tour of the redistricting ribbon",
     "summary": "Use the Statistics Window and Assign ribbon to inspect and change attendance areas.",
     "image": {
-      "src": "https://ssphelp.mgt.us/images/Assign.png",
+      "src": "assets/images/Assign.png",
       "alt": "SchoolSite Pro Assign ribbon",
       "caption": "The following is a brief tour of the basics of Redistricting in SchoolSite Pro."
     },
@@ -361,7 +361,7 @@ window.SCHOOL_SITE_DOCS = [
             "Be sure the Grade Distribution button is selected under the section \"Statistics Type\".",
             "For this example, check mark the grade range K-6 in the Grade Ranges box. The grades included in the ranges will automatically be checked. To display only grades K and 6, click Select None in the top right corner, then check grades K and 6 in the Grades section and the table should automatically update."
           ] },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/viewSchools.png", "alt": "Statistics Window showing current school data", "caption": "The Current Statistics Window shows current statistics based on boundaries shown." },
+          { "type": "image", "src": "assets/images/viewSchools.png", "alt": "Statistics Window showing current school data", "caption": "The Current Statistics Window shows current statistics based on boundaries shown." },
           { "type": "paragraph", "text": "If you want to modify these boundaries, start by reassigning study areas. Study Areas are geographically defined, following logical boundaries of a neighborhood and are used for gathering data. In SchoolSite, attendance area changes are simulated by assigning study areas to different school attendance areas. See topic \"Changing Boundaries Between Schools\" for more information." }
         ]
       ],
@@ -372,8 +372,8 @@ window.SCHOOL_SITE_DOCS = [
             "Contents Pane > Right click on Boundary Plan > Label.",
             "Your map now displays the names of your school attendance areas!"
           ] },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/label.png", "alt": "Boundary Plan label menu", "caption": "Turn on labels for the boundary plan." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/label2.png", "alt": "School attendance labels on the map", "caption": "The map displays the names of the school attendance areas." }
+          { "type": "image", "src": "assets/images/label.png", "alt": "Boundary Plan label menu", "caption": "Turn on labels for the boundary plan." },
+          { "type": "image", "src": "assets/images/label2.png", "alt": "School attendance labels on the map", "caption": "The map displays the names of the school attendance areas." }
         ]
       ],
       [
@@ -386,13 +386,13 @@ window.SCHOOL_SITE_DOCS = [
             "Next, in the Select drop down menu choose Select by Lasso.",
             "Click and draw a loop within the study areas to be reassigned to Harding ES. The plan should appear similar to the screenshot below."
           ] },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/selectLasso.png", "alt": "Lasso selection in the redistricting Assign ribbon", "caption": "Use the lasso to select study areas to reassign." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/hardingES.png", "alt": "Study areas selected for reassignment to Harding ES", "caption": "The selected study areas are highlighted in bright blue before reassignment." },
+          { "type": "image", "src": "assets/images/selectLasso.png", "alt": "Lasso selection in the redistricting Assign ribbon", "caption": "Use the lasso to select study areas to reassign." },
+          { "type": "image", "src": "assets/images/hardingES.png", "alt": "Study areas selected for reassignment to Harding ES", "caption": "The selected study areas are highlighted in bright blue before reassignment." },
           { "type": "paragraph", "text": "Please note: Selecting study areas that are already assigned to Harding ES will not change after reassigning them to Harding ES." },
           { "type": "paragraph", "text": "To see how the reassignment of the selected study areas would affect that school, open the Statistics Table and click on the Proposed Tab." },
           { "type": "paragraph", "text": "To view only the statistics for the selected study areas, click on the Selected Tab." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/proposed.png", "alt": "Proposed residence tab for selected study areas", "caption": "The selected study areas are highlighted in bright blue." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/selectedResidence.png", "alt": "Selected tab in the Statistics Window", "caption": "The selected tab shows the statistics for the current selection." }
+          { "type": "image", "src": "assets/images/proposed.png", "alt": "Proposed residence tab for selected study areas", "caption": "The selected study areas are highlighted in bright blue." },
+          { "type": "image", "src": "assets/images/selectedResidence.png", "alt": "Selected tab in the Statistics Window", "caption": "The selected tab shows the statistics for the current selection." }
         ]
       ],
       [
@@ -405,7 +405,7 @@ window.SCHOOL_SITE_DOCS = [
             "If necessary click on Show Statistics, the Current Residence Tab reflects the update.",
             "To review the original statistics when the plan was first created, click on the Original Residence tab."
           ] },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/assignStudyArea.png", "alt": "Assign Studyareas button", "caption": "Use the assignment tools to commit boundary changes and save the plan." }
+          { "type": "image", "src": "assets/images/assignStudyArea.png", "alt": "Assign Studyareas button", "caption": "Use the assignment tools to commit boundary changes and save the plan." }
         ]
       ]
     ]
@@ -416,7 +416,7 @@ window.SCHOOL_SITE_DOCS = [
     "title": "Create a new redistricting plan",
     "summary": "Three supported plan types: current residence, resident + current enrollment, and forecast-based planning.",
     // "image": {
-    //   "src": "https://ssphelp.mgt.us/redistricting/createPlan/planImages/plan.png",
+    //   "src": "assets/images/plan.png",
     //   "alt": "SchoolSite Pro Create Plan dialog",
     //   "caption": "Choose the plan type and enter a name to create a redistricting plan."
     // },
@@ -425,7 +425,7 @@ window.SCHOOL_SITE_DOCS = [
         "Create a new redistricting plan | SchoolSite Pro for ArcGIS Pro 3.3+",
         [
           { "type": "paragraph", "text": "To begin a new redistricting plan, on the SchoolSite ribbon, click Create, then Plan." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/createPlan/planImages/plan.png", "alt": "Create Plan dialog in SchoolSite Pro", "caption": "The Create dockpane will display." },
+          { "type": "image", "src": "assets/images/plan.png", "alt": "Create Plan dialog in SchoolSite Pro", "caption": "The Create dockpane will display." },
           { "type": "paragraph", "text": "Three types of plans can be created in SchoolSite Pro:" }
         ]
       ],
@@ -435,7 +435,7 @@ window.SCHOOL_SITE_DOCS = [
           { "type": "paragraph", "text": "A redistricting plan based on current resident students displays the number of students residing within each attendance area whether or not they are enrolled in the area?s assigned school." },
           { "type": "paragraph", "text": "As attendance areas are modified, all students residing in the selected areas are moved to the newly assigned school of attendance." },
           { "type": "paragraph", "text": "This selection is most useful for facility planning and for understanding the true impact of student population distribution in relation to school locations." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/createPlan/planImages/adamESCurrent.png", "alt": "Current residence redistricting plan example", "caption": "Current residence plan results show resident students in each attendance area." }
+          { "type": "image", "src": "assets/images/adamESCurrent.png", "alt": "Current residence redistricting plan example", "caption": "Current residence plan results show resident students in each attendance area." }
         ]
       ],
       [
@@ -451,7 +451,7 @@ window.SCHOOL_SITE_DOCS = [
           { "type": "paragraph", "text": "A redistricting plan based on projected resident students displays the current and forecasted resident student population of each attendance area." },
           { "type": "paragraph", "text": "The statistics presented in this plan illustrate the true growth and decline of the student population within areas of the District and are useful for school opening and closure analysis as well as defining attendance areas that match forecasted resident population with school site capacities around the District." },
           { "type": "paragraph", "text": "This is the proper method for long-term facility and attendance area planning." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/createPlan/planImages/forecastPlan.png", "alt": "Forecast redistricting plan example", "caption": "Forecast-based plans help evaluate long-range facility and attendance-area planning." }
+          { "type": "image", "src": "assets/images/forecastPlan.png", "alt": "Forecast redistricting plan example", "caption": "Forecast-based plans help evaluate long-range facility and attendance-area planning." }
         ]
       ],
       [
@@ -460,15 +460,15 @@ window.SCHOOL_SITE_DOCS = [
           { "type": "paragraph", "text": "You can also create new plans by copying an existing redistricting plan." },
           { "type": "paragraph", "text": "This is useful if you want to make some initial basic changes to the boundaries that will apply to all scenarios, and then create variations on top of those changes." },
           { "type": "paragraph", "text": "Copying a Plan is just like copying a map in ArcGIS Pro. From the Catalog pane, open the Maps section and find the map that contains your Plan." },
-          { "type": "image", "src": "https://github.com/dbutz/SchoolSite-Pro-Docs/assets/5185948/d344455f-a3cf-4b4e-b068-bc12f7c913b2", "alt": "Catalog pane showing maps with plans", "caption": "Open the Maps section to find the map containing your redistricting plan." },
+          { "type": "image", "src": "assets/images/catalog-maps-plans.png", "alt": "Catalog pane showing maps with plans", "caption": "Open the Maps section to find the map containing your redistricting plan." },
           { "type": "paragraph", "text": "If you are unsure which maps have Plans, click the Open button from the SchoolSite ribbon to get a specific list of SchoolSite Plans and Forecasts." },
-          { "type": "image", "src": "https://github.com/dbutz/SchoolSite-Pro-Docs/assets/5185948/8053b9c2-59b6-4762-ac54-a633631207eb", "alt": "SchoolSite Open menu listing plans and forecasts", "caption": "Use the Open dialog to identify maps with plans and forecasts." },
+          { "type": "image", "src": "assets/images/schoolsite-open-menu.png", "alt": "SchoolSite Open menu listing plans and forecasts", "caption": "Use the Open dialog to identify maps with plans and forecasts." },
           { "type": "paragraph", "text": "Right-click the map that contains the Plan that you would like to copy and choose Copy. Then, right-click on the Maps folder and click Paste." },
-          { "type": "image", "src": "https://github.com/dbutz/SchoolSite-Pro-Docs/assets/5185948/c4fc05bb-5916-40d5-bbdb-ded4ba04e8da", "alt": "Copy and paste a plan map in ArcGIS Pro", "caption": "Choose Copy on the plan map, then Paste in the Maps folder." },
+          { "type": "image", "src": "assets/images/copy-plan-map.png", "alt": "Copy and paste a plan map in ArcGIS Pro", "caption": "Choose Copy on the plan map, then Paste in the Maps folder." },
           { "type": "paragraph", "text": "A copy of your Plan will appear with the same name and the number ?1? at the end." },
-          { "type": "image", "src": "https://github.com/dbutz/SchoolSite-Pro-Docs/assets/5185948/af087f2c-58f8-4207-a56a-31b220f1bd1a", "alt": "Copied redistricting plan shown in the Maps list", "caption": "The copied plan appears with the same name and a suffix of 1." },
+          { "type": "image", "src": "assets/images/copied-plan-map.png", "alt": "Copied redistricting plan shown in the Maps list", "caption": "The copied plan appears with the same name and a suffix of 1." },
           { "type": "paragraph", "text": "At this time, you can now rename your Plan by simply renaming the map as you would any other map in ArcGIS Pro." },
-          { "type": "image", "src": "https://github.com/dbutz/SchoolSite-Pro-Docs/assets/5185948/da532f6f-026a-442c-85b5-1d42218b4498", "alt": "Renaming a copied redistricting plan map", "caption": "Rename the plan map in ArcGIS Pro to match your new scenario." },
+          { "type": "image", "src": "assets/images/rename-plan-map.png", "alt": "Renaming a copied redistricting plan map", "caption": "Rename the plan map in ArcGIS Pro to match your new scenario." },
           { "type": "paragraph", "text": "SchoolSite Pro will understand that this map contains a plan and will update the Plan?s tables accordingly to update the Plan?s name." }
         ]
       ]
@@ -480,7 +480,7 @@ window.SCHOOL_SITE_DOCS = [
     "title": "Redistrict based on current resident students",
     "summary": "Create a plan using current resident student population by school type.",
     "image": {
-      "src": "https://raw.githubusercontent.com/dbutz/SchoolSite-Pro-Docs/main/redistricting/createPlan/planImages/residencePlan.png",
+      "src": "assets/images/residencePlan.png",
       "alt": "SchoolSite Pro residence-based plan settings",
       "caption": "A residence-based plan uses current resident students by school type."
     },
@@ -530,9 +530,9 @@ window.SCHOOL_SITE_DOCS = [
         [
           { "type": "paragraph", "text": "Please Note: You must first create a forecast before creating a redistricting plan based on a forecast." },
           { "type": "paragraph", "text": "To create a new redistricting plan based on a forecast, on the SchoolSite ribbon, click Create, then Plan. A Create dockpane will display. Make sure the Forecast tab is selected." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/createPlan/planImages/createForecastPlan.png", "alt": "Create forecasting plan screen", "caption": "Select the Forecast tab to begin a forecast-based redistricting plan." },
+          { "type": "image", "src": "assets/images/createForecastPlan.png", "alt": "Create forecasting plan screen", "caption": "Select the Forecast tab to begin a forecast-based redistricting plan." },
           { "type": "paragraph", "text": "Type in the name of your plan and select the type of Plan you wish to create by selecting your District's Elementary, Middle, Intermediate or High School boundaries. You will then select an existing forecast." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/createPlan/planImages/forecastsPlan.png", "alt": "Forecasts selection in the plan creation dialog", "caption": "Choose an existing forecast and then finish creating the redistricting plan." },
+          { "type": "image", "src": "assets/images/forecastsPlan.png", "alt": "Forecasts selection in the plan creation dialog", "caption": "Choose an existing forecast and then finish creating the redistricting plan." },
           { "type": "paragraph", "text": "Click the Finish button when done. The plan will take a few minutes to create. Plan creation for larger school districts take additional time based upon the number of study areas, number of students, number of fields on the student attribute table and the processing power of your computer." }
         ]
       ]
@@ -544,7 +544,7 @@ window.SCHOOL_SITE_DOCS = [
     "title": "Redistrict by changing boundaries and schools",
     "summary": "Reassign Study Areas, add or close schools, and immediately see facility impacts.",
     // "image": {
-    //   "src": "https://ssphelp.mgt.us/images/Assign.png",
+    //   "src": "assets/images/Assign.png",
     //   "alt": "SchoolSite Pro Assign ribbon",
     //   "caption": "Use the Assign ribbon to modify attendance areas and reassign study areas."
     // },
@@ -555,8 +555,8 @@ window.SCHOOL_SITE_DOCS = [
           { "type": "paragraph", "text": "Using a Study/Planning Area map of the District, alternative school boundary plans can initially be developed based on either existing attendance areas, by closest school, by capacity or by a maximum number of students." },
           { "type": "paragraph", "text": "Study Areas can then be individually reassigned to other school locations to balance student population by residence and site capacities. Additional sites can be added simulating the opening of a new school or surplus sites can be deleted simulating the closing of a school." },
           { "type": "paragraph", "text": "As boundaries are modified, classroom requirements to house students at each site are reported by grade level. The user can immediately see the effects on facility needs with each plan. The effect of class size reduction at various grade levels has never been easier!" },
-          { "type": "image", "src": "https://ssphelp.mgt.us/images/Assign.png", "alt": "Assign ribbon in SchoolSite Pro", "caption": "An overview of the Assign ribbon." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/images/Appearance.png", "alt": "Appearance ribbon in SchoolSite Pro", "caption": "An overview of the Appearance ribbon." },
+          { "type": "image", "src": "assets/images/Assign.png", "alt": "Assign ribbon in SchoolSite Pro", "caption": "An overview of the Assign ribbon." },
+          { "type": "image", "src": "assets/images/Appearance.png", "alt": "Appearance ribbon in SchoolSite Pro", "caption": "An overview of the Appearance ribbon." },
           { "type": "paragraph", "text": "Additional topics:" },
           { "type": "list", "items": [
             { "text": "Change boundaries between schools", "href": "#doc/change-boundaries", "onClick": "event.preventDefault(); route('doc', 'change-boundaries');" },
@@ -575,7 +575,7 @@ window.SCHOOL_SITE_DOCS = [
     "title": "Share your redistricting plan",
     "summary": "Export plan outputs and prepare results for stakeholders.",
     // "image": {
-    //   "src": "https://ssphelp.mgt.us/images/Share.png",
+    //   "src": "assets/images/Share.png",
     //   "alt": "SchoolSite Pro Share ribbon",
     //   "caption": "Share or export a completed redistricting plan."
     // },
@@ -586,7 +586,7 @@ window.SCHOOL_SITE_DOCS = [
           { "type": "paragraph", "text": "SchoolSite Pro and Esri offer multiple ways to share your redistricting plan." },
           { "type": "paragraph", "text": "The best way to publish and share your redistricting plan online is by sharing it as a web map or as a web layer. Sharing your data as a web map means that your plan is uploaded online as a whole map, preserving things like layer symbology and including all layers within that map. Sharing your data as a web layer means that your plan is uploaded online as a single layer of data. A web map is composed of web layers." },
           { "type": "paragraph", "text": "To do this, go to the first share ribbon. In the Share As section, select either Web Map or Web Layer. A dockpane will appear." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/images/Share.png", "alt": "Share ribbon in SchoolSite Pro", "caption": "Select Web Map or Web Layer from the Share ribbon to publish the plan." },
+          { "type": "image", "src": "assets/images/Share.png", "alt": "Share ribbon in SchoolSite Pro", "caption": "Select Web Map or Web Layer from the Share ribbon to publish the plan." },
           { "type": "paragraph", "text": "ArcGIS Online or ArcGIS Enterprise options:" },
           { "type": "paragraph", "text": "Share as Web Map:" },
           { "type": "list", "items": [
@@ -635,7 +635,7 @@ window.SCHOOL_SITE_DOCS = [
     "title": "The Statistics Window",
     "summary": "Inspect student counts and attendance-area totals while developing a plan.",
     "image": {
-      "src": "https://raw.githubusercontent.com/dbutz/SchoolSite-Pro-Docs/main/redistricting/statistics/statImages/statsCurrent.png",
+      "src": "assets/images/statsCurrent.png",
       "alt": "SchoolSite Pro Statistics Window",
       "caption": "Configure the Statistics Window to monitor plan totals while editing."
     },
@@ -648,7 +648,7 @@ window.SCHOOL_SITE_DOCS = [
           { "type": "paragraph", "text": "The Statistics Window allows you to analyze your boundary scenarios based on various student attributes such as grade, ethnicity, loading standards, and projected student residence." },
           { "type": "paragraph", "text": "The settings you choose will be displayed in the statistics table." },
           { "type": "paragraph", "text": "To access the Statistics Window, go to the redistricting ribbon and click Statistics Window." },
-          { "type": "image", "src": "https://github.com/dbutz/SchoolSite-Pro-Docs/assets/5185948/46aae42f-ab78-4470-b6e1-c8b076d87266", "alt": "Statistics Window in SchoolSite Pro", "caption": "The Statistics Window is divided into Select Schools, Select Grades, Select Grade Ranges, and Select Statistic Type." },
+          { "type": "image", "src": "assets/images/statistics-window.png", "alt": "Statistics Window in SchoolSite Pro", "caption": "The Statistics Window is divided into Select Schools, Select Grades, Select Grade Ranges, and Select Statistic Type." },
           { "type": "paragraph", "text": "The Statistics Tab window is divided into four main sections: Select Schools, Select Grades, Select Grade Ranges, and Select Statistic Type." },
           { "type": "paragraph", "text": "Select Schools" },
           { "type": "paragraph", "text": "From the list, choose which schools to display statistics for by checking the box next to each school name. To select all school names, click Select All. To unselect all school names, click on Select None." },
@@ -673,7 +673,7 @@ window.SCHOOL_SITE_DOCS = [
           { "type": "paragraph", "text": "Other Information" },
           { "type": "paragraph", "text": "Forecast Year" },
           { "type": "paragraph", "text": "If you created your plan based on forecast data, you can select the pull-down menu in the Statistics tab, and select any year of the forecast to report (including maturation) to view it in the Statistics Window. This is useful for creating one future boundary plan and quickly viewing the forecasted number of students for this plan in various future years." },
-          { "type": "image", "src": "https://github.com/dbutz/SchoolSite-Pro-Docs/assets/5185948/d6a3c5d4-78c9-4aa4-b5cc-02b0b6be37f5", "alt": "Forecast year selection in the Statistics Window", "caption": "Use the forecast year drop-down to review future-year plan results." },
+          { "type": "image", "src": "assets/images/forecast-year-selection.png", "alt": "Forecast year selection in the Statistics Window", "caption": "Use the forecast year drop-down to review future-year plan results." },
           { "type": "paragraph", "text": "Please note: If your Statistics Window has no grade ranges specified, then the Projection Summary Report will display either PK-12 or K-12 by default, depending on whether or not you chose to include PK students during plan creation." }
         ]
       ]
@@ -685,7 +685,7 @@ window.SCHOOL_SITE_DOCS = [
     "title": "Statistics Window Tabs",
     "summary": "Different tabs expose different views of district student data.",
     "image": {
-      "src": "https://ssphelp.mgt.us/redistricting/statistics/statImages/statsCurrent.png",
+      "src": "assets/images/statsCurrent.png",
       "alt": "Current Residence tab in the Statistics Window",
       "caption": "Current Residence shows the resident counts before assignments are applied."
     },
@@ -696,22 +696,22 @@ window.SCHOOL_SITE_DOCS = [
           { "type": "paragraph", "text": "The Statistics Window has multiple tabs. Each tab displays your district’s data in a different way. The numbers in each tab can help you better understand the number of students in your district." },
           { "type": "paragraph", "text": "Current residence tab" },
           { "type": "paragraph", "text": "The Current Residence Tab allows you to preview the statistics before making changes to a plan. The first tab, current residence, shows the number of students by residence before you assign any selected study areas. Once you assign the selected study areas however, the current residence window updates to reflect the adjustment." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/statistics/statImages/statsCurrent.png", "alt": "Current Residence", "caption": "Current Residence shows resident counts before changes are applied." },
+          { "type": "image", "src": "assets/images/statsCurrent.png", "alt": "Current Residence", "caption": "Current Residence shows resident counts before changes are applied." },
           { "type": "paragraph", "text": "Proposed residence tab" },
           { "type": "paragraph", "text": "The Proposed Residence Tab displays the changes in resident enrollment based on changes in selected study area assignments. They represent what the changes would be to the plan before you actually commit the changes. After you assign the changes, the current residence will update to reflect what was in the proposed residence." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/statistics/statImages/proposed.png", "alt": "Proposed Residence", "caption": "Proposed Residence previews the impact of pending assignments before they are committed." },
+          { "type": "image", "src": "assets/images/proposed.png", "alt": "Proposed Residence", "caption": "Proposed Residence previews the impact of pending assignments before they are committed." },
           { "type": "paragraph", "text": "Selected tab" },
           { "type": "paragraph", "text": "The Selected Tab shows the number of students living in the study areas currently selected and waiting to be reassigned. It indicates the number of students in all selected study areas. The difference between current resident school numbers and proposed resident school numbers is the number of students in the Selected tab." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/statistics/statImages/selectedResidence.png", "alt": "Selected Residence", "caption": "Selected shows students in the currently selected study areas waiting to be reassigned." },
+          { "type": "image", "src": "assets/images/selectedResidence.png", "alt": "Selected Residence", "caption": "Selected shows students in the currently selected study areas waiting to be reassigned." },
           { "type": "paragraph", "text": "Original residence tab" },
           { "type": "paragraph", "text": "The Original Residence tab displays the statistics before any changes were made. The student numbers in this tab remain static regardless of any assignments made to the plan. It represents the original baseline number of student when the plan was first created." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/statistics/statImages/statsOriginal.png", "alt": "Original Residence", "caption": "Original Residence preserves the baseline counts before plan edits." },
+          { "type": "image", "src": "assets/images/statsOriginal.png", "alt": "Original Residence", "caption": "Original Residence preserves the baseline counts before plan edits." },
           { "type": "paragraph", "text": "Residence net change tab" },
           { "type": "paragraph", "text": "For Redistricting by Current Students" },
           { "type": "paragraph", "text": "The Net Change tab calculates the total difference between the Original Residence and the Current Residence tab. The total change will always equal zero as some schools gain students and some schools lose students." },
           { "type": "paragraph", "text": "Redistricting by projected students" },
           { "type": "paragraph", "text": "The net change is a combination of projected enrollment changes from the base year of the projection to the year you are currently showing, as well as any boundary changes that will add students or remove students from a given school. In this case the net change will not equal zero; it will reflect the total increase or decrease from the base year to the year being displayed." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/statistics/statImages/statsOriginal.png", "alt": "Net change view in the Statistics Window", "caption": "Net change compares the base year to the current plan scenario." },
+          { "type": "image", "src": "assets/images/statsOriginal.png", "alt": "Net change view in the Statistics Window", "caption": "Net change compares the base year to the current plan scenario." },
           { "type": "paragraph", "text": "The Statistics Window: Estimated Enrollment" },
           { "type": "paragraph", "text": "Please Note: This tab will only be populated for plans based on current students and current enrollment." },
           { "type": "paragraph", "text": "The Estimated Enrollment Tab displays theoretical school enrollment totals as study areas are reassigned. Students are recalculated based upon the grade range specified in the create plan wizard as well as based upon the predefined rules that govern reassignments for plans based on current resident students and current enrollment." }
@@ -725,7 +725,7 @@ window.SCHOOL_SITE_DOCS = [
     "title": "Student Forecasts",
     "summary": "Project resident and enrollment changes using birth rates, mobility, housing and historical transfer patterns.",
     // "image": {
-    //   "src": "https://raw.githubusercontent.com/dbutz/SchoolSite-Pro-Docs/main/images/Forecasting.png",
+    //   "src": "assets/images/Forecasting.png",
     //   "alt": "SchoolSite Pro Forecasting ribbon",
     //   "caption": "Forecasting tools combine student, housing, and mobility factors."
     // },
@@ -739,7 +739,7 @@ window.SCHOOL_SITE_DOCS = [
       [
         "An overview of the Forecast ribbon",
         [
-          { "type": "image", "src": "https://ssphelp.mgt.us/images/Forecasting.png", "alt": "SchoolSite Pro Forecasting ribbon", "caption": "The Forecasting ribbon provides access to forecast setup, factor editing, and reporting tools." }
+          { "type": "image", "src": "assets/images/Forecasting.png", "alt": "SchoolSite Pro Forecasting ribbon", "caption": "The Forecasting ribbon provides access to forecast setup, factor editing, and reporting tools." }
         ]
       ],
       [
@@ -793,7 +793,7 @@ window.SCHOOL_SITE_DOCS = [
     "title": "A tour of the forecast ribbon",
     "summary": "Understand the forecasting ribbon, factor editing, reports and map display.",
     "image": {
-      "src": "https://ssphelp.mgt.us/forecasts/briefTour/images/tourForecastSetup.PNG",
+      "src": "assets/images/tourForecastSetup.PNG",
       "alt": "SchoolSite Pro forecast setup",
       "caption": "The forecast tour introduces setup, reporting, and factor editing."
     },
@@ -817,9 +817,9 @@ window.SCHOOL_SITE_DOCS = [
             "How many years of projection to display? click the radio button 10 years."
           ] },
           { "type": "paragraph", "text": "When you finish with the above steps, your screen should look like the following example:" },
-          { "type": "image", "src": "https://ssphelp.mgt.us/forecasts/briefTour/images/tourForecastSetup.PNG", "alt": "Forecast setup example", "caption": "Forecast setup with district summary, district wide display, and 10-year projection results." },
+          { "type": "image", "src": "assets/images/tourForecastSetup.PNG", "alt": "Forecast setup example", "caption": "Forecast setup with district summary, district wide display, and 10-year projection results." },
           { "type": "paragraph", "text": "To see the report you have set up, click on the View tab. You may have to adjust the size of the window to see the last few years of the projection." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/forecasts/briefTour/images/tourForecastReportSample.PNG", "alt": "Forecast report sample", "caption": "The district summary shows a straight pass-through projection for the base year 2022." },
+          { "type": "image", "src": "assets/images/tourForecastReportSample.PNG", "alt": "Forecast report sample", "caption": "The district summary shows a straight pass-through projection for the base year 2022." },
           { "type": "paragraph", "text": "The district summary above shows the results of a straight pass-through projection for the base year 2022. Next, we will change the birth rate, mobility and residential housing trends and view the results." }
         ]
       ],
@@ -835,7 +835,7 @@ window.SCHOOL_SITE_DOCS = [
           ] },
           { "type": "paragraph", "text": "In the table dockpane, right click on the YEAR1 column name and choose Calculate Field to change the value of the first year of forecasts for all study areas district wide. You can also click on the Calculate button at the top of the table to select the field you would like to change." },
           { "type": "paragraph", "text": "Type in the value 1.05 in the box next to YEAR1 and click the Apply button. The values for all study areas in the column will change as illustrated. This factor applies a multiplier of 1.05 (a 5% increase) to the Kindergarten class for the first year of projections for all study areas." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/forecasts/briefTour/images/tourForecastBirthRates.PNG", "alt": "Forecast birth rates", "caption": "Updated K-factors show the effect of increasing the Kindergarten cohort in year one of the projection." },
+          { "type": "image", "src": "assets/images/tourForecastBirthRates.PNG", "alt": "Forecast birth rates", "caption": "Updated K-factors show the effect of increasing the Kindergarten cohort in year one of the projection." },
           { "type": "paragraph", "text": "Double click on the cell you would like to change, and press enter. The Refresh Forecast button will appear in the Forecasting ribbon to update the map." },
           { "type": "paragraph", "text": "To view the results of modifying your K Factors, click on the tabs Forecast Reports > View. After allowing the program to calculate the results, you will notice the change in projections as the years progress. Modifying the K Factors affects only the Kindergarten class, however those changes are propagated through the projection by the Kindergarten class matriculation." },
           { "type": "paragraph", "text": "You can reset your report to its default values by going back to Modify Factors > K factors > Set Up > Use default values." },
@@ -864,7 +864,7 @@ window.SCHOOL_SITE_DOCS = [
             "Specify types to display check only the box next to Type 1. Type 1 represents Single Family Dwelling Units in this example.",
             "Modify student yield factors: type in the values shown below."
           ] },
-          { "type": "image", "src": "https://ssphelp.mgt.us/forecasts/briefTour/images/tourForecastModifySyf.PNG", "alt": "Student yield factors", "caption": "This example assumes a specific student yield for each housing type." },
+          { "type": "image", "src": "assets/images/tourForecastModifySyf.PNG", "alt": "Student yield factors", "caption": "This example assumes a specific student yield for each housing type." },
           { "type": "paragraph", "text": "In this example, we are assuming that 0.2527 K-6 students will be generated for every Type 1 Single Family Detached (SFD) Unit. In addition, 0.1371 7-8 students and 0.1733 9-12 students will be generated from each new housing unit." }
         ]
       ]
@@ -876,7 +876,7 @@ window.SCHOOL_SITE_DOCS = [
     "title": "Create a new forecast",
     "summary": "Create a residential forecast with optional tract and assessor data.",
     "image": {
-      "src": "https://ssphelp.mgt.us/forecasts/createForecast/forecastImages/createForecast.png",
+      "src": "assets/images/createForecast.png",
       "alt": "SchoolSite Pro Create Forecast dialog",
       "caption": "Create a forecast by naming the map, selecting student types, and choosing a base year."
     },
@@ -892,8 +892,8 @@ window.SCHOOL_SITE_DOCS = [
       [
         "Create the forecast",
         [
-          { "type": "image", "src": "https://ssphelp.mgt.us/forecasts/createForecast/forecastImages/createForecast.png", "alt": "Create forecast dialog", "caption": "The Create Forecast form is used to name the forecast and select the population included in the model." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/forecasts/createForecast/forecastImages/createForecastPane.png", "alt": "Create forecast pane", "caption": "A completed forecast setup includes the name, student types, and base forecast date." },
+          { "type": "image", "src": "assets/images/createForecast.png", "alt": "Create forecast dialog", "caption": "The Create Forecast form is used to name the forecast and select the population included in the model." },
+          { "type": "image", "src": "assets/images/createForecastPane.png", "alt": "Create forecast pane", "caption": "A completed forecast setup includes the name, student types, and base forecast date." },
           { "type": "paragraph", "text": "Once the forecast has completed, it will be added to the table of contents as a map and displayed in light blue." },
           { "type": "paragraph", "text": "To modify factors such as birth rates, mobility, student yield, and housing assumptions, click Modify Factors on the Forecasting ribbon." }
         ]
@@ -923,7 +923,7 @@ window.SCHOOL_SITE_DOCS = [
     "title": "Modify forecast factors",
     "summary": "Adjust the variables that drive residential forecasting and housing projections.",
     // "image": {
-    //   "src": "https://ssphelp.mgt.us/forecasts/modifyingFactors/images/kFactors.png",
+    //   "src": "assets/images/kFactors.png",
     //   "alt": "SchoolSite Pro forecast factor editor",
     //   "caption": "Forecast factors can be reviewed and adjusted before refreshing a forecast."
     // },
@@ -1314,7 +1314,7 @@ window.SCHOOL_SITE_DOCS = [
     "title": "Creating Study Areas",
     "summary": "Create the polygon feature class used as the geographic foundation for plans and forecasts.",
     "image": {
-      "src": "https://raw.githubusercontent.com/dbutz/SchoolSite-Pro-Docs/main/dataManagement/studyareas.png",
+      "src": "assets/images/studyareas.png",
       "alt": "Study Area polygons",
       "caption": "Study Areas are polygon units used throughout SchoolSite Pro."
     },
@@ -1716,20 +1716,20 @@ window.SCHOOL_SITE_DOCS = [
       [
         "Phasing Example",
         [
-          { "type": "paragraph", "text": "Here we are going to walk through a simple example of how phasing works from creating the tract data to the final resident forecast report. This example specifically highlights certain dates to illustrate in which year of the forecast those units will appear. The base date of this example will be Oct 1 2023. The tract data has units purposefully phased for 9/30/23, 10/2/23, and 10/1/24 to show how units phased a day before, a day after, and one year after the base date appear in the forecast years." },
-          { "type": "image", "src": "https://github.com/dbutz/SchoolSite-Pro-Docs/assets/5185948/ad9f320f-d0d0-4fbf-a6f1-37d962102dd9", "alt": "Tract input data example", "caption": "Example tract input data showing development phasing dates." },
+          { "type": "paragraph", "text":  "Here we are going to walk through a simple example of how phasing works from creating the tract data to the final resident forecast report. This example specifically highlights certain dates to illustrate in which year of the forecast those units will appear. The base date of this example will be Oct 1 2023. The tract data has units purposefully phased for 9/30/23, 10/2/23, and 10/1/24 to show how units phased a day before, a day after, and one year after the base date appear in the forecast years." },
+          { "type": "image", "src": "assets/images/tract-input-data-example.png", "alt": "Tract input data example", "caption": "Example tract input data showing development phasing dates." },
           { "type": "paragraph", "text": "Once you have done your development research and created the tract data, you will import it into SchoolSite Pro. During the import process, you will be asked to map each unique value found in the TYPE field to one of six types, TYPE1 through TYPE6. The result is a table in SchoolSite Pro that will store this mapping." },
-          { "type": "image", "src": "https://github.com/dbutz/SchoolSite-Pro-Docs/assets/5185948/86a19422-39a3-46e4-811e-a39c2d768f1d", "alt": "Housing type mapping table", "caption": "SchoolSite Pro housing-type mapping table for tract records." },
+          { "type": "image", "src": "assets/images/housing-type-mapping-table.png", "alt": "Housing type mapping table", "caption": "SchoolSite Pro housing-type mapping table for tract records." },
           { "type": "paragraph", "text": "Once you have imported all the data and you begin to make a forecast, you will want to make sure to indicate you want to use available tract data." },
-          { "type": "image", "src": "https://github.com/dbutz/SchoolSite-Pro-Docs/assets/5185948/395c1194-0572-43ed-a4ed-fc54180b9c71", "alt": "Forecast settings for tract data", "caption": "Forecast settings option to use available tract data." },
+          { "type": "image", "src": "assets/images/tract-forecast-settings.png", "alt": "Forecast settings for tract data", "caption": "Forecast settings option to use available tract data." },
           { "type": "paragraph", "text": "Doing so will go through a process in which SchoolSite Pro will evaluate the phasing dates in the tract data compared to the base date of the forecast and place the units into the correct year of the forecast." },
           { "type": "paragraph", "text": "Let?s start with the first phase from PH1_ and PH1_COMP which has one unit phased for completion on 9/30/23. This unit does not appear in your forecast as it is phased before the Oct 1 2023 base date." },
           { "type": "paragraph", "text": "The second phase shows two units phased for completion on 10/2/23 and the third phase shows three units phased for 10/1/24, exactly one year from the base date of 10/1/23. Note that as a result, we see five units appear in year one of the forecast. This means that year one will include all units phased between the day after the base date until one full year later. The three units that hit Oct 1 2024 are added to the three units from Oct 2 2023 and they all fall within that first forecast year." },
-          { "type": "image", "src": "https://github.com/dbutz/SchoolSite-Pro-Docs/assets/5185948/72ba2d1c-6502-4afa-b6ee-df5236c69c28", "alt": "Projected housing units table", "caption": "Projected housing units after phasing is applied." },
+          { "type": "image", "src": "assets/images/projected-housing-units-table.png", "alt": "Projected housing units table", "caption": "Projected housing units after phasing is applied." },
           { "type": "paragraph", "text": "At this point, we are going to manually make a change to our Projected Units table by inserting a negative number of units in year 9 where there was previously a zero. This can be done to model special cases such as an apartment building being demolished or some other reason why existing units would result in a loss of students. There are many additional factors to consider in these cases, so please proceed with the advice and counsel of a senior school planner." },
-          { "type": "image", "src": "https://github.com/dbutz/SchoolSite-Pro-Docs/assets/5185948/9ad7d6ab-85b1-4995-b292-33b50e5e3f4a", "alt": "Adjusted projected units table", "caption": "Adjusted projected units table to model a loss of housing units." },
-          { "type": "image", "src": "https://github.com/dbutz/SchoolSite-Pro-Docs/assets/5185948/137306ed-ea9a-4d0a-9e3c-3e3c77de4177", "alt": "Student yield factors chart", "caption": "Student yield factors applied in the forecast." },
-          { "type": "image", "src": "https://github.com/dbutz/SchoolSite-Pro-Docs/assets/5185948/635857f2-8d5e-4dd5-a130-47596f0ed1ba", "alt": "Forecast results example", "caption": "Forecast output after applying tract phasing and student yield factors." }
+          { "type": "image", "src": "assets/images/adjusted-projected-units-table.png", "alt": "Adjusted projected units table", "caption": "Adjusted projected units table to model a loss of housing units." },
+          { "type": "image", "src": "assets/images/student-yield-factors-chart.png", "alt": "Student yield factors chart", "caption": "Student yield factors applied in the forecast." },
+          { "type": "image", "src": "assets/images/forecast-results-example.png", "alt": "Forecast results example", "caption": "Forecast output after applying tract phasing and student yield factors." }
         ]
       ]
     ]
@@ -1872,7 +1872,7 @@ window.SCHOOL_SITE_DOCS = [
         [
           { "type": "paragraph", "text": "The SchoolSite Pro Data Setup imports and checks your GIS data for compatibility with SchoolSite extensions. In each Pro project, you will be importing one set (or copy) of data that will be used as the basis for all plans and forecasts created in that Pro project. If you need to use different source data such as a different student file or different study area data, you will want to create a new Pro project based around that set of data." },
           { "type": "paragraph", "text": "You can access Data Setup through the SchoolSite ribbon." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/dataManagement/validateData/datasetup.png", "alt": "SchoolSite Pro Data Setup ribbon panel", "caption": "SchoolSite Pro Data Setup ribbon panel." },
+          { "type": "image", "src": "assets/images/datasetup.png", "alt": "SchoolSite Pro Data Setup ribbon panel", "caption": "SchoolSite Pro Data Setup ribbon panel." },
           { "type": "paragraph", "text": "There are three datasets required to create plans and forecasts. Visit the links below to learn more about the requirements for each dataset:" },
           { "type": "ordered", "items": [
             { "text": "Schools", "href": "#doc/create-schools", "onClick": "event.preventDefault(); route('doc', 'create-schools');" },
@@ -1900,9 +1900,9 @@ window.SCHOOL_SITE_DOCS = [
           { "type": "paragraph", "text": "If your data has warnings that you should be aware of, an exclamation point will appear next to it. These warnings indicate areas of improvement or highlight aspects of your data that seem incorrect on the surface. For example, if you have the Capacity field on the school data but it is empty it will show a warning to alert you that if you fill in school capacity values then you will be able to make more useful reports." },
           { "type": "paragraph", "text": "If your data has errors, a red “Not Valid” icon appears and you must fix the errors and rescan the data until you get a green check mark or at least a warning icon before importing it to create a plan or forecast." },
           { "type": "paragraph", "text": "In the example below, the Student data resulted in a warning sign." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/dataManagement/validateData/dataSetupWarning.png", "alt": "Student dataset warning icon in Data Setup", "caption": "Student data warning icon in the Data Setup validation result." },
+          { "type": "image", "src": "assets/images/dataSetupWarning.png", "alt": "Student dataset warning icon in Data Setup", "caption": "Student data warning icon in the Data Setup validation result." },
           { "type": "paragraph", "text": "To learn more about the errors, you can refer to the Data Setup Messages table. You can choose to ignore the warning and proceed to import the data anyways into your SchoolSite geodatabase and use it for making plans or forecasts." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/dataManagement/validateData/dataSetupWarningTable.png", "alt": "Data Setup warning table", "caption": "Data Setup Messages table showing warnings and errors for the selected dataset." }
+          { "type": "image", "src": "assets/images/dataSetupWarningTable.png", "alt": "Data Setup warning table", "caption": "Data Setup Messages table showing warnings and errors for the selected dataset." }
         ]
       ],
       [
@@ -1910,9 +1910,9 @@ window.SCHOOL_SITE_DOCS = [
         [
           { "type": "paragraph", "text": "In the second round of data validation, the software will check all three feature classes and how they relate to each other. For example, schools that are coded to study areas must actually exist in the Schools feature class. Otherwise, this will report as an error. Another example is making sure that the school’s each student are enrolled also exist in the Schools feature class. If there are any warnings or errors found at this time, they will be reported in the Data Setup Messages table just like before." },
           { "type": "paragraph", "text": "Here is an example of some inconsistencies between the Student data and the School data." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/dataManagement/validateData/dataSetupWarningStep2.png", "alt": "Student and school validation warning example", "caption": "Example inconsistencies between Student and School data during the second validation pass." },
+          { "type": "image", "src": "assets/images/dataSetupWarningStep2.png", "alt": "Student and school validation warning example", "caption": "Example inconsistencies between Student and School data during the second validation pass." },
           { "type": "paragraph", "text": "If you have warnings, you can choose to continue anyways and import the data or you can stop at this point to review the warnings and make any corrections. Once you choose to continue, these three feature classes will be copied from their current location into the SchoolSite file geodatabase that is stored in the ArcGIS Pro project’s default directory. If you hover your mouse over the name of the imported feature classes, a tooltip will appear showing the original path of that data for reference." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/dataManagement/validateData/dataImported.png", "alt": "Imported feature classes in the ArcGIS Pro project geodatabase", "caption": "Imported feature classes copied into the SchoolSite Pro project geodatabase." },
+          { "type": "image", "src": "assets/images/dataImported.png", "alt": "Imported feature classes in the ArcGIS Pro project geodatabase", "caption": "Imported feature classes copied into the SchoolSite Pro project geodatabase." },
           { "type": "paragraph", "text": "For more information about the data requirements for creating Redistricting Plans and Forecasts, view the following topics:" },
           { "type": "list", "items": [
             { "text": "Data Checks Made for Redistricting Plans", "href": "#doc/validate-redistricting", "onClick": "event.preventDefault(); route('doc', 'validate-redistricting');" },
@@ -2121,14 +2121,14 @@ window.SCHOOL_SITE_DOCS = [
           { "type": "paragraph", "text": "You might need to make redistricting changes after reassigning study areas or if your district has to make changes to existing boundaries. You can make these changes to balance student population by residence and site capacities." },
           { "type": "paragraph", "text": "To reassign study areas to existing schools, you must have at least one plan open in the SchoolSite Pro table of contents and have the plan you wish to edit as the active plan." },
           { "type": "paragraph", "text": "1. Begin the editing session: Choose the assign tab under Redistricting Plan. Then choose Start in the Assign ribbon." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/modifyPlans/modifyImages/redistrictTab.png", "alt": "Redistricting assign ribbon", "caption": "Start an editing session from the Assign ribbon." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/modifyPlans/modifyImages/start.png", "alt": "Start button in the redistricting assign ribbon", "caption": "Choose Start to begin assigning study areas." },
+          { "type": "image", "src": "assets/images/redistrictTab.png", "alt": "Redistricting assign ribbon", "caption": "Start an editing session from the Assign ribbon." },
+          { "type": "image", "src": "assets/images/start.png", "alt": "Start button in the redistricting assign ribbon", "caption": "Choose Start to begin assigning study areas." },
           { "type": "paragraph", "text": "Use Caution when Assigning: When assigning study areas, please refrain from using any other editing tools and only use the Undo button provided in this ribbon. Otherwise, you could experience unexpected results when moving study areas between attendance boundaries. Once you click “Stop Assigning” you can then use all the editing tools and the normal undo button without affecting your plan." },
           { "type": "paragraph", "text": "2. To reassign study areas from existing schools, from the assign ribbon, click on the drop-down arrow under “Assign study areas to:” and select the school to which you wish to assign the study area(s)." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/modifyPlans/modifyImages/assignSchool.png", "alt": "Select a school to receive reassigned study areas", "caption": "Choose the target school for reassignment." },
+          { "type": "image", "src": "assets/images/assignSchool.png", "alt": "Select a school to receive reassigned study areas", "caption": "Choose the target school for reassignment." },
           { "type": "paragraph", "text": "3. Turn on Labels to view boundary names." },
           { "type": "paragraph", "text": "Contents Pane > Right click on Boundary Plan > Label" },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/label.png", "alt": "Boundary plan labels turned on", "caption": "Turn on labels so school names are visible on the map." },
+          { "type": "image", "src": "assets/images/label.png", "alt": "Boundary plan labels turned on", "caption": "Turn on labels so school names are visible on the map." },
           { "type": "paragraph", "text": "4. Once a school has been chosen, choose a select feature tool from the toolbar. Listed in order, the available selection tools are:" },
           { "type": "list", "items": [ "Select Features", "Select by Rectangle", "Select by Polygon", "Select by Lasso", "Select by Circle" ] },
           { "type": "paragraph", "text": "Modifying Boundaries" },
@@ -2138,7 +2138,7 @@ window.SCHOOL_SITE_DOCS = [
           // { "type": "paragraph", "text": "See topic “Statistics Window” for more information." },
           { "type": "paragraph", "text": "Commit the Modification" },
           { "type": "paragraph", "text": "**IMPORTANT: If the changes are acceptable, commit the change. In the assign ribbon, click on Assign Study Areas. If you are certain you want to keep the changes permanently, choose Save Assignments from the assign ribbon. Once you choose to Save Assignments or Stop Assigning, you can no longer undo edits.**" },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/assignStudyArea.png", "alt": "Assign study areas button", "caption": "Use the assignment tools to commit boundary changes and save the plan." },
+          { "type": "image", "src": "assets/images/assignStudyArea.png", "alt": "Assign study areas button", "caption": "Use the assignment tools to commit boundary changes and save the plan." },
           { "type": "paragraph", "text": "8. To undo an assignment, click on the Undo button on the assign ribbon before Saving Assignments. When finished, stop the edit session by choosing Stop from the assign ribbon." }
         ]
       ]
@@ -2155,7 +2155,7 @@ window.SCHOOL_SITE_DOCS = [
         [
           { "type": "paragraph", "text": "You may wish to create boundaries for an existing school facility that is not currently in this plan (i.e. You have created an elementary school plan and want to experiment with converting a closed junior high school to an elementary school)." },
           { "type": "paragraph", "text": "If necessary, save assignments and stop assigning study areas. From the SchoolSite Redistricting Extension Toolbar, choose the assign tab, then Update Schools." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/modifyPlans/modifyImages/addExistingSchool.png", "alt": "Add existing school dialog", "caption": "Use Update Schools to add an existing school to the active plan." },
+          { "type": "image", "src": "assets/images/addExistingSchool.png", "alt": "Add existing school dialog", "caption": "Use Update Schools to add an existing school to the active plan." },
           { "type": "paragraph", "text": "All schools not represented in the current active plan are listed in the drop-down box. Choose one of the schools, then click OK. SchoolSite will add the school point location to the map and add the name of the school and a new color to the plan in the table of contents. You may now start assigning study areas to the added school." }
         ]
       ]
@@ -2171,9 +2171,9 @@ window.SCHOOL_SITE_DOCS = [
         "Add a new school | SchoolSite Pro for ArcGIS Pro 3.3+",
         [
           { "type": "paragraph", "text": "From the SchoolSite Redistricting Extension Toolbar, choose the assign tab, then Update Schools. You can only add new schools when your active plan is not in editing/assigning mode. If you are in assignment mode, the add new school menu option will be grayed out." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/modifyPlans/modifyImages/updateSchools.png", "alt": "Update Schools menu", "caption": "Open Update Schools from the Assign ribbon to add a new school." },
+          { "type": "image", "src": "assets/images/updateSchools.png", "alt": "Update Schools menu", "caption": "Open Update Schools from the Assign ribbon to add a new school." },
           { "type": "paragraph", "text": "Type in the name of the new school and its capacity, and click Apply." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/modifyPlans/modifyImages/addSchool.png", "alt": "Add a new school form", "caption": "Enter the school name and capacity before applying." },
+          { "type": "image", "src": "assets/images/addSchool.png", "alt": "Add a new school form", "caption": "Enter the school name and capacity before applying." },
           { "type": "paragraph", "text": "The name of the new school will appear in the school field of the Redistricting Toolbar. Once you begin assigning study areas to that school, the new school’s name will be listed in the chart and proposed statistics windows." },
           { "type": "paragraph", "text": "**Please Note:** A school point will not be added to your school layer since the program has no way of knowing where you might want to have the new school located. It assumes the school would be located somewhere within the attendance area you are designing. You can place a school point graphic in the general area you feel the school will be located by using the ArcGIS graphic point symbol shown below. The point symbol can be found on the ArcGIS Drawing Toolbar." }
         ]
@@ -2191,7 +2191,7 @@ window.SCHOOL_SITE_DOCS = [
         [
           { "type": "paragraph", "text": "In order to simulate the closing of a school, the assigned study areas must first be reassigned to other schools. Use the selection tools to assign study areas to neighboring schools (You can view the statistics window to note the changes as you adjust the boundaries). Once you have reassigned all study areas away from the school you wish to close, save your assignments." },
           { "type": "paragraph", "text": "From the SchoolSite Redistricting toolbar, choose the assign tab, then remove unassigned school(s). Removing unassigned schools will delete the school point location on the map and remove the school reference in the plan in the table of contents." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/modifyPlans/modifyImages/closingSchools.png", "alt": "Closing a school in a redistricting plan", "caption": "Remove unassigned schools from the plan after reassigning all impacted study areas." },
+          { "type": "image", "src": "assets/images/closingSchools.png", "alt": "Closing a school in a redistricting plan", "caption": "Remove unassigned schools from the plan after reassigning all impacted study areas." },
           { "type": "paragraph", "text": "To reassign study areas read the Changing Boundaries Between Schools topic." }
         ]
       ]
@@ -2207,7 +2207,7 @@ window.SCHOOL_SITE_DOCS = [
         "Reassign schools | SchoolSite Pro for ArcGIS Pro 3.3+",
         [
           { "type": "paragraph", "text": "From the SchoolSite Redistricting Extension Toolbar, choose the assign tab, then Reassign Study Areas." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/modifyPlans/modifyImages/reassignSchools.png", "alt": "Reassign Study Areas tool", "caption": "Use Reassign Study Areas to rebuild school assignments by planning rule." },
+          { "type": "image", "src": "assets/images/reassignSchools.png", "alt": "Reassign Study Areas tool", "caption": "Use Reassign Study Areas to rebuild school assignments by planning rule." },
           { "type": "paragraph", "text": "There are multiple ways to reassign schools to different study areas. Reassign Schools helps you choose the best method for your district." },
           { "type": "ordered", "items": [
             "By current boundaries – Choose this method if you want to go back to the current boundaries that the study areas are assigned. This option will also revert any changes made to school’s capacities within the plan and set them back to the default of what the CAPACITY field contained in the schools feature class.",
@@ -2215,10 +2215,10 @@ window.SCHOOL_SITE_DOCS = [
             "By school capacity - If the capacity field is filled in for each school in the school layer, a plan can be reassigned based on these limits. Similar to the maximum student assignment option described above, the study areas that exceed the limit per school will be shaded in grey. Be sure to set the grade range appropriate to the type of plan being created (i.e. High school plan will most likely have a specified grade range of 9-12).",
             "By maximum students - Choose this method if you want to specify the maximum number of students by grade range by entering the maximum number of students allowed at the grade range specified. The study areas that exceed the maximum limit will be shaded in grey. This will show where a new school might be needed."
           ] },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/modifyPlans/modifyImages/reassignBoundaries.png", "alt": "Reassign by current boundaries", "caption": "Reassign by current boundaries to restore the existing assignment pattern." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/modifyPlans/modifyImages/reassignClosest.png", "alt": "Reassign by closest school", "caption": "Reassign by closest school to create all-new attendance areas." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/modifyPlans/modifyImages/reassignCapacity.png", "alt": "Reassign by school capacity", "caption": "Use capacity limits to see which study areas exceed each school’s target capacity." },
-          { "type": "image", "src": "https://ssphelp.mgt.us/redistricting/modifyPlans/modifyImages/reassignMaxStudents.png", "alt": "Reassign by maximum students", "caption": "Maximum-student reassignment highlights areas that may require a new school or boundary adjustment." }
+          { "type": "image", "src": "assets/images/reassignBoundaries.png", "alt": "Reassign by current boundaries", "caption": "Reassign by current boundaries to restore the existing assignment pattern." },
+          { "type": "image", "src": "assets/images/reassignClosest.png", "alt": "Reassign by closest school", "caption": "Reassign by closest school to create all-new attendance areas." },
+          { "type": "image", "src": "assets/images/reassignCapacity.png", "alt": "Reassign by school capacity", "caption": "Use capacity limits to see which study areas exceed each school’s target capacity." },
+          { "type": "image", "src": "assets/images/reassignMaxStudents.png", "alt": "Reassign by maximum students", "caption": "Maximum-student reassignment highlights areas that may require a new school or boundary adjustment." }
         ]
       ]
     ]
@@ -2402,7 +2402,7 @@ window.SCHOOL_SITE_DOCS = [
     "title": "Include Maturation Data in Your Forecast",
     "summary": "Use current housing, planned development, potential development and maturation Student Yield Factors for long-range projections.",
     "image": {
-      "src": "https://ssphelp.mgt.us/forecasts/maturation/projmethodology.png",
+      "src": "assets/images/projmethodology.png",
       "alt": "Forecast methodology diagram",
       "caption": "The maturation methodology combines current housing, planned development, and student-yield assumptions."
     },
@@ -2454,7 +2454,7 @@ window.SCHOOL_SITE_DOCS = [
     "title": "Maturation Concept",
     "summary": "Understand how housing occupancy and student yields mature over time.",
     "image": {
-      "src": "https://ssphelp.mgt.us/forecasts/maturation/projmatconcept1.png",
+      "src": "assets/images/projmatconcept1.png",
       "alt": "Maturation master plan example",
       "caption": "A maturation master plan identifies future school sites required at build-out."
     },
@@ -2480,7 +2480,7 @@ window.SCHOOL_SITE_DOCS = [
           },
           {
             "type": "image",
-            "src": "https://ssphelp.mgt.us/forecasts/maturation/projmatconcept2.png",
+            "src": "assets/images/projmatconcept2.png",
             "alt": "Illustration of a maturation forecast plan at build-out",
             "caption": "A build-out elementary master plan identifies future school locations required as development matures."
           },
@@ -2490,7 +2490,7 @@ window.SCHOOL_SITE_DOCS = [
           },
           {
             "type": "image",
-            "src": "https://ssphelp.mgt.us/forecasts/maturation/projmatconcept3.png",
+            "src": "assets/images/projmatconcept3.png",
             "alt": "Example year-by-year forecast plan",
             "caption": "A phased yearly forecast clarifies which future schools are required first."
           },
@@ -2512,7 +2512,7 @@ window.SCHOOL_SITE_DOCS = [
     "title": "Maturation Methodology",
     "summary": "Review the methodology for current housing, planned development, potential development and maturation yields.",
     "image": {
-      "src": "https://ssphelp.mgt.us/forecasts/maturation/projmethodology.png",
+      "src": "assets/images/projmethodology.png",
       "alt": "Maturation methodology diagram",
       "caption": "Maturation methodology combines current housing, projected development and student-yield assumptions."
     },
@@ -2526,7 +2526,7 @@ window.SCHOOL_SITE_DOCS = [
           },
           {
             "type": "image",
-            "src": "https://ssphelp.mgt.us/forecasts/maturation/projmethodology.png",
+            "src": "assets/images/projmethodology.png",
             "alt": "Forecast methodology diagram",
             "caption": "Maturation methodology combines current housing, projected development and student-yield assumptions."
           },
@@ -2773,9 +2773,9 @@ window.SCHOOL_SITE_DOCS = [
       [
         "Entering Birth Factors",
         [
-          { "type": "image", "src": "https://ssphelp.mgt.us/forecasts/modifyingFactors/factorImages/pkFactors.png", "alt": "pkFactors", "caption": "The K and PK factor table screen." },
+          { "type": "image", "src": "assets/images/pkFactors.png", "alt": "pkFactors", "caption": "The K and PK factor table screen." },
           { "type": "ordered", "items": [ "Click on the drop down menu for Modify Factors in the Forecasting ribbon.", "Choose either K or PK Factors", "Choose a method to display the study areas:" ] },
-          { "type": "image", "src": "https://ssphelp.mgt.us/forecasts/modifyingFactors/factorImages/pkFactorsPane.png", "alt": "pkFactorsPane", "caption": "Study-area selection options for K and PK factors." },
+          { "type": "image", "src": "assets/images/pkFactorsPane.png", "alt": "pkFactorsPane", "caption": "Study-area selection options for K and PK factors." },
           { "type": "paragraph", "text": "The first is to display study areas that are ?Currently selected on the map?. If you have selected study areas from the map display, this option will be available. If chosen, only the selected study areas will display for modification. If you have no study areas selected, this option will not be available." },
           { "type": "paragraph", "text": "The second option is ?Select by attendance area?. With this option, choose the school attendance area from the dropdown list for which you wish to assign birth factors. This will display only the study areas that are currently assigned to that school attendance area. You can then modify birth factors for just those study areas. Use this option when a specific area of the district is known to experience significantly higher or lower birth factors than surrounding areas." },
           { "type": "paragraph", "text": "The third (and most common) option is ?Select all? which displays all study areas. It is important to understand that when you make changes to the variables with the Select All option, that changes will affect all study areas in the district." },
