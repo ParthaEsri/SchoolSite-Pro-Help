@@ -1090,6 +1090,11 @@ window.SCHOOL_SITE_DOCS = [
     "section": "Reports",
     "title": "Student & Demographic Reports",
     "summary": "Quick reports on selected students, and demographic characteristics of a selected area.",
+    "image": {
+      "src": "assets/images/reports-student-demographic.png",
+      "alt": "Student and Demographic Reports",
+      "caption": "Student and Demographic Reports summarize who is where right now."
+    },
     "body": [
       [
         "Student Reports",
@@ -1169,39 +1174,146 @@ window.SCHOOL_SITE_DOCS = [
   //     ]
   //   ]
   // },
-  {
-    "id": "esri-overview",
-    "section": "Esri Business Analyst Services",
-    "title": "Esri demographic & location analysis services",
-    "summary": "SchoolSite Pro's Analysis Tools connect to Esri's demographic, network and location-analysis services.",
-    "body": [
-      [
-        "Why it matters",
-        "Beyond a district's own student and boundary data, several Analysis Tools bring in Esri's live demographic and geoprocessing services so planners don't need separate GIS specialists to run this analysis."
-      ],
-      [
-        "What's included",
-        "Demographic Reports pull current population and housing data for a selected area; Walk Zone Analysis builds distance or drive/walk-time service areas around schools; Program Placement (Location Allocation) solves for optimal facility placement."
-      ],
-      [
-        "Requirements",
-        "These tools generally require an active ArcGIS Online organizational account with the appropriate service credits (for network/travel-time analysis and demographic content) in addition to a SchoolSite Pro license."
-      ]
-    ]
-  },
+  // {
+  //   "id": "esri-overview",
+  //   "section": "Esri Business Analyst Services",
+  //   "title": "Esri demographic & location analysis services",
+  //   "summary": "SchoolSite Pro's Analysis Tools connect to Esri's demographic, network and location-analysis services.",
+  //   "body": [
+  //     [
+  //       "Why it matters",
+  //       "Beyond a district's own student and boundary data, several Analysis Tools bring in Esri's live demographic and geoprocessing services so planners don't need separate GIS specialists to run this analysis."
+  //     ],
+  //     [
+  //       "What's included",
+  //       "Demographic Reports pull current population and housing data for a selected area; Walk Zone Analysis builds distance or drive/walk-time service areas around schools; Program Placement (Location Allocation) solves for optimal facility placement."
+  //     ],
+  //     [
+  //       "Requirements",
+  //       "These tools generally require an active ArcGIS Online organizational account with the appropriate service credits (for network/travel-time analysis and demographic content) in addition to a SchoolSite Pro license."
+  //     ]
+  //   ]
+  // },
   {
     "id": "esri-demographic-reports",
     "section": "Esri Business Analyst Services",
     "title": "Demographic Reports",
-    "summary": "Generate a demographic report about a selected area using current population and housing data.",
+    "summary": "Create demographic and community reports for a selected study area using Esri Business Analyst Online data.",
+    "image": {
+      "src": "assets/images/reports-student-demographic.png",
+      "alt": "Student and Demographic Reports",
+      "caption": "Student and Demographic Reports summarize who is where right now."
+    },
     "body": [
       [
-        "What it does",
-        "Generate a demographic report about the selected area on the map, summarizing population, households and other community characteristics rather than SchoolSite's own student roster."
+        "Overview",
+        "The Demographic Reports tool creates demographic and community reports for a selected study area using Esri Business Analyst Online data. You can define the study area by drawing an area on the map, selecting polygon features, creating an area around a point, or generating reports for all polygons in a selected polygon layer."
       ],
       [
         "When to use it",
-        "Use Demographic Reports alongside Student Reports when a planning conversation needs broader community context â€” for example when evaluating a proposed boundary against the surrounding neighborhood's makeup."
+        { "type": "list", "items": [
+          "Generate demographic information for a specific geographic area.",
+          "Review population, housing, income, age, and other demographic characteristics.",
+          "Create reports for selected polygon features.",
+          "Generate reports around a point using a distance, drive time, or drive distance.",
+          "Create reports in PDF or Excel format where supported.",
+          "Generate multiple reports for all polygons in a layer."
+        ] }
+      ],
+      [
+        "Report types",
+        { "type": "list", "items": [
+          "2010 Census Profile",
+          "2020 Census Profile",
+          "ACS Housing Summary",
+          "ACS Population Summary",
+          "ACS Key Population & Household Facts",
+          "Age 50+ Profile",
+          "Age by Sex by Race Profile",
+          "Age by Sex Profile",
+          "Community Profile",
+          "Demographic and Income Profile",
+          "Detailed Age Profile",
+          "Disposable Income Profile",
+          "Dominant Tapestry Map",
+          "Household Income Profile",
+          "Housing Profile",
+          "ArcGIS Tapestry Profile",
+          "Traffic Count Map",
+          "Traffic Count Map - Close Up",
+          "Traffic Count Profile"
+        ] }
+      ],
+      [
+        "Study area selection",
+        { "type": "list", "items": [
+          "Draw Polygon — Draw a polygon directly on the map to define the area for the report.",
+          "Select by Polygon Layer — Select a polygon layer from the active map and select one or more polygon features. The selected features are used as the study areas for the report.",
+          "Area Around a Point — Select a point layer and create a study area around the point. Available area options are Ring Buffer, Drive Time, and Drive Distance.",
+          "All Polygons — Select a polygon layer to generate a separate demographic report for every polygon feature in the layer."
+        ] }
+      ],
+      [
+        "How to use",
+        { "type": "list", "items": [
+          "Open Demographic Reports.",
+          "Select the required Report Type.",
+          "Select how you want to define the study area: Draw Polygon, Select by Polygon Layer, Area Around a Point, or All Polygons.",
+          "Define the study area using the selected method.",
+          "If using Area Around a Point, select the area type and enter the required distance or time.",
+          "Open Preferences if you want to provide additional report information or change the output format.",
+          "Click Generate Report.",
+          "Sign in to ArcGIS Online if prompted.",
+          "Review the estimated cost when generating reports for multiple polygons.",
+          "Confirm the operation.",
+          "Save the generated report to the desired location."
+        ] }
+      ],
+      [
+        "Report preferences",
+        "The Preferences option allows you to provide additional information for the generated report, including location name, address, area description, and output format. The report includes the SchoolSite Pro attribution: Prepared using SchoolSite Pro by MGT Impact Solutions."
+      ],
+      [
+        "Output formats",
+        "Reports can be generated in PDF or Excel (.xlsx). Some map-based reports, including Traffic Count Map and Tapestry Map reports, are generated as PDF reports."
+      ],
+      [
+        "Batch reports",
+        "When All Polygons is selected, the tool generates a separate report for each polygon feature. The tool calculates the number of polygon features, displays the estimated cost before processing, allows you to confirm or cancel the operation, prompts you to select a folder for saving the reports, and saves each report separately using the feature Object ID in the filename. For example, GeoReport_101.pdf and GeoReport_102.pdf."
+      ],
+      [
+        "ArcGIS Online requirements",
+        { "type": "list", "items": [
+          "You must be signed in to an active ArcGIS Online portal in ArcGIS Pro.",
+          "You must have access to the required ArcGIS Online services.",
+          "You must have sufficient ArcGIS Online credits for the requested reports.",
+          "You must have an active map and valid input layers when using layer-based options."
+        ] }
+      ],
+      [
+        "Batch report limit",
+        "The All Polygons option supports batch generation for up to 100 polygon features at a time. If the selected polygon layer contains more than 100 features, the tool displays a warning and does not start the batch operation."
+      ],
+      [
+        "Notes",
+        { "type": "list", "items": [
+          "Demographic information is obtained from Esri's online Business Analyst data services.",
+          "An internet connection is required.",
+          "ArcGIS Online credits may be consumed when generating reports.",
+          "The tool displays an estimated cost before generating batch reports.",
+          "The selected study area determines the geographic extent of the report.",
+          "Generated reports are saved to a location selected by the user.",
+          "Map-based reports are generated as PDF files."
+        ] }
+      ],
+      [
+        "Esri References",
+        [
+          { "type": "list", "items": [
+            { "text": "Esri GeoEnrichment API Documentation", "href": "https://developers.arcgis.com/rest/geoenrichment/", "target": "_blank" },
+           { "text": "Sample Reports", "href": "https://content.esri.com/support/downloads/other_/geoenrichment/reports/rest-report-samples/ex5.pdf", "target": "_blank" },
+          ] },
+        ]
       ]
     ]
   },
@@ -1209,19 +1321,110 @@ window.SCHOOL_SITE_DOCS = [
     "id": "esri-walkzone",
     "section": "Esri Business Analyst Services",
     "title": "Walk Zone Analysis",
-    "summary": "Generate walk zone polygons around school points at any distance or travel time.",
+    "summary": "Create travel-time and distance service areas around selected schools using network analysis.",
+      "image": {
+      "src": "assets/images/walkzone.png",
+      "alt": "Walk Zone Analysis",
+      "caption": "Walk Zone Analysis creates service areas around schools based on travel time or distance."
+    },
     "body": [
       [
-        "Purpose",
-        "Generate walk zone polygons around school points at any distance or time (for example 1, 3, or 5 mile distances, or 5, 10, or 15 minute travel times) for use in district analysis."
+        "Overview",
+        "The Walk Zone Analysis tool uses network analysis to create zones around selected schools based on a specified travel distance or travel time. You can create walk or drive zones around one or more schools and define multiple break values to create different service areas for each school."
       ],
       [
-        "What it determines",
-        "Determine walk zone areas that can be accessed within a given distance or travel time from one or more schools that you specify."
+        "When to use it",
+        { "type": "list", "items": [
+          "Identify areas that can be reached from schools within a specified travel time or distance.",
+          "Create school walk zones.",
+          "Analyze areas based on walking or driving accessibility.",
+          "Compare multiple travel-time or distance thresholds.",
+          "Generate service areas for multiple schools at the same time."
+        ] }
       ],
       [
-        "Why it's useful",
-        "Walk zone analysis helps visualize and measure student accessibility to their assigned campus and supports decisions about correct busing policy."
+        "Input data",
+        { "type": "list", "items": [
+          "School Layer — Select a point feature layer containing the schools to be analyzed. The selected school layer must contain the required school information, including the school name field.",
+          "Schools — After selecting a school layer, the available schools are displayed in the school list. You can select individual schools, select multiple schools, or use Select All to select all available schools."
+        ] }
+      ],
+      [
+        "Travel mode",
+        { "type": "list", "items": [
+          "Walk Distance (Miles) — Creates zones based on walking distance.",
+          "Walk Time (Minutes) — Creates zones based on walking time.",
+          "Drive Distance (Miles) — Creates zones based on driving distance.",
+          "Drive Time (Minutes) — Creates zones based on driving time."
+        ] }
+      ],
+      [
+        "Break values",
+        "Enter one or more break values separated by commas. For example, 5,10,15. The values represent the distance or travel-time limits based on the selected travel mode. Examples include Walk Time (Minutes): 5,10,15; Walk Distance (Miles): 0.5,1,1.5; Drive Time (Minutes): 10,20,30; and Drive Distance (Miles): 5,10,15. Multiple break values create multiple service-area zones around each selected school."
+      ],
+      [
+        "Zone options",
+        "The tool provides an option to control how the service-area polygons are created at the specified break values. When enabled, polygons are split at each break value, allowing separate zones to be created for each travel-time or distance range."
+      ],
+      [
+        "How to use",
+        { "type": "list", "items": [
+          "Open Walk Zone Analysis.",
+          "Select the School Layer.",
+          "Select one or more schools from the school list.",
+          "Select a Travel Mode.",
+          "Enter the required Break Values, separated by commas.",
+          "Select the required zone option.",
+          "Click Run.",
+          "The tool performs the network analysis using ArcGIS Online.",
+          "The resulting walk zones are added to the active map."
+        ] }
+      ],
+      [
+        "Analysis method",
+        "The tool uses ArcGIS network service-area analysis to determine the areas that can be reached from the selected school locations. The analysis considers selected school locations, the selected travel mode, travel time or distance, specified break values, and the available road and transportation network. The resulting polygons represent the areas reachable within the specified travel limits."
+      ],
+      [
+        "Outputs",
+        "The tool creates a WalkZones feature class in the project's default geodatabase. The output contains information such as FacilityID, FromBreak, ToBreak, and StudyArea. The resulting feature class is automatically added to the active map."
+      ],
+      [
+        "Example",
+        "If you select School: Lincoln High School, Travel Mode: Walk Time (Minutes), and Break Values: 5,10,15, the tool creates service-area zones representing areas reachable from Lincoln High School within the specified walking-time ranges. If multiple schools are selected, corresponding service areas are created for each selected school."
+      ],
+      [
+        "ArcGIS Online requirements",
+        { "type": "list", "items": [
+          "You must be signed in to an active ArcGIS Online portal in ArcGIS Pro.",
+          "You must have access to the required network analysis services.",
+          "You must have sufficient ArcGIS Online credits for the analysis.",
+          "You must have a valid school point layer.",
+          "You must select at least one school."
+        ] }
+      ],
+      [
+        "Validation",
+        "The Run button is available when a school layer has been selected, at least one school has been selected, a travel mode has been selected, and valid break values have been entered. Break values must be numeric and separated by commas."
+      ],
+      [
+        "Notes",
+        { "type": "list", "items": [
+          "The analysis uses the ArcGIS Online transportation network.",
+          "Walking options are intended for pedestrian accessibility analysis.",
+          "Driving options are intended for vehicle accessibility analysis.",
+          "Break values should be entered using the units associated with the selected travel mode.",
+          "Multiple break values can be used to create multiple service-area ranges.",
+          "The generated output is stored in the project's default geodatabase.",
+          "An internet connection and ArcGIS Online sign-in are required."
+        ] }
+      ],
+      [
+        "Esri References",
+        [
+          { "type": "list", "items": [
+            { "text": "SolveServiceArea", "href": "https://developers.arcgis.com/rest/routing/serviceArea-service-direct/", "target": "_blank" },
+          ] },
+        ]
       ]
     ]
   },
@@ -1229,15 +1432,107 @@ window.SCHOOL_SITE_DOCS = [
     "id": "esri-location-allocation",
     "section": "Esri Business Analyst Services",
     "title": "Program Placement Analysis (Location Allocation)",
-    "summary": "Target which facilities are closest to the greatest number of students using Esri's location-allocation solver.",
+    "summary": "Identify the optimal school locations that best serve student demand while considering capacity and the number of facilities to select.",
+      "image": {
+      "src": "assets/images/location.png",
+      "alt": "Location Allocation",
+      "caption": "Location Allocation identifies optimal school locations."
+    },
     "body": [
       [
-        "Purpose",
-        "Location Allocation is a type of geospatial analysis that helps a district determine the optimal placement of programs, teachers, or resources to most effectively meet the needs of the students who need them."
+        "Overview",
+        "The Location Allocation tool identifies the optimal school locations for serving student demand. It uses student locations, school candidate locations, school capacities, and the requested number of optimal locations to perform the analysis."
       ],
       [
-        "How it works",
-        "The tool uses straight-line (\"as the crow flies\") Euclidean distances and the Maximize Capacitated Coverage problem type to identify optimal locations for critical resources, minimizing the direct distance from the students who need them."
+        "When to use it",
+        "Use the Location Allocation tool when you want to identify optimal locations from a set of candidate schools, determine which schools can best serve student demand, consider school capacity when selecting locations, and visualize the allocation of students to selected school locations."
+      ],
+      [
+        "Input data",
+        { "type": "list", "items": [
+          "Student Layer — A point layer representing student demand locations.",
+          "School Layer — A point layer containing the schools that can be considered as candidate locations.",
+          "Candidate Schools — The schools from the selected school layer that should be included in the analysis.",
+          "School Capacity — The capacity assigned to each selected school.",
+          "Number of Optimal School Locations — The number of school locations that the analysis should identify."
+        ] }
+      ],
+      [
+        "How to use",
+        { "type": "list", "items": [
+          "Open the Location Allocation tool.",
+          "Select the Student Layer.",
+          "Select the School Layer.",
+          "Select the schools to be considered as candidate locations.",
+          "Enter a capacity for each selected school.",
+          "Select the Number of Optimal School Locations.",
+          "If More than 10 is selected, enter the required number of locations.",
+          "Click Run.",
+          "Review the estimated ArcGIS Online credit usage.",
+          "Confirm the analysis to continue.",
+          "Review the output layers added to the map."
+        ] }
+      ],
+      [
+        "Selecting schools",
+        { "type": "list", "items": [
+          "The school list displays the schools available from the selected school layer.",
+          "Select the schools that you want to consider as candidate locations.",
+          "When a school is selected, you will be prompted to enter its capacity.",
+          "If you want to use the same capacity for all schools, use the Select All option and enter the capacity when prompted."
+        ] }
+      ],
+      [
+        "Selecting optimal locations",
+        "Select the number of locations that you want the analysis to identify. Available options include 1–10 and More than 10. The number of optimal locations must not exceed the number of selected candidate schools. For example, if you select five candidate schools, you can request up to five optimal locations."
+      ],
+      [
+        "Analysis method",
+        "Location Allocation uses the Maximize Capacitated Coverage method. The analysis considers student demand locations, candidate school locations, school capacity, number of facilities to select, and travel time between demand points and facilities. The analysis determines which candidate school locations provide the best coverage of student demand while considering the capacity of each facility."
+      ],
+      [
+        "Outputs",
+        { "type": "list", "items": [
+          "Output Facilities — Displays the school locations selected by the analysis.",
+          "Output Demand Points — Displays the student demand points used in the analysis.",
+          "Output Allocation Lines — Displays the allocation relationship between student demand points and the selected school facilities.",
+          "These output layers can be used to review and visualize the results of the analysis."
+        ] }
+      ],
+      [
+        "ArcGIS Online credits",
+        "The Location Allocation tool uses an ArcGIS Online analysis service and consumes organizational credits. The tool displays an estimated credit cost before the analysis is submitted. Review the estimated cost and confirm that your organization has sufficient credits before proceeding."
+      ],
+      [
+        "Requirements",
+        { "type": "list", "items": [
+          "You must be signed in to an active ArcGIS Online organization.",
+          "A valid student layer must be selected.",
+          "A valid school layer must be selected.",
+          "At least one candidate school must be selected.",
+          "Each selected school must have a valid positive capacity.",
+          "The number of optimal locations must not exceed the number of selected candidate schools.",
+          "Sufficient ArcGIS Online credits must be available."
+        ] }
+      ],
+      [
+        "Notes",
+        { "type": "list", "items": [
+          "Location Allocation uses student points as demand locations.",
+          "Each student demand point is treated as one unit of demand.",
+          "School capacities are specified by the user during the workflow.",
+          "The analysis uses travel time in minutes.",
+          "The analysis is performed using ArcGIS Online services and requires an internet connection.",
+          "Output layers are created in the project's default geodatabase and added to the active map."
+        ] }
+      ],
+      [
+        "Esri References",
+        [
+          { "type": "list", "items": [
+            { "text": "Location Allocation Service Job", "href": "https://developers.arcgis.com/rest/routing/locationAllocation-service-job/", "target": "_blank" },
+          ] },
+        ]
       ]
     ]
   },
@@ -3090,178 +3385,398 @@ window.SCHOOL_SITE_DOCS = [
   }
 ]
 
-const REPORT_NAVIGATION_IMAGE = 'assets/images/report-navigation-placeholder.svg';
-const REPORT_SAMPLE_IMAGE = 'assets/images/report-sample-placeholder.svg';
-
-function createReportDocument(report) {
-  return {
-    id: report.id,
+window.SCHOOL_SITE_DOCS.push(...[
+  {
+    id: 'reports-student-yield-factor',
     section: 'Reports',
-    title: report.title,
-    summary: report.summary,
+    title: 'Student Yield Factor Report',
+    summary: 'Export calculated student yield factors by geography and school level to Excel.',
     body: [
       [
         'Where to find it in SchoolSite Pro',
         [
-          { type: 'paragraph', text: report.navigation },
-          { type: 'image', src: REPORT_NAVIGATION_IMAGE, alt: `${report.title} navigation in SchoolSite Pro`, caption: 'Replace this shared placeholder with the SchoolSite Pro navigation screenshot for this report.' }
+          { type: 'paragraph', text: 'Data Setup: after assessor data is imported and validated, use the Student Yield Factor export option without creating a forecast. Forecasting: open an existing or newly created forecast, choose Forecasting > Factors > Student Yield Factor, then use Export at the bottom of the pane.' }
         ]
       ],
       [
         'Report setup and export',
         [
-          { type: 'paragraph', text: report.setup },
-          { type: 'paragraph', text: report.export },
-          { type: 'image', src: REPORT_SAMPLE_IMAGE, alt: `${report.title} sample output`, caption: 'Replace this shared placeholder with a sample Excel export or report output.' }
+          { type: 'paragraph', text: 'Choose the geography level to report, such as elementary, middle, high, intermediate, or district-wide across all study areas.' },
+          { type: 'paragraph', text: 'Export the calculated student yield factor report to an Excel workbook.' }
         ]
       ]
     ]
-  };
-}
-
-window.SCHOOL_SITE_DOCS.push(...[
-  {
-    id: 'reports-student-yield-factor',
-    title: 'Student Yield Factor Report',
-    summary: 'Export calculated student yield factors by geography and school level to Excel.',
-    navigation: 'Data Setup: after assessor data is imported and validated, use the Student Yield Factor export option without creating a forecast. Forecasting: open an existing or newly created forecast, choose Forecasting > Factors > Student Yield Factor, then use Export at the bottom of the pane.',
-    setup: 'Choose the geography level to report, such as elementary, middle, high, intermediate, or district-wide across all study areas.',
-    export: 'Export the calculated student yield factor report to an Excel workbook.'
   },
   {
     id: 'reports-attendance-matrix',
+    section: 'Reports',
     title: 'Automated Attendance Matrix',
     summary: 'Export the relationship between a student\'s resident boundary and enrolled school to Excel.',
-    navigation: 'Open the Automated Attendance Matrix from the SchoolSite Pro reporting workflow after the required school and student data are available.',
-    setup: 'Configure the grade ranges for each school type before generating the matrix. The report compares where students reside with the school where they are enrolled.',
-    export: 'Export the attendance matrix, including the configured grade bands and school relationships, to Excel.'
+    body: [
+      [
+        'Where to find it in SchoolSite Pro',
+        [
+          { type: 'paragraph', text: 'Open the Automated Attendance Matrix from the SchoolSite Pro reporting workflow after the required school and student data are available.' },
+          { type: 'image', src: 'assets/images/attendance_matrix.png', alt: 'Automated Attendance Matrix', caption: 'Automated Attendance Matri x view in SchoolSite Pro.' }
+        
+        ]
+      ],
+      [
+        'Report setup and export',
+        [
+          { type: 'paragraph', text: 'Configure the grade ranges for each school type before generating the matrix. The report compares where students reside with the school where they are enrolled.' },
+          { type: 'paragraph', text: 'Export the attendance matrix, including the configured grade bands and school relationships, to Excel.' },
+          { type: 'image', src: 'assets/images/attendance_matrix_export.png', alt: 'Automated Attendance Matrix export output', caption: 'Automated Attendance Matrix export output in Excel.' }
+        ]
+      ]
+    ]
   },
   {
     id: 'reports-street-directory',
+    section: 'Reports',
     title: 'Street Directory Report',
     summary: 'Export a district street directory with the corresponding schools of assignment.',
-    navigation: 'Open the Street Directory option from the Data Setup or directory tools workflow.',
-    setup: 'Confirm the district street dataset and school assignment data have been imported and validated.',
-    export: 'Export the large street-level directory to Excel for district review and assignment lookup.'
+    body: [
+      [
+        'Where to find it in SchoolSite Pro',
+        [
+          { type: 'paragraph', text: 'Open the Street Directory option from the Data Setup or directory tools workflow.' },
+          { type: 'image', src: 'assets/images/street_dir.png', alt: 'Street Directory Report', caption: 'Street Directory report view in SchoolSite Pro.'}
+        ]
+      ],
+      [
+        'Report setup and export',
+        [
+          { type: 'paragraph', text: 'Confirm the district street dataset and school assignment data have been imported and validated.' },
+          { type: 'paragraph', text: 'Export the large street-level directory to Excel for district review and assignment lookup.' },
+          { type: 'image', src: 'assets/images/address_export.png', alt: 'Street Directory export', caption: 'Street Directory export option.' },
+          { type:'image', src: 'assets/images/street_dir_export.png', alt: 'Street Directory export', caption: 'Street Directory export output in Excel.' }
+        ]
+      ]
+    ]
   },
   {
     id: 'reports-address-directory',
+    section: 'Reports',
     title: 'Address Directory Report',
     summary: 'Export every address point or parcel and its corresponding schools of assignment.',
-    navigation: 'Open Address Directory from the Data Setup or directory tools workflow.',
-    setup: 'Use validated address points or parcel polygons with the district school assignment data.',
-    export: 'Export the address directory to Excel. The output contains each address or parcel and its assigned schools.'
+    body: [
+      [
+        'Where to find it in SchoolSite Pro',
+        [
+          { type: 'paragraph', text: 'Open Address Directory from the Data Setup or directory tools workflow.' },
+          { type: 'image', src: 'assets/images/address_dir.png', alt: 'Address Directory Report', caption: 'Address Directory report view in SchoolSite Pro.' }
+        ]
+      ],
+      [
+        'Report setup and export',
+        [
+          { type: 'paragraph', text: 'Use validated address points or parcel polygons with the district school assignment data.' },
+          { type: 'paragraph', text: 'Export the address directory to Excel. The output contains each address or parcel and its assigned schools.' },
+          { type: 'image', src: 'assets/images/address_export.png', alt: 'Address Directory export output', caption: 'Address Directory export option .' },
+          { type: 'image', src: 'assets/images/address_export_output.png', alt: 'Address Directory export output', caption: 'Address Directory export output in Excel.' }
+        ]
+      ]
+    ]
   },
   {
     id: 'reports-utilization',
+    section: 'Reports',
     title: 'Utilization Report',
     summary: 'Create a standardized utilization output using attendance, grade bands, capacity, transfers, and adjustments.',
-    navigation: 'Open Utilization Report from the reporting tools in the Create workflow.',
-    setup: 'The report uses attendance matrix data, configured grade bands, school capacity, and approved transfer and adjustment rules. Select the grade level or levels to include.',
-    export: 'Generate the UTA table and export the standardized utilization output to Excel.'
+    body: [
+      [
+        'Where to find it in SchoolSite Pro',
+        [
+          { type: 'paragraph', text: 'Open Utilization Report from the reporting tools in the Create workflow.' }
+        ]
+      ],
+      [
+        'Report setup and export',
+        [
+          { type: 'paragraph', text: 'The report uses attendance matrix data, configured grade bands, school capacity, and approved transfer and adjustment rules. Select the grade level or levels to include.' },
+          { type: 'paragraph', text: 'Generate the UTA table and export the standardized utilization output to Excel.' }
+        ]
+      ]
+    ]
   },
   {
     id: 'reports-student',
+    section: 'Reports',
     title: 'Student Reports',
     summary: 'Generate quick student reports by grade and other selected student attributes.',
-    navigation: 'Select an area on the map, then open Student Reports from the SchoolSite Pro reporting tools.',
-    setup: 'Choose the grade and other user-selected attributes. Use the options menu to add fields to the report before running it.',
-    export: 'Generate the selected student report and export the results when an Excel output is needed.'
+    body: [
+      [
+        'Where to find it in SchoolSite Pro',
+        [
+          { type: 'paragraph', text: 'Select an area on the map, then open Student Reports from the SchoolSite Pro reporting tools.' }
+        ]
+      ],
+      [
+        'Report setup and export',
+        [
+          { type: 'paragraph', text: 'Choose the grade and other user-selected attributes. Use the options menu to add fields to the report before running it.' },
+          { type: 'paragraph', text: 'Generate the selected student report and export the results when an Excel output is needed.' }
+        ]
+      ]
+    ]
   },
   {
     id: 'reports-event-log',
+    section: 'Reports',
     title: 'Export Event Log',
     summary: 'Export the project event history to Excel for analysis or technical support.',
-    navigation: 'Open Export Event Log from the Share or reporting tools group.',
-    setup: 'No forecast is required. Review the project activity recorded in the event log before exporting.',
-    export: 'Export the event log as an Excel file in the project home directory.'
+    body: [
+      [
+        'Where to find it in SchoolSite Pro',
+        [
+          { type: 'paragraph', text: 'Open Export Event Log from the Share or reporting tools group.' },
+          {type: 'image', src: 'assets/images/event_log.png', alt: 'Export Event Log', caption: 'Export Event Log view in SchoolSite Pro.'}
+        ]
+      ],
+      [
+        'Report setup and export',
+        [
+          { type: 'paragraph', text: 'No forecast is required. Review the project activity recorded in the event log before exporting.' },
+          { type: 'paragraph', text: 'Export the event log as an Excel file in the project home directory.' },
+          { type: 'image', src: 'assets/images/event_log_output.png', alt: 'Export Event Log output', caption: 'Export Event Log output in Excel.' }
+        
+        ]
+      ]
+    ]
   },
   {
     id: 'reports-plan-statistics',
+    section: 'Reports',
     title: 'Plan Statistics Report',
     summary: 'Export the currently selected Statistics Window tab to Excel.',
-    navigation: 'Open the Statistics Window for the active plan, choose the required tab, and use the export option in the Statistics tools.',
-    setup: 'The Statistics Window must be open. Select the schools, grades, grade ranges, and statistic type before exporting.',
-    export: 'Export the current selected statistics tab to Excel.'
+    body: [
+      [
+        'Where to find it in SchoolSite Pro',
+        [
+          { type: 'paragraph', text: 'Open the Statistics Window for the active plan, choose the required tab, and use the export option in the Statistics tools.' }
+        ]
+      ],
+      [
+        'Report setup and export',
+        [
+          { type: 'paragraph', text: 'The Statistics Window must be open. Select the schools, grades, grade ranges, and statistic type before exporting.' },
+          { type: 'paragraph', text: 'Export the current selected statistics tab to Excel.' }
+        ]
+      ]
+    ]
   },
   {
     id: 'reports-plan-impact-summary',
+    section: 'Reports',
     title: 'Plan Impact Summary Report',
     summary: 'Export impacted study areas and impacted students based on boundary changes.',
-    navigation: 'Open Plan Impact Summary from the plan statistics or redistricting reporting tools.',
-    setup: 'Use a plan with a changed boundary configuration and define the grade ranges in the Plan Statistics Window.',
-    export: 'Generate the impacted study areas and impacted students outputs, then export the summary data to Excel.'
+    body: [
+      [
+        'Where to find it in SchoolSite Pro',
+        [
+          { type: 'paragraph', text: 'Open Plan Impact Summary from the plan statistics or redistricting reporting tools.' }
+        ]
+      ],
+      [
+        'Report setup and export',
+        [
+          { type: 'paragraph', text: 'Use a plan with a changed boundary configuration and define the grade ranges in the Plan Statistics Window.' },
+          { type: 'paragraph', text: 'Generate the impacted study areas and impacted students outputs, then export the summary data to Excel.' }
+        ]
+      ]
+    ]
   },
   {
     id: 'reports-plan-summary',
+    section: 'Reports',
     title: 'Plan Summary Report',
     summary: 'Show how forecasted resident students are grouped into proposed attendance areas.',
-    navigation: 'Open Plan Summary Report from the plan reporting tools for the active plan.',
-    setup: 'The active plan must be based on a forecast. Choose the plan and reporting geography before generating the report.',
-    export: 'Generate the plan summary and export the forecasted resident student results to Excel.'
+    body: [
+      [
+        'Where to find it in SchoolSite Pro',
+        [
+          { type: 'paragraph', text: 'Open Plan Summary Report from the plan reporting tools for the active plan.' }
+        ]
+      ],
+      [
+        'Report setup and export',
+        [
+          { type: 'paragraph', text: 'The active plan must be based on a forecast. Choose the plan and reporting geography before generating the report.' },
+          { type: 'paragraph', text: 'Generate the plan summary and export the forecasted resident student results to Excel.' }
+        ]
+      ]
+    ]
   },
   {
     id: 'reports-program-summary',
+    section: 'Reports',
     title: 'Program Summary Report',
     summary: 'Summarize programs, program changes, school capacities, and capacity changes caused by program placement.',
-    navigation: 'Open Program Summary Report from the School Programs or reporting tools group.',
-    setup: 'Choose whether to include all programs, programs moved from their original location, all schools and original capacities, or schools whose capacities changed.',
-    export: 'Generate the program summary and export the selected program and capacity information to Excel.'
+    body: [
+      [
+        'Where to find it in SchoolSite Pro',
+        [
+          { type: 'paragraph', text: 'Open Program Summary Report from the School Programs or reporting tools group.' }
+        ]
+      ],
+      [
+        'Report setup and export',
+        [
+          { type: 'paragraph', text: 'Choose whether to include all programs, programs moved from their original location, all schools and original capacities, or schools whose capacities changed.' },
+          { type: 'paragraph', text: 'Generate the program summary and export the selected program and capacity information to Excel.' }
+        ]
+      ]
+    ]
   },
   {
     id: 'reports-export-statistics',
+    section: 'Reports',
     title: 'Export Statistics',
     summary: 'Export the SchoolSite Pro plan statistics table in Excel format.',
-    navigation: 'Open the Statistics Window, select the required statistics tab, and choose Export Statistics.',
-    setup: 'A forecast is required for forecast-based statistics. The Statistics Window must remain open while exporting.',
-    export: 'Export the active SchoolSite plan statistics table to Excel.'
+    body: [
+      [
+        'Where to find it in SchoolSite Pro',
+        [
+          { type: 'paragraph', text: 'Open the Statistics Window, select the required statistics tab, and choose Export Statistics.' }
+        ]
+      ],
+      [
+        'Report setup and export',
+        [
+          { type: 'paragraph', text: 'A forecast is required for forecast-based statistics. The Statistics Window must remain open while exporting.' },
+          { type: 'paragraph', text: 'Export the active SchoolSite plan statistics table to Excel.' }
+        ]
+      ]
+    ]
   },
   {
     id: 'reports-forecast',
+    section: 'Reports',
     title: 'Forecast Reports',
     summary: 'Create forecast reports by geography and selected grade ranges, with text and Excel export options.',
-    navigation: 'Open Forecasting > Forecast Reports, then use the Setup and View tabs to configure and review the report.',
-    setup: 'Open or create a forecast, choose the geography and grade ranges, and optionally include attendance-area or school-capacity views.',
-    export: 'Export forecast reports as Excel or text. Some attendance-area reports also include school capacity charts.'
+    body: [
+      [
+        'Where to find it in SchoolSite Pro',
+        [
+          { type: 'paragraph', text: 'Open Forecasting > Forecast Reports, then use the Setup and View tabs to configure and review the report.' }
+        ]
+      ],
+      [
+        'Report setup and export',
+        [
+          { type: 'paragraph', text: 'Open or create a forecast, choose the geography and grade ranges, and optionally include attendance-area or school-capacity views.' },
+          { type: 'paragraph', text: 'Export forecast reports as Excel or text. Some attendance-area reports also include school capacity charts.' }
+        ]
+      ]
+    ]
   },
   {
     id: 'reports-mobility-summary',
+    section: 'Reports',
     title: 'Mobility Summary Report',
     summary: 'Export mobility values by school and grade, including counts and percentages used in the calculation.',
-    navigation: 'Open Forecasting > Factors > Mobility Factors, then choose the mobility summary export option.',
-    setup: 'Select the grade level and review the historical student data used to calculate mobility values.',
-    export: 'Export the mobility summary to Excel, including raw student counts and percentage values that help assess confidence in the calculation.'
+    body: [
+      [
+        'Where to find it in SchoolSite Pro',
+        [
+          { type: 'paragraph', text: 'Open Forecasting > Factors > Mobility Factors, then choose the mobility summary export option.' }
+        ]
+      ],
+      [
+        'Report setup and export',
+        [
+          { type: 'paragraph', text: 'Select the grade level and review the historical student data used to calculate mobility values.' },
+          { type: 'paragraph', text: 'Export the mobility summary to Excel, including raw student counts and percentage values that help assess confidence in the calculation.' }
+        ]
+      ]
+    ]
   },
   {
     id: 'reports-development-summary',
+    section: 'Reports',
     title: 'Development Summary Report',
     summary: 'Export a summary of projected housing development and related student yield assumptions.',
-    navigation: 'Open Forecasting > Factors > Projected Housing Units and choose Development Summary.',
-    setup: 'Review the projected housing units, development phases, housing types, and student yield assumptions included in the forecast.',
-    export: 'Export the development summary to Excel for review of projected units and forecast inputs.'
+    body: [
+      [
+        'Where to find it in SchoolSite Pro',
+        [
+          { type: 'paragraph', text: 'Open Forecasting > Factors > Projected Housing Units and choose Development Summary.' },
+          { type: 'image', src: 'assets/images/development_sum_report.png', alt: 'Development Summary Report', caption: 'Development Summary report view in SchoolSite Pro.' }
+        ]
+      ],
+      [
+        'Report setup and export',
+        [
+          { type: 'paragraph', text: 'Review the projected housing units, development phases, housing types, and student yield assumptions included in the forecast.' },
+          { type: 'paragraph', text: 'Export the development summary to Excel for review of projected units and forecast inputs.' }
+        ,
+        { type: 'image', src: 'assets/images/development_sum_report_export.png', alt: 'Development Summary export output', caption: 'Development Summary export output in Excel.' }
+        ]
+      ]
+    ]
   },
   {
     id: 'reports-projects-summary',
+    section: 'Reports',
     title: 'Projects Summary Report',
     summary: 'Export the projected housing projects included in the forecast.',
-    navigation: 'Open Forecasting > Factors > Projected Housing Units and choose Projects Summary.',
-    setup: 'Select the project or projects and review their projected units, phasing, and status before exporting.',
-    export: 'Export the projects summary to Excel.'
+    body: [
+      [
+        'Where to find it in SchoolSite Pro',
+        [
+          { type: 'paragraph', text: 'Open Forecasting > Factors > Projected Housing Units and choose Projects Summary.' }
+        ]
+      ],
+      [
+        'Report setup and export',
+        [
+          { type: 'paragraph', text: 'Select the project or projects and review their projected units, phasing, and status before exporting.' },
+          { type: 'paragraph', text: 'Export the projects summary to Excel.' }
+        ]
+      ]
+    ]
   },
   {
     id: 'reports-student-forecast',
+    section: 'Reports',
     title: 'Export Student Report',
     summary: 'Export the student data used in an active forecast or plan to Excel.',
-    navigation: 'For a forecast, use Forecasting > Export Student Report. For a plan, use the corresponding Export Student Report option in the plan reporting tools.',
-    setup: 'Choose the active forecast or plan and confirm the student population and fields included in the report.',
-    export: 'Export the student summary report to an Excel file in the project home directory.'
+    body: [
+      [
+        'Where to find it in SchoolSite Pro',
+        [
+          { type: 'paragraph', text: 'For a forecast, use Forecasting > Export Student Report. For a plan, use the corresponding Export Student Report option in the plan reporting tools.' }
+        ]
+      ],
+      [
+        'Report setup and export',
+        [
+          { type: 'paragraph', text: 'Choose the active forecast or plan and confirm the student population and fields included in the report.' },
+          { type: 'paragraph', text: 'Export the student summary report to an Excel file in the project home directory.' }
+        ]
+      ]
+    ]
   },
   {
     id: 'reports-enrollment-forecast',
+    section: 'Reports',
     title: 'Enrollment Forecast Report',
     summary: 'Export an enrollment forecast report in XLSX format.',
-    navigation: 'Open Forecasting > Enrollment Forecast and choose the enrollment forecast report export option.',
-    setup: 'Create or open an enrollment forecast before using this option. Configure the selected schools, grades, and forecast years.',
-    export: 'Generate the enrollment forecast report and export it to XLSX.'
+    body: [
+      [
+        'Where to find it in SchoolSite Pro',
+        [
+          { type: 'paragraph', text: 'Open Forecasting > Enrollment Forecast and choose the enrollment forecast report export option.' }
+        ]
+      ],
+      [
+        'Report setup and export',
+        [
+          { type: 'paragraph', text: 'Create or open an enrollment forecast before using this option. Configure the selected schools, grades, and forecast years.' },
+          { type: 'paragraph', text: 'Generate the enrollment forecast report and export it to XLSX.' }
+        ]
+      ]
+    ]
   }
-].map(createReportDocument));
+]);
