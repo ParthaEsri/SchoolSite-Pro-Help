@@ -4,18 +4,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>SchoolSite Pro — Planning Documentation</title>
+<meta name="description" content="SchoolSite Pro documentation for ArcGIS Pro school planning, redistricting, forecasting, reports, and data preparation.">
 <link rel="icon" href="assets/favicon.ico">
 <link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/overview.css">
+<link rel="stylesheet" href="css/docs.css">
+<link rel="stylesheet" href="css/toolkit.css">
+<link rel="stylesheet" href="css/download.css">
 </head>
 <body>
 <header class="topbar">
   <div class="topbar-inner">
     <button class="brand" onclick="route('home')"><img src="assets/favicon.ico" alt=""><span>SchoolSite Pro</span><small>build <span data-app-build></span></small></button>
     <nav id="desktopNav">
-      <button data-route="home" onclick="route('home')">Overview</button>
-      <button data-route="docs" onclick="route('docs')">Documentation</button>
-      <button data-route="toolkit" onclick="route('toolkit')">Toolkit</button>
-      <button data-route="download" onclick="route('download')">Download</button>
+      <a data-route="home" href="overview.html" onclick="routeFromLink(event, 'home')">Overview</a>
+      <a data-route="docs" href="docs.html" onclick="routeFromLink(event, 'docs')">Documentation</a>
+      <a data-route="toolkit" href="toolkit.html" onclick="routeFromLink(event, 'toolkit')">Toolkit</a>
+      <a data-route="download" href="download.html" onclick="routeFromLink(event, 'download')">Download</a>
     </nav>
    <div class="top-actions">
 
@@ -30,10 +35,10 @@
 </div>
   </div>
   <div id="mobileNav" class="mobile-nav">
-    <button onclick="route('home');toggleMenu()">Overview</button>
-    <button onclick="route('docs');toggleMenu()">Documentation</button>
-    <button onclick="route('toolkit');toggleMenu()">Toolkit</button>
-    <button onclick="route('download');toggleMenu()">Download</button>
+    <a href="overview.html" onclick="routeFromLink(event, 'home');toggleMenu()">Overview</a>
+    <a href="docs.html" onclick="routeFromLink(event, 'docs');toggleMenu()">Documentation</a>
+    <a href="toolkit.html" onclick="routeFromLink(event, 'toolkit');toggleMenu()">Toolkit</a>
+    <a href="download.html" onclick="routeFromLink(event, 'download');toggleMenu()">Download</a>
   </div>
 </header>
 
@@ -47,7 +52,7 @@
     <div><strong>SchoolSite Pro</strong><p>Independent documentation experience for ArcGIS Pro school planning, redistricting and forecasting.</p></div>
     <div class="footer-links"><button onclick="route('home')">Overview</button><button onclick="route('docs')">Docs</button><button onclick="route('toolkit')">Toolkit</button><button onclick="route('download')">Download</button></div>
   </div>
-  <div class="footer-bottom">Build <span data-app-build></span> · <span data-app-release-date></span> · SchoolSite Pro documentation · Local content based on the official SchoolSite Pro Help.</div>
+  <div class="footer-bottom">Build <span data-app-build></span> · <span data-app-release-date></span> · SchoolSite Pro documentation.</div>
 </footer>
 
 <div id="searchOverlay" class="overlay" onclick="if(event.target===this)closeSearch()">
@@ -88,9 +93,8 @@ const RELEASE = window.SCHOOL_SITE_RELEASE;
 const docs = window.SCHOOL_SITE_DOCS;
 const tools = window.SCHOOL_SITE_TOOLS;
 const sections = [...new Set(docs.map(x=>x.section))];
-let currentDoc = null;
 
-// Apply release metadata to both the static shell and route-generated markup.
+// Keep the release version and date synchronized everywhere they appear.
 function syncReleaseLabels() {
   document.querySelectorAll('[data-app-build]').forEach(element => {
     element.textContent = RELEASE.version;
@@ -103,15 +107,26 @@ function syncReleaseLabels() {
 
 syncReleaseLabels();
 
+// Change the hash route, then render the requested application view.
 function route(name, id){
   if(name==='doc' && id){ location.hash='doc/'+id; }
   else location.hash=name;
   renderRoute();
 }
+
+// Keep top-level links usable as normal links outside the application shell.
+function routeFromLink(event, name) {
+  if (location.pathname.endsWith('/index.html') || location.pathname === '/') {
+    event.preventDefault();
+    route(name);
+  }
+}
+
+// Read the hash and choose the correct page renderer.
 function renderRoute(){
   const parts=location.hash.replace(/^#/,'').split('/');
   const page=parts[0]||'home', id=parts[1];
-  document.querySelectorAll('#desktopNav button').forEach(b=>b.classList.toggle('active',b.dataset.route===page || (page==='doc'&&b.dataset.route==='docs')));
+  document.querySelectorAll('#desktopNav [data-route]').forEach(b=>b.classList.toggle('active',b.dataset.route===page || (page==='doc'&&b.dataset.route==='docs')));
   if(page==='doc' && id) renderDoc(id);
   else if(page==='docs') renderDocs();
   else if(page==='toolkit') renderToolkit();
@@ -121,6 +136,8 @@ function renderRoute(){
   syncReleaseLabels();
   window.scrollTo(0,0);
 }
+
+// Render the contextual navigation for documentation and toolkit pages.
 function renderSidebar(page,id){
   const s=document.getElementById('sidebar');
   if(page==='docs'||page==='doc'){
@@ -128,7 +145,7 @@ function renderSidebar(page,id){
       <label class="side-search-label" for="headerSearch">Search documents</label>
       <div class="side-search-field">
         <span aria-hidden="true">⌕</span>
-        <input id="headerSearch" type="search" placeholder="Search documents..." autocomplete="off" oninput="searchDocuments(this.value)" onkeydown="handleHeaderSearchKey(event)">
+        <input id="headerSearch" type="search" placeholder="Search documents..." autocomplete="off" oninput="searchDocuments(this.value)">
       </div>
     </div>` + [...sections].sort((a,b)=>{
       if (a === 'Start here') return -1;
@@ -183,6 +200,7 @@ function renderSidebar(page,id){
   }
 }
 
+// Render the overview hero, tour, workflow, and documentation cards.
 function renderHome() {
   const overviewCards = [
     {
@@ -208,10 +226,6 @@ function renderHome() {
   ];
 
   document.getElementById('appMain').innerHTML = `
-
-    <!-- =========================================
-         SCHOOL SITE PRO OVERVIEW HERO
-         ========================================= -->
 
     <section class="ss-overview">
 
@@ -274,10 +288,6 @@ function renderHome() {
         </div>
 
 
-        <!-- =========================================
-             APPLICATION PREVIEW
-             ========================================= -->
-
         <div class="ss-hero-visual">
 
           <div class="ss-glow ss-glow-one"></div>
@@ -317,10 +327,6 @@ function renderHome() {
 
       </div>
 
-
-      <!-- =========================================
-           PRODUCT TOUR
-           ========================================= -->
 
       <section class="ss-tour-section">
 
@@ -529,10 +535,6 @@ function renderHome() {
       </section>
 
 
-      <!-- =========================================
-           START HERE
-           ========================================= -->
-
       <section class="section ss-content-section">
 
         <div class="section-head">
@@ -594,10 +596,6 @@ function renderHome() {
 
       </section>
 
-
-      <!-- =========================================
-           WORKFLOW
-           ========================================= -->
 
       <section class="band ss-workflow-band">
 
@@ -689,10 +687,6 @@ function renderHome() {
       </section>
 
 
-      <!-- =========================================
-           DOWNLOAD CALLOUT
-           ========================================= -->
-
       <section class="section">
 
         <div class="callout">
@@ -728,12 +722,7 @@ function renderHome() {
     </section>
 
   `;
-
-
-  // =========================================
-  // PRODUCT TOUR JAVASCRIPT
-  // =========================================
-
+  // Set up the interactive product tour.
   const slides = [
     ...document.querySelectorAll('.ss-tour-slide')
   ];
@@ -753,10 +742,7 @@ function renderHome() {
   let tourTimer;
 
 
-  // =========================================
-  // SHOW SLIDE
-  // =========================================
-
+  // Display one tour slide and update its active indicator.
   function showTourSlide(index) {
 
     if (!slides.length) {
@@ -789,10 +775,7 @@ function renderHome() {
   }
 
 
-  // =========================================
-  // RESTART AUTO SLIDE
-  // =========================================
-
+  // Restart automatic slide rotation after user interaction.
   function restartTourTimer() {
 
     clearInterval(tourTimer);
@@ -806,10 +789,7 @@ function renderHome() {
   }
 
 
-  // =========================================
-  // PREVIOUS BUTTON
-  // =========================================
-
+  // Wire the previous-slide control.
   if (previousButton) {
 
     previousButton.onclick = function () {
@@ -823,10 +803,7 @@ function renderHome() {
   }
 
 
-  // =========================================
-  // NEXT BUTTON
-  // =========================================
-
+  // Wire the next-slide control.
   if (nextButton) {
 
     nextButton.onclick = function () {
@@ -840,10 +817,7 @@ function renderHome() {
   }
 
 
-  // =========================================
-  // DOT NAVIGATION
-  // =========================================
-
+  // Wire the numbered slide indicators.
   dots.forEach((dot, index) => {
 
     dot.onclick = function () {
@@ -857,19 +831,13 @@ function renderHome() {
   });
 
 
-  // =========================================
-  // INITIAL SLIDE
-  // =========================================
-
+  // Show the first slide and start automatic rotation.
   showTourSlide(0);
 
   restartTourTimer();
 
 
-  // =========================================
-  // PAUSE ON HOVER
-  // =========================================
-
+  // Pause rotation while the user is reading the tour.
   const tour =
     document.querySelector('.ss-tour');
 
@@ -889,6 +857,7 @@ function renderHome() {
 
 }
 
+// Render the documentation index before its search results are populated.
 function renderDocs(){
  document.getElementById('appMain').innerHTML=`
  <section class="page-head"><span class="eyebrow">DOCUMENTATION</span><h1>SchoolSite Pro documentation</h1><p>Search across the complete local guide. Select an article to open it without leaving this site.</p></section>
@@ -897,6 +866,7 @@ function renderDocs(){
  filterDocs('');
 }
 
+// Flatten structured article content into searchable plain text.
 function articleContentText(content) {
   if (Array.isArray(content)) {
     return content.map(item => articleContentText(item)).join(' ');
@@ -934,10 +904,12 @@ function articleContentText(content) {
   return String(content || '');
 }
 
+// Detect legacy text that should be displayed as a list.
 function looksLikeListText(text) {
   return /(?:^|\n)\s*(?:[-*•]|\d+\.)\s+/m.test(text);
 }
 
+// Convert legacy bullet or numbered text into individual list items.
 function parseListText(text) {
   return text
     .split(/\n+/)
@@ -950,6 +922,7 @@ function parseListText(text) {
     .filter(Boolean);
 }
 
+// Extract readable text from strings, arrays, and structured data objects.
 function resolveTextValue(value) {
   if (value == null) return '';
   if (typeof value === 'string') return value.trim();
@@ -963,6 +936,7 @@ function resolveTextValue(value) {
   return String(value).trim();
 }
 
+// Escape article text while supporting the small bold-markup format in data.
 function formatInlineRichText(value) {
   const text = String(value ?? '');
 
@@ -990,6 +964,7 @@ function formatInlineRichText(value) {
     .replace(/'([^']+)'/g, '‘$1’');
 }
 
+// Render one list item, including nested links and child lists.
 function renderListItem(item, ordered) {
   if (typeof item === 'string') {
     return `<li>${formatInlineRichText(item.trim())}</li>`;
@@ -1014,6 +989,7 @@ function renderListItem(item, ordered) {
   return `<li>${formatInlineRichText(safe || 'Item')}</li>`;
 }
 
+// Identify short legacy text values that should look like subheadings.
 function isArticleHeadingText(text) {
   const value = (text || '').trim();
 
@@ -1028,6 +1004,7 @@ function isArticleHeadingText(text) {
   return !/^\s*[-*•]\s+/.test(value);
 }
 
+// Convert one article data block into safe HTML.
 function renderStructuredBlock(block) {
   if (Array.isArray(block)) {
     return block.map(item => renderStructuredBlock(item)).join('');
@@ -1081,6 +1058,7 @@ function renderStructuredBlock(block) {
   return '';
 }
 
+// Render an article section and omit empty sections automatically.
 function renderArticleSection(heading, content) {
   const items = Array.isArray(content) ? content : [content];
   const sectionContent = items.map(item => renderStructuredBlock(item)).filter(Boolean).join('');
@@ -1092,6 +1070,7 @@ function renderArticleSection(heading, content) {
   return `<section>${heading ? `<h2>${escapeHtml(heading)}</h2>` : ''}${sectionContent}</section>`;
 }
 
+// Search documentation by title first, then section, summary, and body text.
 function filterDocs(q){
  const query = q.trim().toLowerCase();
  const list = docs.map(d => {
@@ -1114,6 +1093,7 @@ function filterDocs(q){
  document.getElementById('docList').innerHTML = resultNote + (list.map(d=>`<button class="doc-row" onclick="route('doc','${d.id}')"><div><span class="doc-section">${d.section}</span><h3>${d.title}</h3><p>${d.summary}</p></div><span>→</span></button>`).join('') || '<div class="empty">No documentation matched your search.</div>');
 }
 
+// Keep the sidebar search input and documentation list synchronized.
 function searchDocuments(q) {
  if (!document.getElementById('docList')) {
    renderDocs();
@@ -1122,8 +1102,9 @@ function searchDocuments(q) {
  if (input) input.value = q;
  filterDocs(q);
 }
+// Render one documentation article selected by its stable data ID.
 function renderDoc(id){
- const d=docs.find(x=>x.id===id)||docs[0]; currentDoc=d;
+ const d=docs.find(x=>x.id===id)||docs[0];
  if (id === 'release-notes') {
    renderReleaseNotes();
    return;
@@ -1137,6 +1118,7 @@ function renderDoc(id){
  </article></section>`;
 }
 
+// Render release notes from the central release history data.
 function renderReleaseNotes() {
  document.getElementById('appMain').innerHTML=`
  <section class="article-wrap"><div class="breadcrumbs"><button onclick="route('docs')">Documentation</button><span>/</span><span>Start here</span></div>
@@ -1157,11 +1139,10 @@ function renderReleaseNotes() {
  </article></section>`;
 }
 
-/* Toolkit browsing and category filtering. */
-
 let activeToolCat = "All";
 let activeToolIndex = null;
 
+// Return the complete toolkit category list with All at the top.
 function toolCategories() {
   return [
     "All",
@@ -1172,12 +1153,14 @@ function toolCategories() {
   ];
 }
 
+// Format a sidebar category label with its current item count.
 function toolGroupLabel(category) {
   if (category === 'All') return `All tools (${tools.length})`;
   const count = tools.filter(tool => toolCategory(tool) === category).length;
   return `${category} (${count})`;
 }
 
+// Render the toolkit page shell and populate its initial results.
 function renderToolkit() {
   activeToolCat = "All";
   activeToolIndex = null;
@@ -1220,10 +1203,7 @@ function renderToolkit() {
 }
 
 
-/* ---------------------------------------------------------
-   CHANGE CATEGORY
-   --------------------------------------------------------- */
-
+// Select a toolkit category and refresh the visible results.
 function selectToolCategory(category) {
 
     activeToolCat = toolCategories().includes(category)
@@ -1241,6 +1221,7 @@ function selectToolCategory(category) {
     );
 }
 
+// Select a tool from the sidebar and open its filtered result state.
 function selectTool(index) {
   const tool = tools[index];
   if (!tool) return;
@@ -1254,10 +1235,7 @@ function selectTool(index) {
 }
 
 
-/* ---------------------------------------------------------
-   GET TOOL CATEGORY
-   --------------------------------------------------------- */
-
+// Read a tool category, using a stable fallback for incomplete data.
 function toolCategory(tool) {
 
     return tool &&
@@ -1268,10 +1246,7 @@ function toolCategory(tool) {
 }
 
 
-/* ---------------------------------------------------------
-   FILTER TOOLS
-   --------------------------------------------------------- */
-
+// Filter toolkit cards by category and free-text search.
 function filterTools(search = "") {
 
     const grid = document.getElementById("toolGrid");
@@ -1379,17 +1354,13 @@ function filterTools(search = "") {
 
         }).join("");
 }
-/* ---------------------------------------------------------
-   SAFE HTML TEXT
-   --------------------------------------------------------- */
-
-
-
+// Open the selected tool's details in a lightweight modal.
 function openTool(i){
  const t=tools[i], m=document.createElement('div'); m.className='modal'; m.id='toolModal';
  m.innerHTML=`<div class="modal-box"><button class="modal-x" onclick="this.closest('.modal').remove()">×</button><span class="eyebrow">${toolCategory(t).toUpperCase()}</span><h2>${t.name}</h2><p>${t.desc}</p>${t.details?`<p class="modal-detail">${t.details}</p>`:''}<div class="modal-foot">${RELEASE.productName} toolkit · Build ${RELEASE.version}</div></div>`;
  document.body.appendChild(m);
 }
+// Render the installer page from the central release configuration.
 function renderDownload(){
  document.getElementById('appMain').innerHTML=`
  <section class="download-page">
@@ -1478,16 +1449,7 @@ function renderDownload(){
    </aside>
  </section>`;
 }
-function focusSearch() {
-  const input = document.getElementById('headerSearch');
-
-  if (input) {
-    input.focus();
-    input.select();
-  }
-}
-
-
+// Open the global search palette and focus its input.
 function openSearchOverlay() {
   const overlay = document.getElementById('searchOverlay');
   const input = document.getElementById('globalSearch');
@@ -1507,6 +1469,7 @@ function openSearchOverlay() {
 }
 
 
+// Close the global search palette when the user dismisses it.
 function closeSearch() {
   const overlay = document.getElementById('searchOverlay');
 
@@ -1515,7 +1478,7 @@ function closeSearch() {
   }
 }
 
-/* Search the local documentation and toolkit from the Ctrl/Cmd + K palette. */
+// Build searchable actions for documentation articles and toolkit tools.
 function buildSearchHits(q) {
   q = (q || '').trim();
   if (!q) return [];
@@ -1565,6 +1528,7 @@ function buildSearchHits(q) {
   return hits;
 }
 
+// Render global search results in the Ctrl/Cmd + K palette.
 function renderSearch(q) {
   const results = document.getElementById('searchResults');
   if (!results) return;
@@ -1598,6 +1562,7 @@ function renderSearch(q) {
   });
 }
 
+// Activate the first global result or close the palette with Escape.
 function handleGlobalSearchKey(event) {
   if (event.key === 'Enter') {
     const first = document.querySelector('#searchResults .search-result');
@@ -1609,138 +1574,7 @@ function handleGlobalSearchKey(event) {
 }
 
 
-function renderHeaderSearch(q) {
-
-  const results =
-    document.getElementById('headerSearchResults');
-
-  if (!results) {
-    return;
-  }
-
-  q = q.trim();
-
-  if (!q) {
-    results.classList.remove('show');
-    results.innerHTML = '';
-    return;
-  }
-
-  const hits = buildSearchHits(q);
-
-  if (!hits.length) {
-
-    results.innerHTML = `
-      <div class="header-search-empty">
-        No documentation or tools found for
-        <strong>${escapeHtml(q)}</strong>
-      </div>
-    `;
-
-    results.classList.add('show');
-
-    return;
-  }
-
-
-  results.innerHTML = hits
-    .slice(0, 8)
-    .map((h, i) => `
-      <button
-        class="header-search-result"
-        data-search-index="${i}"
-      >
-        <span class="header-result-type">
-          ${h.type}
-        </span>
-
-        <span class="header-result-content">
-
-          <strong>
-            ${escapeHtml(h.title)}
-          </strong>
-
-          <small>
-            ${escapeHtml(h.meta)}
-          </small>
-
-        </span>
-
-        <span class="header-result-arrow">
-          →
-        </span>
-
-      </button>
-    `)
-    .join('');
-
-
-  results.classList.add('show');
-
-
-  results
-    .querySelectorAll('.header-search-result')
-    .forEach((button, index) => {
-
-      button.onclick = () => {
-
-        if (hits[index]) {
-          hits[index].action();
-        }
-
-      };
-
-    });
-
-}
-
-
-function handleHeaderSearchKey(event) {
-
-  if (event.key === 'Enter') {
-
-    const firstResult =
-      document.querySelector(
-        '.header-search-result'
-      );
-
-    if (firstResult) {
-      firstResult.click();
-    }
-
-  }
-
-  if (event.key === 'Escape') {
-
-    clearHeaderSearch();
-
-    event.target.blur();
-
-  }
-
-}
-
-
-function clearHeaderSearch() {
-
-  const input =
-    document.getElementById('headerSearch');
-
-  const results =
-    document.getElementById('headerSearchResults');
-
-  if (input) {
-    input.value = '';
-  }
-
-  if (results) {
-    results.classList.remove('show');
-    results.innerHTML = '';
-  }
-
-}
-
-
+// Escape dynamic values before inserting them into generated HTML.
 function escapeHtml(value) {
 
   return String(value)
@@ -1752,7 +1586,10 @@ function escapeHtml(value) {
 
 }
 
+// Toggle the mobile navigation panel.
 function toggleMenu(){document.getElementById('mobileNav').classList.toggle('open')}
+
+// Keep keyboard shortcuts and hash navigation active for the whole shell.
 document.addEventListener('keydown', e => {
 
   if (
