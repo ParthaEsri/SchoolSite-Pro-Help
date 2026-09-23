@@ -1145,30 +1145,30 @@ window.SCHOOL_SITE_DOCS = [
       ]
     ]
   },
-  {
-    "id": "reports-export-options",
-    "section": "Reports",
-    "title": "Exporting reports",
-    "summary": "Export destinations and formats supported across SchoolSite Pro reports.",
-    "body": [
-      [
-        "Forecast exports",
-        "Forecast Reports can be exported to either plain text (.txt) or Microsoft Excel (.xlsx) from the Options menu on the report."
-      ],
-      [
-        "Student report exports",
-        "Export Student Report writes an Excel file to the current Project's home directory summarizing the student data behind an open plan or forecast."
-      ],
-      [
-        "Statistics exports",
-        "Export Statistics writes the open Statistics Window table to Excel; the Statistics Window must be open first."
-      ],
-      [
-        "Event log",
-        "Export Event Log writes the project's event history to Excel in the Project's home directory â€” useful for troubleshooting or sending to technical support."
-      ]
-    ]
-  },
+  // {
+  //   "id": "reports-export-options",
+  //   "section": "Reports",
+  //   "title": "Exporting reports",
+  //   "summary": "Export destinations and formats supported across SchoolSite Pro reports.",
+  //   "body": [
+  //     [
+  //       "Forecast exports",
+  //       "Forecast Reports can be exported to either plain text (.txt) or Microsoft Excel (.xlsx) from the Options menu on the report."
+  //     ],
+  //     [
+  //       "Student report exports",
+  //       "Export Student Report writes an Excel file to the current Project's home directory summarizing the student data behind an open plan or forecast."
+  //     ],
+  //     [
+  //       "Statistics exports",
+  //       "Export Statistics writes the open Statistics Window table to Excel; the Statistics Window must be open first."
+  //     ],
+  //     [
+  //       "Event log",
+  //       "Export Event Log writes the project's event history to Excel in the Project's home directory â€” useful for troubleshooting or sending to technical support."
+  //     ]
+  //   ]
+  // },
   {
     "id": "esri-overview",
     "section": "Esri Business Analyst Services",
@@ -1181,7 +1181,7 @@ window.SCHOOL_SITE_DOCS = [
       ],
       [
         "What's included",
-        "Demographic Reports pull current population and housing data for a selected area; Walk Zone Analysis builds distance or drive/walk-time service areas around schools; Program Placement (Location Allocation) solves for optimal facility placement; Data Enrichment appends forecast-driven student counts to tract and Study Area datasets."
+        "Demographic Reports pull current population and housing data for a selected area; Walk Zone Analysis builds distance or drive/walk-time service areas around schools; Program Placement (Location Allocation) solves for optimal facility placement."
       ],
       [
         "Requirements",
@@ -1241,26 +1241,26 @@ window.SCHOOL_SITE_DOCS = [
       ]
     ]
   },
-  {
-    "id": "esri-data-enrichment",
-    "section": "Esri Business Analyst Services",
-    "title": "Data Enrichment (Tract & Study Area Enrichment)",
-    "summary": "Enrich tract and Study Area datasets with forecast-derived student counts.",
-    "body": [
-      [
-        "Tract Enrichment",
-        "Adds a series of new fields to the tract feature class to store estimated counts of how many students each housing project will generate, based on PK-12 student yield factors, stored in fields named Year1 through Year10 relative to a selected base date. It also adds fields representing units and students both within the ten-year forecast window and post-forecast."
-      ],
-      [
-        "Study Area Enrichment",
-        "Creates two new feature classes in the project's home geodatabase: an enriched copy of the Study Area polygons with student counts by the specified grades, and a second, larger set of aggregated attendance-boundary polygons summarizing the same totals per school."
-      ],
-      [
-        "Current Study Areas vs. a Plan",
-        "Choosing 'Current Study Areas' enriches using today's boundary configuration across up to four grade-range selections plus a district-wide (PK-12) version, merged into one feature class. Choosing a plan instead enriches using that plan's proposed boundary configuration for its defined grade level."
-      ]
-    ]
-  },
+  // {
+  //   "id": "esri-data-enrichment",
+  //   "section": "Esri Business Analyst Services",
+  //   "title": "Data Enrichment (Tract & Study Area Enrichment)",
+  //   "summary": "Enrich tract and Study Area datasets with forecast-derived student counts.",
+  //   "body": [
+  //     [
+  //       "Tract Enrichment",
+  //       "Adds a series of new fields to the tract feature class to store estimated counts of how many students each housing project will generate, based on PK-12 student yield factors, stored in fields named Year1 through Year10 relative to a selected base date. It also adds fields representing units and students both within the ten-year forecast window and post-forecast."
+  //     ],
+  //     [
+  //       "Study Area Enrichment",
+  //       "Creates two new feature classes in the project's home geodatabase: an enriched copy of the Study Area polygons with student counts by the specified grades, and a second, larger set of aggregated attendance-boundary polygons summarizing the same totals per school."
+  //     ],
+  //     [
+  //       "Current Study Areas vs. a Plan",
+  //       "Choosing 'Current Study Areas' enriches using today's boundary configuration across up to four grade-range selections plus a district-wide (PK-12) version, merged into one feature class. Choosing a plan instead enriches using that plan's proposed boundary configuration for its defined grade level."
+  //     ]
+  //   ]
+  // },
   {
     "id": "create-data-guide",
     "section": "Manage data",
@@ -2308,22 +2308,22 @@ window.SCHOOL_SITE_DOCS = [
   //     ]
   //   ]
   // },
-  {
-    "id": "historical-student-data",
-    "section": "Forecasts",
-    "title": "Include Historical Student Data",
-    "summary": "Import historical student data and display it in forecast reports.",
-    "body": [
-      [
-        "Project setup",
-        "Import historical students through Data Setup for the years required by mobility and enrollment calculations."
-      ],
-      [
-        "Report display",
-        "Enable historical student columns in Forecast Reports after the data is imported and validated."
-      ]
-    ]
-  },
+  // {
+  //   "id": "historical-student-data",
+  //   "section": "Forecasts",
+  //   "title": "Include Historical Student Data",
+  //   "summary": "Import historical student data and display it in forecast reports.",
+  //   "body": [
+  //     [
+  //       "Project setup",
+  //       "Import historical students through Data Setup for the years required by mobility and enrollment calculations."
+  //     ],
+  //     [
+  //       "Report display",
+  //       "Enable historical student columns in Forecast Reports after the data is imported and validated."
+  //     ]
+  //   ]
+  // },
   {
     "id": "development-summary",
     "section": "Forecasts",
@@ -2511,11 +2511,11 @@ window.SCHOOL_SITE_DOCS = [
     "section": "Forecasts",
     "title": "Maturation Methodology",
     "summary": "Review the methodology for current housing, planned development, potential development and maturation yields.",
-    "image": {
-      "src": "assets/images/projmethodology.png",
-      "alt": "Maturation methodology diagram",
-      "caption": "Maturation methodology combines current housing, projected development and student-yield assumptions."
-    },
+    // "image": {
+    //   "src": "assets/images/projmethodology.png",
+    //   "alt": "Maturation methodology diagram",
+    //   "caption": "Maturation methodology combines current housing, projected development and student-yield assumptions."
+    // },
     "body": [
       [
         "Maturation Methodology",
@@ -2886,38 +2886,38 @@ window.SCHOOL_SITE_DOCS = [
       ]
     ]
   },
-  {
-    "id": "address-directories",
-    "section": "Tools",
-    "title": "SchoolSite Pro Address Directories",
-    "summary": "Create address directories from schools, Study Areas and address or parcel data.",
-    "body": [
-      [
-        "Inputs",
-        "Address Directory uses Schools, Study Areas and either Address Points or parcel polygons."
-      ],
-      [
-        "Output",
-        "Generate a directory table that connects addresses to schools and attendance areas, then export it for district use."
-      ]
-    ]
-  },
-  {
-    "id": "demographic-reports-source",
-    "section": "Tools",
-    "title": "SchoolSite Pro Demographic Reports",
-    "summary": "Generate demographic reports for selected areas using Esri demographic services.",
-    "body": [
-      [
-        "Use",
-        "Select an area on the map and generate population, household and housing context alongside SchoolSite student reports."
-      ],
-      [
-        "Requirements",
-        "The tool uses the configured Esri Business Analyst services and organizational credits."
-      ]
-    ]
-  },
+  // {
+  //   "id": "address-directories",
+  //   "section": "Tools",
+  //   "title": "SchoolSite Pro Address Directories",
+  //   "summary": "Create address directories from schools, Study Areas and address or parcel data.",
+  //   "body": [
+  //     [
+  //       "Inputs",
+  //       "Address Directory uses Schools, Study Areas and either Address Points or parcel polygons."
+  //     ],
+  //     [
+  //       "Output",
+  //       "Generate a directory table that connects addresses to schools and attendance areas, then export it for district use."
+  //     ]
+  //   ]
+  // },
+  // {
+  //   "id": "demographic-reports-source",
+  //   "section": "Tools",
+  //   "title": "SchoolSite Pro Demographic Reports",
+  //   "summary": "Generate demographic reports for selected areas using Esri demographic services.",
+  //   "body": [
+  //     [
+  //       "Use",
+  //       "Select an area on the map and generate population, household and housing context alongside SchoolSite student reports."
+  //     ],
+  //     [
+  //       "Requirements",
+  //       "The tool uses the configured Esri Business Analyst services and organizational credits."
+  //     ]
+  //   ]
+  // },
   {
     "id": "troubleshoot-bao-report",
     "section": "Troubleshooting",
@@ -3089,3 +3089,179 @@ window.SCHOOL_SITE_DOCS = [
     ]
   }
 ]
+
+const REPORT_NAVIGATION_IMAGE = 'assets/images/report-navigation-placeholder.svg';
+const REPORT_SAMPLE_IMAGE = 'assets/images/report-sample-placeholder.svg';
+
+function createReportDocument(report) {
+  return {
+    id: report.id,
+    section: 'Reports',
+    title: report.title,
+    summary: report.summary,
+    body: [
+      [
+        'Where to find it in SchoolSite Pro',
+        [
+          { type: 'paragraph', text: report.navigation },
+          { type: 'image', src: REPORT_NAVIGATION_IMAGE, alt: `${report.title} navigation in SchoolSite Pro`, caption: 'Replace this shared placeholder with the SchoolSite Pro navigation screenshot for this report.' }
+        ]
+      ],
+      [
+        'Report setup and export',
+        [
+          { type: 'paragraph', text: report.setup },
+          { type: 'paragraph', text: report.export },
+          { type: 'image', src: REPORT_SAMPLE_IMAGE, alt: `${report.title} sample output`, caption: 'Replace this shared placeholder with a sample Excel export or report output.' }
+        ]
+      ]
+    ]
+  };
+}
+
+window.SCHOOL_SITE_DOCS.push(...[
+  {
+    id: 'reports-student-yield-factor',
+    title: 'Student Yield Factor Report',
+    summary: 'Export calculated student yield factors by geography and school level to Excel.',
+    navigation: 'Data Setup: after assessor data is imported and validated, use the Student Yield Factor export option without creating a forecast. Forecasting: open an existing or newly created forecast, choose Forecasting > Factors > Student Yield Factor, then use Export at the bottom of the pane.',
+    setup: 'Choose the geography level to report, such as elementary, middle, high, intermediate, or district-wide across all study areas.',
+    export: 'Export the calculated student yield factor report to an Excel workbook.'
+  },
+  {
+    id: 'reports-attendance-matrix',
+    title: 'Automated Attendance Matrix',
+    summary: 'Export the relationship between a student\'s resident boundary and enrolled school to Excel.',
+    navigation: 'Open the Automated Attendance Matrix from the SchoolSite Pro reporting workflow after the required school and student data are available.',
+    setup: 'Configure the grade ranges for each school type before generating the matrix. The report compares where students reside with the school where they are enrolled.',
+    export: 'Export the attendance matrix, including the configured grade bands and school relationships, to Excel.'
+  },
+  {
+    id: 'reports-street-directory',
+    title: 'Street Directory Report',
+    summary: 'Export a district street directory with the corresponding schools of assignment.',
+    navigation: 'Open the Street Directory option from the Data Setup or directory tools workflow.',
+    setup: 'Confirm the district street dataset and school assignment data have been imported and validated.',
+    export: 'Export the large street-level directory to Excel for district review and assignment lookup.'
+  },
+  {
+    id: 'reports-address-directory',
+    title: 'Address Directory Report',
+    summary: 'Export every address point or parcel and its corresponding schools of assignment.',
+    navigation: 'Open Address Directory from the Data Setup or directory tools workflow.',
+    setup: 'Use validated address points or parcel polygons with the district school assignment data.',
+    export: 'Export the address directory to Excel. The output contains each address or parcel and its assigned schools.'
+  },
+  {
+    id: 'reports-utilization',
+    title: 'Utilization Report',
+    summary: 'Create a standardized utilization output using attendance, grade bands, capacity, transfers, and adjustments.',
+    navigation: 'Open Utilization Report from the reporting tools in the Create workflow.',
+    setup: 'The report uses attendance matrix data, configured grade bands, school capacity, and approved transfer and adjustment rules. Select the grade level or levels to include.',
+    export: 'Generate the UTA table and export the standardized utilization output to Excel.'
+  },
+  {
+    id: 'reports-student',
+    title: 'Student Reports',
+    summary: 'Generate quick student reports by grade and other selected student attributes.',
+    navigation: 'Select an area on the map, then open Student Reports from the SchoolSite Pro reporting tools.',
+    setup: 'Choose the grade and other user-selected attributes. Use the options menu to add fields to the report before running it.',
+    export: 'Generate the selected student report and export the results when an Excel output is needed.'
+  },
+  {
+    id: 'reports-event-log',
+    title: 'Export Event Log',
+    summary: 'Export the project event history to Excel for analysis or technical support.',
+    navigation: 'Open Export Event Log from the Share or reporting tools group.',
+    setup: 'No forecast is required. Review the project activity recorded in the event log before exporting.',
+    export: 'Export the event log as an Excel file in the project home directory.'
+  },
+  {
+    id: 'reports-plan-statistics',
+    title: 'Plan Statistics Report',
+    summary: 'Export the currently selected Statistics Window tab to Excel.',
+    navigation: 'Open the Statistics Window for the active plan, choose the required tab, and use the export option in the Statistics tools.',
+    setup: 'The Statistics Window must be open. Select the schools, grades, grade ranges, and statistic type before exporting.',
+    export: 'Export the current selected statistics tab to Excel.'
+  },
+  {
+    id: 'reports-plan-impact-summary',
+    title: 'Plan Impact Summary Report',
+    summary: 'Export impacted study areas and impacted students based on boundary changes.',
+    navigation: 'Open Plan Impact Summary from the plan statistics or redistricting reporting tools.',
+    setup: 'Use a plan with a changed boundary configuration and define the grade ranges in the Plan Statistics Window.',
+    export: 'Generate the impacted study areas and impacted students outputs, then export the summary data to Excel.'
+  },
+  {
+    id: 'reports-plan-summary',
+    title: 'Plan Summary Report',
+    summary: 'Show how forecasted resident students are grouped into proposed attendance areas.',
+    navigation: 'Open Plan Summary Report from the plan reporting tools for the active plan.',
+    setup: 'The active plan must be based on a forecast. Choose the plan and reporting geography before generating the report.',
+    export: 'Generate the plan summary and export the forecasted resident student results to Excel.'
+  },
+  {
+    id: 'reports-program-summary',
+    title: 'Program Summary Report',
+    summary: 'Summarize programs, program changes, school capacities, and capacity changes caused by program placement.',
+    navigation: 'Open Program Summary Report from the School Programs or reporting tools group.',
+    setup: 'Choose whether to include all programs, programs moved from their original location, all schools and original capacities, or schools whose capacities changed.',
+    export: 'Generate the program summary and export the selected program and capacity information to Excel.'
+  },
+  {
+    id: 'reports-export-statistics',
+    title: 'Export Statistics',
+    summary: 'Export the SchoolSite Pro plan statistics table in Excel format.',
+    navigation: 'Open the Statistics Window, select the required statistics tab, and choose Export Statistics.',
+    setup: 'A forecast is required for forecast-based statistics. The Statistics Window must remain open while exporting.',
+    export: 'Export the active SchoolSite plan statistics table to Excel.'
+  },
+  {
+    id: 'reports-forecast',
+    title: 'Forecast Reports',
+    summary: 'Create forecast reports by geography and selected grade ranges, with text and Excel export options.',
+    navigation: 'Open Forecasting > Forecast Reports, then use the Setup and View tabs to configure and review the report.',
+    setup: 'Open or create a forecast, choose the geography and grade ranges, and optionally include attendance-area or school-capacity views.',
+    export: 'Export forecast reports as Excel or text. Some attendance-area reports also include school capacity charts.'
+  },
+  {
+    id: 'reports-mobility-summary',
+    title: 'Mobility Summary Report',
+    summary: 'Export mobility values by school and grade, including counts and percentages used in the calculation.',
+    navigation: 'Open Forecasting > Factors > Mobility Factors, then choose the mobility summary export option.',
+    setup: 'Select the grade level and review the historical student data used to calculate mobility values.',
+    export: 'Export the mobility summary to Excel, including raw student counts and percentage values that help assess confidence in the calculation.'
+  },
+  {
+    id: 'reports-development-summary',
+    title: 'Development Summary Report',
+    summary: 'Export a summary of projected housing development and related student yield assumptions.',
+    navigation: 'Open Forecasting > Factors > Projected Housing Units and choose Development Summary.',
+    setup: 'Review the projected housing units, development phases, housing types, and student yield assumptions included in the forecast.',
+    export: 'Export the development summary to Excel for review of projected units and forecast inputs.'
+  },
+  {
+    id: 'reports-projects-summary',
+    title: 'Projects Summary Report',
+    summary: 'Export the projected housing projects included in the forecast.',
+    navigation: 'Open Forecasting > Factors > Projected Housing Units and choose Projects Summary.',
+    setup: 'Select the project or projects and review their projected units, phasing, and status before exporting.',
+    export: 'Export the projects summary to Excel.'
+  },
+  {
+    id: 'reports-student-forecast',
+    title: 'Export Student Report',
+    summary: 'Export the student data used in an active forecast or plan to Excel.',
+    navigation: 'For a forecast, use Forecasting > Export Student Report. For a plan, use the corresponding Export Student Report option in the plan reporting tools.',
+    setup: 'Choose the active forecast or plan and confirm the student population and fields included in the report.',
+    export: 'Export the student summary report to an Excel file in the project home directory.'
+  },
+  {
+    id: 'reports-enrollment-forecast',
+    title: 'Enrollment Forecast Report',
+    summary: 'Export an enrollment forecast report in XLSX format.',
+    navigation: 'Open Forecasting > Enrollment Forecast and choose the enrollment forecast report export option.',
+    setup: 'Create or open an enrollment forecast before using this option. Configure the selected schools, grades, and forecast years.',
+    export: 'Generate the enrollment forecast report and export it to XLSX.'
+  }
+].map(createReportDocument));
