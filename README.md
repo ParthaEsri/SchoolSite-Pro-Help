@@ -2,31 +2,6 @@
 
 Static documentation website for SchoolSite Pro, including documentation, toolkit search, release notes, and installer downloads.
 
-## Page structure
-
-The site has four user-facing entry points:
-
-- `overview.html` renders the product and planning workflow.
-- `docs.html` renders the documentation topics.
-- `toolkit.html` renders the tool groups and descriptions.
-- `download.html` renders the current installer and release notes.
-
-These files are intentionally shells. `js/page.js` is the one shared renderer for these four pages; it generates their visible content from `js/docs.js` and `js/data.js`, so maintainers do not need to edit HTML or CSS when adding documentation, tools, or a release. It is intentionally kept separate from the main application renderer because these pages are separate entry URLs.
-
-The interactive application and these entry pages require JavaScript to render data-driven content. This keeps maintenance simple, but no JavaScript-based site can guarantee that every external AI crawler executes every script. For maximum crawler coverage, publish a prerendered build generated from the same two data files; do not manually edit the generated HTML.
-
-The interactive `index.html` remains the application shell for search, filters, article rendering, and the visual tour. When adding application behavior, keep the order in `index.html` as: route state, shared shell/sidebar rendering, page rendering, content rendering helpers, search/filter behavior, then small utility functions. Keep release configuration in `js/data.js`, article content in `js/docs.js`, and shared entry-page rendering in `js/page.js`.
-
-## Stylesheet structure
-
-- `css/styles.css` contains shared reset, typography, navigation, sidebar, buttons, search overlay, footer, and responsive shell rules.
-- `css/overview.css` contains the overview hero, application preview, tour, workflow, cards, and callout styles.
-- `css/docs.css` contains documentation lists, article layout, tables, images, and release-note styles.
-- `css/toolkit.css` contains toolkit cards, categories, grids, and modal styles.
-- `css/download.css` contains installer layout, release card, metadata, and installation-step styles.
-
-Each page loads the shared stylesheet plus only its own page stylesheet. Keep new visual rules in the file that owns the page or component; do not add page-specific rules back to `styles.css`.
-
 ## New release procedure
 
 1. Create and upload the signed installer to a GitHub release.
