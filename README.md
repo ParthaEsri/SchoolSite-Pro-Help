@@ -2,6 +2,32 @@
 
 Static documentation website for SchoolSite Pro, including documentation, toolkit search, release notes, and installer downloads.
 
+## Adding a toolkit item
+
+Add new tools directly to `window.SCHOOL_SITE_TOOLS` in `js/data.js`. Keep the same object shape so the existing toolkit automatically provides category grouping, search, the detail modal, image sizing, and responsive styling:
+
+```js
+{
+  name: 'Tool name',
+  category: 'Tool group',
+  desc: 'Short description shown on the toolkit card.',
+  content: [
+    { type: 'heading', text: 'Overview' },
+    { type: 'paragraph', text: 'Tool details go here.' },
+    {
+      type: 'image',
+      src: 'assets/images/Tools/exact_tool_image.png',
+      alt: 'Accessible description of the tool screenshot',
+      caption: 'Optional screenshot caption.'
+    },
+    { type: 'bullet', items: ['First point', 'Second point'] }
+  ],
+  details: 'Optional legacy detail text.'
+}
+```
+
+Use an exact screenshot from `assets/images/Tools` when one exists. If there is no exact screenshot, use the image that represents the tool group, such as `statistics_group.png`, `school_program_group.png`, or `draw_assignment_group.png`. Put the image directly in the tool's `content` array; do not create a separate image updater or mapping function. The existing renderer will automatically apply the standard image, heading, paragraph, and list styling.
+
 ## New release procedure
 
 1. Create and upload the signed installer to a GitHub release.

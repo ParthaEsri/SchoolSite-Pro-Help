@@ -648,7 +648,7 @@ window.SCHOOL_SITE_DOCS = [
           { "type": "paragraph", "text": "The Statistics Window allows you to analyze your boundary scenarios based on various student attributes such as grade, ethnicity, loading standards, and projected student residence." },
           { "type": "paragraph", "text": "The settings you choose will be displayed in the statistics table." },
           { "type": "paragraph", "text": "To access the Statistics Window, go to the redistricting ribbon and click Statistics Window." },
-          { "type": "image", "src": "assets/images/statistics-window.png", "alt": "Statistics Window in SchoolSite Pro", "caption": "The Statistics Window is divided into Select Schools, Select Grades, Select Grade Ranges, and Select Statistic Type." },
+          { "type": "image", "src": "assets/images/Tools/latest_ui_statisticstable.png", "alt": "Latest Statistics Window table in SchoolSite Pro", "caption": "The latest Statistics Window table shows the available school, grade, range, and statistic selections." },
           { "type": "paragraph", "text": "The Statistics Tab window is divided into four main sections: Select Schools, Select Grades, Select Grade Ranges, and Select Statistic Type." },
           { "type": "paragraph", "text": "Select Schools" },
           { "type": "paragraph", "text": "From the list, choose which schools to display statistics for by checking the box next to each school name. To select all school names, click Select All. To unselect all school names, click on Select None." },

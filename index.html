@@ -1052,6 +1052,16 @@ function renderStructuredBlock(block) {
     return `<figure class="article-image"><img src="${escapeHtml(block.src || '')}" alt="${escapeHtml(block.alt || '')}"><figcaption>${escapeHtml(block.caption || '')}</figcaption></figure>`;
   }
 
+  if (block.type === 'heading' || block.type === 'subheading') {
+    const tag = block.type === 'heading' ? 'h3' : 'h4';
+    return `<${tag}>${formatInlineRichText(block.text || block.content || block.title || '')}</${tag}>`;
+  }
+
+  if (block.type === 'bullet' || block.type === 'bullets') {
+    const items = block.items || block.bullets || [];
+    return `<ul>${items.map(item => renderListItem(item, false)).join('')}</ul>`;
+  }
+
   if (block.type === 'table') {
     const headers = block.headers || [];
     const rows = block.rows || [];
@@ -1302,7 +1312,7 @@ function filterTools(search = "") {
             tool.name,
             category,
             tool.desc,
-            tool.details
+          articleContentText(tool.content || tool.details)
         ]
         .join(" ")
         .toLowerCase();
@@ -1387,7 +1397,17 @@ function filterTools(search = "") {
 
 function openTool(i){
  const t=tools[i], m=document.createElement('div'); m.className='modal'; m.id='toolModal';
- m.innerHTML=`<div class="modal-box"><button class="modal-x" onclick="this.closest('.modal').remove()">×</button><span class="eyebrow">${toolCategory(t).toUpperCase()}</span><h2>${t.name}</h2><p>${t.desc}</p>${t.details?`<p class="modal-detail">${t.details}</p>`:''}<div class="modal-foot">${RELEASE.productName} toolkit · Build ${RELEASE.version}</div></div>`;
+ const detailBlocks = [
+   ...(Array.isArray(t.content) ? t.content : []),
+   ...(t.details ? [{ type: 'paragraph', text: t.details }] : [])
+ ];
+ const renderedDetails = detailBlocks
+   ? detailBlocks.map(renderStructuredBlock).join('')
+   : '';
+ m.innerHTML=`<div class="modal-box"><button class="modal-x" onclick="this.closest('.modal').remove()" aria-label="Close tool details">×</button><span class="eyebrow">${escapeHtml(toolCategory(t).toUpperCase())}</span><h2>${escapeHtml(t.name)}</h2><p>${formatInlineRichText(t.desc)}</p>${renderedDetails ? `<div class="tool-details">${renderedDetails}</div>` : ''}<div class="modal-foot">${escapeHtml(RELEASE.productName)} toolkit · Build ${escapeHtml(RELEASE.version)}</div></div>`;
+ m.addEventListener('click', event => {
+   if (event.target === m) m.remove();
+ });
  document.body.appendChild(m);
 }
 function renderDownload(){

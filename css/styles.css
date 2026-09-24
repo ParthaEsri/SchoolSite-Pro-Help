@@ -2151,6 +2151,9 @@ nav button.active {
     width: 100%;
     max-width: 560px;
 
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+
     padding: 34px;
 
     border: 1px solid var(--line);
@@ -2167,6 +2170,43 @@ nav button.active {
 
 .modal-box p {
     color: var(--soft);
+}
+
+.tool-details {
+    margin-top: 24px;
+}
+
+.tool-details h3,
+.tool-details h4 {
+    margin: 24px 0 8px;
+}
+
+.tool-details h3 {
+    font-size: 20px;
+}
+
+.tool-details h4 {
+    color: var(--ink-soft);
+    font-size: 15px;
+}
+
+.tool-details ul,
+.tool-details ol {
+    margin: 12px 0;
+    padding-left: 22px;
+    color: var(--soft);
+}
+
+.tool-details li + li {
+    margin-top: 7px;
+}
+
+.tool-details .article-image {
+    margin: 22px 0 4px;
+}
+
+.tool-details .article-image img {
+    width: 100%;
 }
 
 .modal-x {
