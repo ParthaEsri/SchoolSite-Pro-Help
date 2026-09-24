@@ -1085,71 +1085,71 @@ window.SCHOOL_SITE_DOCS = [
       ]
     ]
   },
-  {
-    "id": "reports-student-demographic",
-    "section": "Reports",
-    "title": "Student & Demographic Reports",
-    "summary": "Quick reports on selected students, and demographic characteristics of a selected area.",
-    "image": {
-      "src": "assets/images/reports-student-demographic.png",
-      "alt": "Student and Demographic Reports",
-      "caption": "Student and Demographic Reports summarize who is where right now."
-    },
-    "body": [
-      [
-        "Student Reports",
-        "Select students to report on based on the area that is selected on the map. Additional fields can be added to the quick report before it is generated."
-      ],
-      [
-        "Demographic Reports",
-        "Generate a demographic report about the currently selected area. This report pulls current population, household and housing characteristics rather than SchoolSite's own student data."
-      ],
-      [
-        "Add additional fields",
-        "The Student Reports pane includes an options menu to add extra fields to the quick report, letting planners tailor the output without leaving the workflow."
-      ]
-    ]
-  },
-  {
-    "id": "reports-plan-forecast",
-    "section": "Reports",
-    "title": "Plan & Forecast Reports",
-    "summary": "Forecast Reports, Plan Summary and Plan Impact Summary outputs used to evaluate scenarios.",
-    "body": [
-      [
-        "Forecast Reports",
-        "Create a report of an open forecast. Summarize results by Study Area, existing attendance area, or district/subdistrict, and select the grade ranges to report on."
-      ],
-      [
-        "Plan Summary Report",
-        "Combines forecasted resident student numbers with the proposed boundary changes in a plan to show how future students would be grouped into new proposed attendance areas. Requires a plan that is based on a forecast."
-      ],
-      [
-        "Plan Impact Summary",
-        "Outputs two feature classes â€” impacted Study Areas and impacted students â€” showing a count of students within each grade range defined in the plan's statistics settings, based on the new boundary configuration compared to the original Study Area data."
-      ]
-    ]
-  },
-  {
-    "id": "reports-program-utilization",
-    "section": "Reports",
-    "title": "Program & Utilization Reports",
-    "summary": "Program Summary Report, Utilization Report and the Automated Attendance Matrix.",
-    "body": [
-      [
-        "Program Summary Report",
-        "Summarizes school programs, their capacity, and their current location so planners can review program placement across the district at a glance."
-      ],
-      [
-        "Utilization Report",
-        "Compares school capacity against current or projected enrollment. Completing Data Setup (Students, Schools, Study Areas) is required to enable this report."
-      ],
-      [
-        "Automated Attendance Matrix",
-        "Builds an attendance matrix that shows how students move between resident and enrolled schools, and exports it directly to Excel. Recent builds add a CAPACITY column to this export."
-      ]
-    ]
-  },
+  // {
+  //   "id": "reports-student-demographic",
+  //   "section": "Reports",
+  //   "title": "Student & Demographic Reports",
+  //   "summary": "Quick reports on selected students, and demographic characteristics of a selected area.",
+  //   "image": {
+  //     "src": "assets/images/reports-student-demographic.png",
+  //     "alt": "Student and Demographic Reports",
+  //     "caption": "Student and Demographic Reports summarize who is where right now."
+  //   },
+  //   "body": [
+  //     [
+  //       "Student Reports",
+  //       "Select students to report on based on the area that is selected on the map. Additional fields can be added to the quick report before it is generated."
+  //     ],
+  //     [
+  //       "Demographic Reports",
+  //       "Generate a demographic report about the currently selected area. This report pulls current population, household and housing characteristics rather than SchoolSite's own student data."
+  //     ],
+  //     [
+  //       "Add additional fields",
+  //       "The Student Reports pane includes an options menu to add extra fields to the quick report, letting planners tailor the output without leaving the workflow."
+  //     ]
+  //   ]
+  // },
+  // {
+  //   "id": "reports-plan-forecast",
+  //   "section": "Reports",
+  //   "title": "Plan & Forecast Reports",
+  //   "summary": "Forecast Reports, Plan Summary and Plan Impact Summary outputs used to evaluate scenarios.",
+  //   "body": [
+  //     [
+  //       "Forecast Reports",
+  //       "Create a report of an open forecast. Summarize results by Study Area, existing attendance area, or district/subdistrict, and select the grade ranges to report on."
+  //     ],
+  //     [
+  //       "Plan Summary Report",
+  //       "Combines forecasted resident student numbers with the proposed boundary changes in a plan to show how future students would be grouped into new proposed attendance areas. Requires a plan that is based on a forecast."
+  //     ],
+  //     [
+  //       "Plan Impact Summary",
+  //       "Outputs two feature classes â€” impacted Study Areas and impacted students â€” showing a count of students within each grade range defined in the plan's statistics settings, based on the new boundary configuration compared to the original Study Area data."
+  //     ]
+  //   ]
+  // },
+  // {
+  //   "id": "reports-program-utilization",
+  //   "section": "Reports",
+  //   "title": "Program & Utilization Reports",
+  //   "summary": "Program Summary Report, Utilization Report and the Automated Attendance Matrix.",
+  //   "body": [
+  //     [
+  //       "Program Summary Report",
+  //       "Summarizes school programs, their capacity, and their current location so planners can review program placement across the district at a glance."
+  //     ],
+  //     [
+  //       "Utilization Report",
+  //       "Compares school capacity against current or projected enrollment. Completing Data Setup (Students, Schools, Study Areas) is required to enable this report."
+  //     ],
+  //     [
+  //       "Automated Attendance Matrix",
+  //       "Builds an attendance matrix that shows how students move between resident and enrolled schools, and exports it directly to Excel. Recent builds add a CAPACITY column to this export."
+  //     ]
+  //   ]
+  // },
   // {
   //   "id": "reports-export-options",
   //   "section": "Reports",
@@ -3395,14 +3395,17 @@ window.SCHOOL_SITE_DOCS.push(...[
       [
         'Where to find it in SchoolSite Pro',
         [
-          { type: 'paragraph', text: 'Data Setup: after assessor data is imported and validated, use the Student Yield Factor export option without creating a forecast. Forecasting: open an existing or newly created forecast, choose Forecasting > Factors > Student Yield Factor, then use Export at the bottom of the pane.' }
+          { type: 'paragraph', text: 'Data Setup: after assessor data is imported and validated, use the Student Yield Factor export option without creating a forecast. Forecasting: open an existing or newly created forecast, choose Forecasting > Factors > Student Yield Factor, then use Export at the bottom of the pane.' },
+          { type: 'image', src: 'assets/images/syf_report_datasetup.png', alt: 'Student Yield Factor Report', caption: 'Student Yield Factor report export option from datasetup tool.' },
+          { type: 'image', src: 'assets/images/syf_report.png', alt: 'Student Yield Factor Report', caption: 'Student Yield Factor report view in SchoolSite Pro.' },
         ]
       ],
       [
         'Report setup and export',
         [
           { type: 'paragraph', text: 'Choose the geography level to report, such as elementary, middle, high, intermediate, or district-wide across all study areas.' },
-          { type: 'paragraph', text: 'Export the calculated student yield factor report to an Excel workbook.' }
+          { type: 'paragraph', text: 'Export the calculated student yield factor report to an Excel workbook.' },
+          { type: 'image', src: 'assets/images/syf_output.png', alt: 'Student Yield Factor Report export output', caption: 'Student Yield Factor report export output in Excel.' }
         ]
       ]
     ]
@@ -3488,14 +3491,16 @@ window.SCHOOL_SITE_DOCS.push(...[
       [
         'Where to find it in SchoolSite Pro',
         [
-          { type: 'paragraph', text: 'Open Utilization Report from the reporting tools in the Create workflow.' }
+          { type: 'paragraph', text: 'Open Utilization Report from the reporting tools in the Create workflow.' },
+          { type: 'image', src: 'assets/images/utilization_report.png', alt: 'Utilization Report', caption: 'Utilization Report view in SchoolSite Pro.' }
         ]
       ],
       [
         'Report setup and export',
         [
           { type: 'paragraph', text: 'The report uses attendance matrix data, configured grade bands, school capacity, and approved transfer and adjustment rules. Select the grade level or levels to include.' },
-          { type: 'paragraph', text: 'Generate the UTA table and export the standardized utilization output to Excel.' }
+          { type: 'paragraph', text: 'Generate the UTA table and export the standardized utilization output to Excel.' },
+          { type: 'image', src: 'assets/images/utilization_report_output.png', alt: 'Utilization Report export output', caption: 'Utilization Report export option.' },
         ]
       ]
     ]
@@ -3509,14 +3514,15 @@ window.SCHOOL_SITE_DOCS.push(...[
       [
         'Where to find it in SchoolSite Pro',
         [
-          { type: 'paragraph', text: 'Select an area on the map, then open Student Reports from the SchoolSite Pro reporting tools.' }
-        ]
+          { type: 'paragraph', text: 'Select an area on the map, then open Student Reports from the SchoolSite Pro reporting tools.' },
+          { type: 'image', src: 'assets/images/student_report.png', alt: 'Student Reports', caption: 'Student Reports view in SchoolSite Pro.' }]
       ],
       [
         'Report setup and export',
         [
           { type: 'paragraph', text: 'Choose the grade and other user-selected attributes. Use the options menu to add fields to the report before running it.' },
-          { type: 'paragraph', text: 'Generate the selected student report and export the results when an Excel output is needed.' }
+          { type: 'paragraph', text: 'Generate the selected student report and export the results when an Excel output is needed.' },
+          { type: 'image', src: 'assets/images/student_report_output.png', alt: 'Student Reports output', caption: 'Student Reports output in Excel.' }
         ]
       ]
     ]
@@ -3554,14 +3560,16 @@ window.SCHOOL_SITE_DOCS.push(...[
       [
         'Where to find it in SchoolSite Pro',
         [
-          { type: 'paragraph', text: 'Open the Statistics Window for the active plan, choose the required tab, and use the export option in the Statistics tools.' }
+          { type: 'paragraph', text: 'Open the Statistics Window for the active plan, choose the required tab, and use the export option in the Statistics tools.' },
+          { type: 'image', src: 'assets/images/statistics_export.png', alt: 'Export Statistics button in the SchoolSite Pro ribbon', caption: 'Choose Export Statistics from the Statistics window menu button top right.' }
         ]
       ],
       [
         'Report setup and export',
         [
           { type: 'paragraph', text: 'The Statistics Window must be open. Select the schools, grades, grade ranges, and statistic type before exporting.' },
-          { type: 'paragraph', text: 'Export the current selected statistics tab to Excel.' }
+          { type: 'paragraph', text: 'Export the current selected statistics tab to Excel.' },
+          { type: 'image', src: 'assets/images/statistics_export_output.png', alt: 'Exported SchoolSite Pro statistics in Excel', caption: 'The selected plan statistics are exported to an Excel workbook.' }
         ]
       ]
     ]
@@ -3575,14 +3583,16 @@ window.SCHOOL_SITE_DOCS.push(...[
       [
         'Where to find it in SchoolSite Pro',
         [
-          { type: 'paragraph', text: 'Open Plan Impact Summary from the plan statistics or redistricting reporting tools.' }
+          { type: 'paragraph', text: 'Open Plan Impact Summary from the plan statistics or redistricting reporting tools.' },
+          { type: 'image', src: 'assets/images/plan_impact_summary.png', alt: 'Plan Impact Summary in SchoolSite Pro', caption: 'Plan Impact Summary displays impacted students and study areas.' }
         ]
       ],
       [
         'Report setup and export',
         [
           { type: 'paragraph', text: 'Use a plan with a changed boundary configuration and define the grade ranges in the Plan Statistics Window.' },
-          { type: 'paragraph', text: 'Generate the impacted study areas and impacted students outputs, then export the summary data to Excel.' }
+          { type: 'paragraph', text: 'Generate the impacted study areas and impacted students outputs, then export the summary data to Excel.' },
+          { type: 'image', src: 'assets/images/plan_impact_summary_output.png', alt: 'Plan Impact Summary output in SchoolSite Pro', caption: 'Plan Impact Summary output shows impacted student records and map results.' }
         ]
       ]
     ]
@@ -3596,14 +3606,17 @@ window.SCHOOL_SITE_DOCS.push(...[
       [
         'Where to find it in SchoolSite Pro',
         [
-          { type: 'paragraph', text: 'Open Plan Summary Report from the plan reporting tools for the active plan.' }
+          { type: 'paragraph', text: 'Open Plan Summary Report from the plan reporting tools for the active plan.' },
+          {type: 'image', src: 'assets/images/plan_summary.png', alt: 'Plan Summary Report in SchoolSite Pro', caption: 'Plan Summary Report view in SchoolSite Pro.' },
+          {type:'paragraph', text: 'The report shows how forecasted resident students are grouped into proposed attendance areas, including the number of students in each grade and the total number of students in each school.' }
         ]
       ],
       [
         'Report setup and export',
         [
           { type: 'paragraph', text: 'The active plan must be based on a forecast. Choose the plan and reporting geography before generating the report.' },
-          { type: 'paragraph', text: 'Generate the plan summary and export the forecasted resident student results to Excel.' }
+          { type: 'paragraph', text: 'Generate the plan summary and export the forecasted resident student results to Excel.' },
+          { type: 'image', src: 'assets/images/plan_summary_output.png', alt: 'Plan Summary Report output in SchoolSite Pro', caption: 'Plan Summary Report output shows forecasted resident students grouped into proposed attendance areas.' }
         ]
       ]
     ]
@@ -3617,14 +3630,16 @@ window.SCHOOL_SITE_DOCS.push(...[
       [
         'Where to find it in SchoolSite Pro',
         [
-          { type: 'paragraph', text: 'Open Program Summary Report from the School Programs or reporting tools group.' }
+          { type: 'paragraph', text: 'Open Program Summary Report from the School Programs gallery.' },
+          { type: 'image', src: 'assets/images/program_summary_report.png', alt: 'Program Summary Report in SchoolSite Pro', caption: 'Program Summary Report view in SchoolSite Pro.' }
         ]
       ],
       [
         'Report setup and export',
         [
           { type: 'paragraph', text: 'Choose whether to include all programs, programs moved from their original location, all schools and original capacities, or schools whose capacities changed.' },
-          { type: 'paragraph', text: 'Generate the program summary and export the selected program and capacity information to Excel.' }
+          { type: 'paragraph', text: 'Generate the program summary and export the selected program and capacity information to Excel.' },
+          { type: 'image', src: 'assets/images/program_summary_report_output.png', alt: 'Program Summary Report output in SchoolSite Pro', caption: 'Program Summary Report output shows program and capacity information.' }
         ]
       ]
     ]
@@ -3638,14 +3653,16 @@ window.SCHOOL_SITE_DOCS.push(...[
       [
         'Where to find it in SchoolSite Pro',
         [
-          { type: 'paragraph', text: 'Open the Statistics Window, select the required statistics tab, and choose Export Statistics.' }
+          { type: 'paragraph', text: 'Open the Statistics Window, select the required statistics tab, and choose Export Statistics.' },
+          { type: 'image', src: 'assets/images/statistics_export_share.png', alt: 'Export Statistics button in the SchoolSite Pro ribbon', caption: 'Choose Export Statistics from the SchoolSite Pro Share tab.' }
         ]
       ],
       [
         'Report setup and export',
         [
           { type: 'paragraph', text: 'A forecast is required for forecast-based statistics. The Statistics Window must remain open while exporting.' },
-          { type: 'paragraph', text: 'Export the active SchoolSite plan statistics table to Excel.' }
+          { type: 'paragraph', text: 'Export the active SchoolSite plan statistics table to Excel.' },
+          { type: 'image', src: 'assets/images/statistics_export_output.png', alt: 'Exported SchoolSite Pro statistics in Excel', caption: 'Export Statistics creates an Excel workbook with the selected statistics table.' }
         ]
       ]
     ]
@@ -3660,6 +3677,7 @@ window.SCHOOL_SITE_DOCS.push(...[
         'Where to find it in SchoolSite Pro',
         [
           { type: 'paragraph', text: 'Open Forecasting > Forecast Reports, then use the Setup and View tabs to configure and review the report.' }
+          ,{ type: 'image', src: 'assets/images/forecast_report.png', alt: 'Forecast Report', caption: 'Forecast Report view in SchoolSite Pro.' }
         ]
       ],
       [
@@ -3667,6 +3685,9 @@ window.SCHOOL_SITE_DOCS.push(...[
         [
           { type: 'paragraph', text: 'Open or create a forecast, choose the geography and grade ranges, and optionally include attendance-area or school-capacity views.' },
           { type: 'paragraph', text: 'Export forecast reports as Excel or text. Some attendance-area reports also include school capacity charts.' }
+          ,{ type: 'image', src: 'assets/images/forecast_report_output.png', alt: 'Enrollment Forecast Report output', caption: 'Enrollment Forecast Report output in schoolsite Pro.' }
+          ,{type:'image', src: 'assets/images/forecast_report_output_excel.png', alt: 'Enrollment Forecast Report output', caption: 'Enrollment Forecast Report output in Excel.'}
+          ,{type:'image', src: 'assets/images/forecast_report_output_text.png', alt: 'Enrollment Forecast Report output', caption: 'Enrollment Forecast Report output in textfile.'}
         ]
       ]
     ]
@@ -3680,7 +3701,8 @@ window.SCHOOL_SITE_DOCS.push(...[
       [
         'Where to find it in SchoolSite Pro',
         [
-          { type: 'paragraph', text: 'Open Forecasting > Factors > Mobility Factors, then choose the mobility summary export option.' }
+          { type: 'paragraph', text: 'Open Forecasting > Factors > Mobility Factors, then choose the mobility summary export option.' },
+          { type: 'image', src: 'assets/images/export_mobility_summary.png', alt: 'Mobility Summary Report', caption: 'Mobility Summary report view in SchoolSite Pro.' }
         ]
       ],
       [
@@ -3725,14 +3747,16 @@ window.SCHOOL_SITE_DOCS.push(...[
       [
         'Where to find it in SchoolSite Pro',
         [
-          { type: 'paragraph', text: 'Open Forecasting > Factors > Projected Housing Units and choose Projects Summary.' }
+          { type: 'paragraph', text: 'Open Forecasting > Factors > Projected Housing Units and choose Projects Summary.' },
+          { type: 'image', src: 'assets/images/export_project_summary.png', alt: 'Projects Summary Report', caption: 'Projects Summary report view in SchoolSite Pro.' }
         ]
       ],
       [
         'Report setup and export',
         [
           { type: 'paragraph', text: 'Select the project or projects and review their projected units, phasing, and status before exporting.' },
-          { type: 'paragraph', text: 'Export the projects summary to Excel.' }
+          { type: 'paragraph', text: 'Export the projects summary to Excel.' },
+          { type: 'image', src: 'assets/images/export_project_summary_output.png', alt: 'Projects Summary export output', caption: 'Projects Summary export output in Excel.' }
         ]
       ]
     ]
@@ -3746,14 +3770,16 @@ window.SCHOOL_SITE_DOCS.push(...[
       [
         'Where to find it in SchoolSite Pro',
         [
-          { type: 'paragraph', text: 'For a forecast, use Forecasting > Export Student Report. For a plan, use the corresponding Export Student Report option in the plan reporting tools.' }
+          { type: 'paragraph', text: 'For viewing a export student report, use open plan>assign> Export Student Report.' }
+          ,{ type: 'image', src: 'assets/images/export_student_report.png', alt: 'Export Student Report', caption: 'Export Student Report view in SchoolSite Pro.'   } 
         ]
       ],
       [
         'Report setup and export',
         [
-          { type: 'paragraph', text: 'Choose the active forecast or plan and confirm the student population and fields included in the report.' },
-          { type: 'paragraph', text: 'Export the student summary report to an Excel file in the project home directory.' }
+          { type: 'paragraph', text: 'Choose the active forecast based plan or plan and confirm the student population and fields included in the report.' },
+          {type: 'paragraph', text: 'Export the student summary report to an Excel file stored in this Project\'s home directory. This report summarizes the student data used in this plan.' }
+          ,{ type: 'image', src: 'assets/images/export_student_report_output.png', alt: 'Student Report output', caption: 'Student Report output.' }
         ]
       ]
     ]
@@ -3767,14 +3793,17 @@ window.SCHOOL_SITE_DOCS.push(...[
       [
         'Where to find it in SchoolSite Pro',
         [
-          { type: 'paragraph', text: 'Open Forecasting > Enrollment Forecast and choose the enrollment forecast report export option.' }
+          { type: 'paragraph', text: 'Open Forecasting > Enrollment Forecast and choose the enrollment forecast report export option.' },
+          { type: 'image', src: 'assets/images/enrollment_forecast.png', alt: 'Enrollment Forecast Report', caption: 'Enrollment Forecast report view in SchoolSite Pro.' }
         ]
       ],
       [
         'Report setup and export',
         [
           { type: 'paragraph', text: 'Create or open an enrollment forecast before using this option. Configure the selected schools, grades, and forecast years.' },
-          { type: 'paragraph', text: 'Generate the enrollment forecast report and export it to XLSX.' }
+          { type: 'paragraph', text: 'Generate the enrollment forecast report and export it to XLSX,txt.' },
+          { type: 'image', src: 'assets/images/enrollment_forecast_text.png', alt: 'Enrollment Forecast export output', caption: 'Enrollment Forecast export output in text format.' },
+          { type: 'image', src: 'assets/images/enrollment_forecast_excel.png', alt: 'Enrollment Forecast export output', caption: 'Enrollment Forecast export output in Excel format.' }
         ]
       ]
     ]

@@ -1,7 +1,7 @@
 ﻿window.SCHOOL_SITE_RELEASE = {
   "version": "1.9.7",
   "releaseDate": "September 16, 2026",
-  "downloadUrl": "https://github.com/ParthaEsri/SchoolSite-Pro-Help/releases/download/1.9.7/SchoolSite.Pro.1.9.7.zip",
+  "downloadUrl": "https://github.com/ParthaEsri/SchoolSite-Pro-Help/releases/download/1.9.8/SchoolSite.Pro.1.9.7.zip",
   "githubUrl": "https://github.com/dbutz/SchoolSite-Pro-Docs",
   "productName": "SchoolSite Pro",
   "requirements": "ArcGIS Pro 3.3.0+"
